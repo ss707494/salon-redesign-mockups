@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HotHeads Salon — Pasadena (Design Mockup)</title>
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --coral: #E07A5F;
+    --cream: #F7F3EE;
+    --border: #E8E4DF;
+    --muted: #6B6560;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+  a { color: inherit; }
+  .mock-banner {
+    background: #2B2B2B;
+    color: #F0EDE8;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    padding: 8px 12px;
+  }
+  .mock-banner strong { color: var(--coral); }
+  header.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--coral); }
+  .nav-cta {
+    display: flex;
+    gap: 8px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--coral);
+    color: #fff;
+  }
+  .btn-primary:hover { filter: brightness(0.95); }
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .btn-ghost:hover { background: var(--ink); color: #fff; }
+  .hero {
+    padding: 56px 20px 48px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    color: var(--coral);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+  .hero p.lead {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    font-size: 1.05rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  section {
+    padding: 48px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  section h2 {
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .section-intro {
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+  }
+  .services {
+    display: grid;
+    gap: 12px;
+  }
+  @media (min-width: 640px) {
+    .services { grid-template-columns: 1fr 1fr; }
+  }
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .service-card h3 { font-size: 1rem; font-weight: 600; }
+  .service-card .price {
+    color: var(--coral);
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+  .stylists {
+    display: grid;
+    gap: 14px;
+  }
+  @media (min-width: 640px) {
+    .stylists { grid-template-columns: 1fr 1fr; }
+  }
+  .stylist {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .stylist h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .stylist .role { color: var(--coral); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+  .stylist p { color: var(--muted); font-size: 0.92rem; }
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .pricing-table th,
+  .pricing-table td {
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pricing-table th {
+    background: var(--ink);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .pricing-table tr:last-child td { border-bottom: none; }
+  .pricing-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--coral);
+  }
+  .visit-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: grid;
+    gap: 20px;
+  }
+  @media (min-width: 640px) {
+    .visit-box { grid-template-columns: 1fr 1fr; }
+  }
+  .visit-box h3 { font-size: 1rem; margin-bottom: 8px; }
+  .visit-box p, .visit-box a {
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+  .visit-box a:hover { color: var(--coral); }
+  .badge {
+    display: inline-block;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  footer {
+    background: var(--ink);
+    color: #C8C4BF;
+    padding: 36px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  footer a { color: #fff; text-decoration: none; }
+  footer a:hover { color: var(--coral); }
+  footer .name { color: #fff; font-weight: 700; margin-bottom: 8px; }
+  .sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    z-index: 30;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+  }
+  @media (min-width: 768px) {
+    .sticky-bar { display: none; }
+  }
+  body { padding-bottom: 72px; }
+  @media (min-width: 768px) {
+    body { padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="mock-banner">设计样机 · Design mockup — <strong>not the live site</strong> / 非线上站点</div>
+  <header class="nav">
+    <div class="logo">Hot<span>Heads</span></div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="tel:+16262215943">Call</a>
+      <a class="btn btn-primary" href="mailto:jazminezakarian@gmail.com?subject=Book%20appointment%20-%20HotHeads">Book</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Pasadena · Family salon</div>
+    <h1>Laid-back cuts.<br>Experienced hands.</h1>
+    <p class="lead">Welcome to HotHeads — a neighborhood salon on Colorado Blvd. Color, cuts, blowouts, and brows. Appointments only.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:jazminezakarian@gmail.com?subject=Book%20appointment%20-%20HotHeads">Book appointment</a>
+      <a class="btn btn-ghost" href="tel:+16262215943">Call (626) 221-5943</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <p class="section-intro">Starting prices — ask your stylist for a full quote.</p>
+    <div class="services">
+      <div class="service-card"><h3>Haircut</h3><span class="price">from $45</span></div>
+      <div class="service-card"><h3>Color</h3><span class="price">from $85</span></div>
+      <div class="service-card"><h3>Highlights</h3><span class="price">from $120</span></div>
+      <div class="service-card"><h3>Brazilian Blowout</h3><span class="price">from $200</span></div>
+      <div class="service-card"><h3>Eyebrow Threading</h3><span class="price">from $15</span></div>
+    </div>
+  </section>
+
+  <section id="stylists">
+    <h2>Stylists</h2>
+    <p class="section-intro">Meet the team — ask for your favorite when you book.</p>
+    <div class="stylists">
+      <div class="stylist">
+        <h3>Carla</h3>
+        <div class="role">Cut &amp; style</div>
+        <p>Everyday cuts and finish work with a relaxed, wearable look.</p>
+      </div>
+      <div class="stylist">
+        <h3>Stephanie</h3>
+        <div class="role">Color specialist</div>
+        <p>Color, highlights, and tone balancing for natural-looking results.</p>
+      </div>
+      <div class="stylist">
+        <h3>Erika</h3>
+        <div class="role">Cut &amp; color</div>
+        <p>Full-service appointments for cuts, color, and blowouts.</p>
+      </div>
+      <div class="stylist">
+        <h3>Maral</h3>
+        <div class="role">Brows &amp; detail</div>
+        <p>Eyebrow threading and clean finishing touches.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <p class="section-intro">One clear menu — no duplicate blocks.</p>
+    <table class="pricing-table">
+      <thead><tr><th>Service</th><th>From</th></tr></thead>
+      <tbody>
+        <tr><td>Haircut</td><td>$45</td></tr>
+        <tr><td>Color</td><td>$85</td></tr>
+        <tr><td>Highlights</td><td>$120</td></tr>
+        <tr><td>Brazilian Blowout</td><td>$200</td></tr>
+        <tr><td>Eyebrow Threading</td><td>$15</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="visit">
+    <h2>Visit &amp; book</h2>
+    <p class="section-intro">Appointments only — we look forward to seeing you.</p>
+    <div class="visit-box">
+      <div>
+        <span class="badge">Hours</span>
+        <h3>By appointment</h3>
+        <p>Please call or email to schedule. Walk-ins are limited.</p>
+      </div>
+      <div>
+        <span class="badge">Location</span>
+        <h3>2513 E. Colorado Blvd</h3>
+        <p>Pasadena, CA</p>
+        <p style="margin-top:10px">
+          <a href="tel:+16262215943">(626) 221-5943</a><br>
+          <a href="mailto:jazminezakarian@gmail.com">jazminezakarian@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="name">HotHeads Salon</div>
+    <p>2513 E. Colorado Blvd, Pasadena, CA</p>
+    <p style="margin-top:8px">
+      <a href="tel:+16262215943">(626) 221-5943</a> ·
+      <a href="mailto:jazminezakarian@gmail.com">jazminezakarian@gmail.com</a>
+    </p>
+    <p style="margin-top:16px;font-size:11px;opacity:0.6">Design mockup for demonstration — not the live website.</p>
+  </footer>
+
+  <div class="sticky-bar">
+    <a class="btn btn-ghost" href="tel:+16262215943" style="flex:1">Call</a>
+    <a class="btn btn-primary" href="mailto:jazminezakarian@gmail.com?subject=Book%20appointment%20-%20HotHeads" style="flex:1">Book</a>
+  </div>
+</body>
+</html>

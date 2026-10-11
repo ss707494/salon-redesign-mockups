@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hair Perfect Salon — Pasadena (Design Mockup)</title>
+<style>
+  :root {
+    --plum: #3D2C4A;
+    --champagne: #D4B896;
+    --cream: #FAF8F5;
+    --ink: #2B2B2B;
+    --muted: #6E6862;
+    --border: #E8E2DA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  h1, h2, h3 { font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
+  a { color: inherit; }
+  .mock-banner {
+    background: var(--plum);
+    color: #EDE8E2;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .mock-banner strong { color: var(--champagne); }
+  header.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .logo {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--plum);
+  }
+  .nav-cta { display: flex; gap: 8px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-family: system-ui, sans-serif;
+  }
+  .btn-primary { background: var(--plum); color: #fff; }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-soft {
+    background: transparent;
+    border-color: var(--plum);
+    color: var(--plum);
+  }
+  .hero {
+    padding: 60px 20px 52px;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    color: var(--champagne);
+    background: var(--plum);
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    color: var(--plum);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero .lead {
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 28px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  section {
+    padding: 48px 20px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  section h2 {
+    font-size: 1.65rem;
+    color: var(--plum);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .section-intro {
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+  }
+  .services {
+    display: grid;
+    gap: 12px;
+  }
+  @media (min-width: 600px) {
+    .services { grid-template-columns: 1fr 1fr; }
+  }
+  .svc {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .svc h3 {
+    font-size: 1.1rem;
+    color: var(--plum);
+    margin-bottom: 6px;
+  }
+  .svc p { color: var(--muted); font-size: 0.92rem; }
+  .team-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .team-card p { color: var(--muted); }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .gallery .tile {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #E8DFD4, #D4B896);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--plum);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px;
+    opacity: 0.85;
+  }
+  .gallery .tile:nth-child(2) { background: linear-gradient(145deg, #D4B896, #C4A080); }
+  .gallery .tile:nth-child(3) { background: linear-gradient(145deg, #CFC4B8, #B8A898); }
+  .gallery .tile:nth-child(4) { background: linear-gradient(145deg, #E0D5C8, #C9B8A4); }
+  .gallery .tile:nth-child(5) { background: linear-gradient(145deg, #D8CBBE, #BFA990); }
+  .gallery .tile:nth-child(6) { background: linear-gradient(145deg, #E5D9CC, #CDB89E); }
+  .note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  details.faq {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 14px 18px;
+  }
+  details.faq summary {
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--plum);
+    list-style: none;
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after {
+    content: "+";
+    float: right;
+    color: var(--champagne);
+    font-weight: 700;
+  }
+  details.faq[open] summary::after { content: "−"; }
+  details.faq p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .contact-box {
+    background: var(--plum);
+    color: #EDE8E2;
+    border-radius: 14px;
+    padding: 32px 24px;
+    display: grid;
+    gap: 20px;
+  }
+  @media (min-width: 640px) {
+    .contact-box { grid-template-columns: 1fr 1fr; }
+  }
+  .contact-box h3 {
+    color: var(--champagne);
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+  .contact-box a { color: #fff; text-decoration: none; }
+  .contact-box a:hover { color: var(--champagne); }
+  .contact-box p { font-size: 0.95rem; opacity: 0.9; }
+  footer {
+    background: #2A1F33;
+    color: #B8AFA6;
+    padding: 36px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  footer .name {
+    font-family: Georgia, serif;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  footer a { color: var(--champagne); text-decoration: none; }
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 30;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+  }
+  @media (min-width: 768px) { .sticky-bar { display: none; } }
+  body { padding-bottom: 72px; }
+  @media (min-width: 768px) { body { padding-bottom: 0; } }
+</style>
+</head>
+<body>
+  <div class="mock-banner">设计样机 · Design mockup — <strong>not the live site</strong> / 非线上站点</div>
+  <header class="nav">
+    <div class="logo">Hair Perfect</div>
+    <div class="nav-cta">
+      <a class="btn btn-soft" href="tel:+16263049286">Call</a>
+      <a class="btn btn-primary" href="mailto:hairperfectpasadena@gmail.com?subject=Book%20appointment">Book</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Pasadena · Since 2020</div>
+    <h1>Hair Perfect Salon</h1>
+    <p class="lead">Cuts, color, and styling in one clear path — from first look to booking. Serving Pasadena on California Blvd.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:hairperfectpasadena@gmail.com?subject=Book%20appointment">Book appointment</a>
+      <a class="btn btn-soft" href="tel:+16263049286">Call 626-304-9286</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <p class="section-intro">One menu — each section appears once.</p>
+    <div class="services">
+      <div class="svc">
+        <h3>Cut &amp; style</h3>
+        <p>Everyday cuts, trims, and finish styling for a polished look.</p>
+      </div>
+      <div class="svc">
+        <h3>Color</h3>
+        <p>Full color, highlights, and tone work tailored to your hair.</p>
+      </div>
+      <div class="svc">
+        <h3>Treatments</h3>
+        <p>Conditioning and care add-ons — ask the team what’s right for you.</p>
+      </div>
+      <div class="svc">
+        <h3>Special occasions</h3>
+        <p>Event-ready styling when you need to look your best.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Team</h2>
+    <p class="section-intro">One introduction — no duplicate blocks.</p>
+    <div class="team-card">
+      <p>Our stylists bring care and craft to every appointment. Whether you’re in for a trim or a full color refresh, we keep the experience simple and welcoming. Ask for the stylist you prefer when you book.</p>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p class="section-intro">Client work wall — placeholders for salon photos.</p>
+    <div class="gallery">
+      <div class="tile">Cut</div>
+      <div class="tile">Color</div>
+      <div class="tile">Style</div>
+      <div class="tile">Blowout</div>
+      <div class="tile">Color</div>
+      <div class="tile">Finish</div>
+    </div>
+    <p class="note">Placeholder tiles only — swap in real salon photos. No stock “reviews” invented.</p>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <p class="section-intro">Appears once — expand what you need.</p>
+    <details class="faq">
+      <summary>Do I need an appointment?</summary>
+      <p>Yes — booking ahead helps us give you the right time with your stylist. Call or email to schedule.</p>
+    </details>
+    <details class="faq">
+      <summary>Where are you located?</summary>
+      <p>135 W California Blvd, Pasadena, CA. Easy to find near downtown Pasadena.</p>
+    </details>
+    <details class="faq">
+      <summary>How do I book?</summary>
+      <p>Email hairperfectpasadena@gmail.com or call 626-304-9286. Tell us the service and preferred day.</p>
+    </details>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="section-intro">Address, phone, and email in one place.</p>
+    <div class="contact-box">
+      <div>
+        <h3>Visit</h3>
+        <p>135 W California Blvd<br>Pasadena, CA</p>
+        <p style="margin-top:12px">Since 2020</p>
+      </div>
+      <div>
+        <h3>Book</h3>
+        <p><a href="tel:+16263049286">626-304-9286</a></p>
+        <p><a href="mailto:hairperfectpasadena@gmail.com">hairperfectpasadena@gmail.com</a></p>
+        <p style="margin-top:16px">
+          <a class="btn btn-primary" style="background:var(--champagne);color:var(--plum)" href="mailto:hairperfectpasadena@gmail.com?subject=Book%20appointment">Email to book</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="name">Hair Perfect Salon</div>
+    <p>135 W California Blvd, Pasadena, CA</p>
+    <p style="margin-top:8px">
+      <a href="tel:+16263049286">626-304-9286</a> ·
+      <a href="mailto:hairperfectpasadena@gmail.com">hairperfectpasadena@gmail.com</a>
+    </p>
+    <p style="margin-top:16px;font-size:11px;opacity:0.6">Design mockup for demonstration — not the live website.</p>
+  </footer>
+
+  <div class="sticky-bar">
+    <a class="btn btn-soft" href="tel:+16263049286" style="flex:1">Call</a>
+    <a class="btn btn-primary" href="mailto:hairperfectpasadena@gmail.com?subject=Book%20appointment" style="flex:1">Book</a>
+  </div>
+</body>
+</html>

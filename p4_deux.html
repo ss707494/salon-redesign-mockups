@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deux Salon &amp; Barber — Long Beach (Design Mockup)</title>
+<style>
+  :root {
+    --ink: #121212;
+    --mist: #7A8B99;
+    --white: #FFFFFF;
+    --gray: #EEEFF1;
+    --muted: #5C6670;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  h1, h2, h3 {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  a { color: inherit; }
+  .mock-banner {
+    background: var(--ink);
+    color: #D0D4D8;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .mock-banner strong { color: #A8B8C4; }
+  header.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .logo {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--mist); font-weight: 500; }
+  .nav-cta { display: flex; gap: 8px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary { background: var(--ink); color: #fff; }
+  .btn-primary:hover { background: #2a2a2a; }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .btn-outline:hover { background: var(--ink); color: #fff; }
+  .hero {
+    padding: 72px 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    color: var(--mist);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 2.85rem);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .hero .lead {
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  section {
+    padding: 48px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .section-intro {
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+  }
+  .services {
+    display: grid;
+    gap: 12px;
+  }
+  @media (min-width: 640px) {
+    .services { grid-template-columns: repeat(3, 1fr); }
+  }
+  .svc {
+    background: var(--gray);
+    border-radius: 10px;
+    padding: 24px 18px;
+    text-align: left;
+    border-left: 3px solid var(--mist);
+  }
+  .svc h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .svc p { color: var(--muted); font-size: 0.9rem; }
+  .svc.highlight {
+    background: var(--ink);
+    color: #fff;
+    border-left-color: var(--mist);
+  }
+  .svc.highlight p { color: #C8D0D6; }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 480px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  .gallery .tile {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #2a2a2a, #7A8B99);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .gallery .tile:nth-child(even) {
+    background: linear-gradient(135deg, #3a3a3a, #5A6B79);
+  }
+  .note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  .policy {
+    background: var(--gray);
+    border-radius: 10px;
+    padding: 20px 22px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .policy strong { color: var(--ink); }
+  .visit-grid {
+    display: grid;
+    gap: 16px;
+  }
+  @media (min-width: 640px) {
+    .visit-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .visit-card {
+    background: var(--gray);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .visit-card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mist);
+    margin-bottom: 12px;
+  }
+  .visit-card p, .visit-card a {
+    font-size: 0.95rem;
+    color: var(--ink);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .visit-card a:hover { color: var(--mist); }
+  .hours-list { list-style: none; }
+  .hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #DDDEE2;
+    font-size: 0.92rem;
+  }
+  .hours-list li:last-child { border-bottom: none; }
+  .hours-list .closed { color: var(--muted); }
+  footer {
+    background: var(--ink);
+    color: #9AA3AB;
+    padding: 36px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  footer .name {
+    color: #fff;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  footer a { color: #A8B8C4; text-decoration: none; }
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid var(--gray);
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 30;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+  }
+  @media (min-width: 768px) { .sticky-bar { display: none; } }
+  body { padding-bottom: 72px; }
+  @media (min-width: 768px) { body { padding-bottom: 0; } }
+</style>
+</head>
+<body>
+  <div class="mock-banner">设计样机 · Design mockup — <strong>not the live site</strong> / 非线上站点</div>
+  <header class="nav">
+    <div class="logo">Deux <span>Salon &amp; Barber</span></div>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="tel:+15624333588">Call</a>
+      <a class="btn btn-primary" href="mailto:DeuxSalonBarber@gmail.com?subject=Book%20appointment">Book</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Long Beach</div>
+    <h1>Creating your best look</h1>
+    <p class="lead">Salon and barber under one roof. Cut, color, and care — book ahead so we can give you the time you deserve.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:DeuxSalonBarber@gmail.com?subject=Book%20appointment">Book appointment</a>
+      <a class="btn btn-outline" href="tel:+15624333588">Call (562) 433-3588</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <p class="section-intro">What we do best — clear and easy to scan.</p>
+    <div class="services">
+      <div class="svc">
+        <h3>Cut &amp; color</h3>
+        <p>Full-service cuts and color for salon and barber guests.</p>
+      </div>
+      <div class="svc">
+        <h3>Color specialist</h3>
+        <p>Color work with care — ask about the look you want.</p>
+      </div>
+      <div class="svc highlight">
+        <h3>Free clean-up cut</h3>
+        <p>Complimentary clean-up cut between visits — a Deux perk for returning guests.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Work</h2>
+    <p class="section-intro">Gallery slots for salon photos.</p>
+    <div class="gallery">
+      <div class="tile">Cut</div>
+      <div class="tile">Color</div>
+      <div class="tile">Barber</div>
+      <div class="tile">Style</div>
+      <div class="tile">Finish</div>
+      <div class="tile">Look</div>
+    </div>
+    <p class="note">Placeholder tiles — replace with real salon photos. No fabricated testimonials.</p>
+  </section>
+
+  <section id="policy">
+    <h2>Booking note</h2>
+    <div class="policy">
+      <strong>24-hour cancellation</strong> — please give us at least 24 hours’ notice if you need to cancel or reschedule, so we can open the slot for another guest.
+    </div>
+  </section>
+
+  <section id="visit">
+    <h2>Visit</h2>
+    <p class="section-intro">Address, hours, and how to reach us.</p>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3>Location</h3>
+        <p>3232 E Broadway</p>
+        <p>Long Beach, CA</p>
+        <p style="margin-top:14px">
+          <a href="tel:+15624333588">(562) 433-3588</a>
+          <a href="mailto:DeuxSalonBarber@gmail.com">DeuxSalonBarber@gmail.com</a>
+        </p>
+      </div>
+      <div class="visit-card">
+        <h3>Hours</h3>
+        <ul class="hours-list">
+          <li><span>Monday</span><span class="closed">Closed</span></li>
+          <li><span>Tue – Sat</span><span>10:00 – 6:00</span></li>
+          <li><span>Sunday</span><span>10:00 – 4:00</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="name">Deux Salon &amp; Barber</div>
+    <p>3232 E Broadway, Long Beach, CA</p>
+    <p style="margin-top:8px">
+      <a href="tel:+15624333588">(562) 433-3588</a> ·
+      <a href="mailto:DeuxSalonBarber@gmail.com">DeuxSalonBarber@gmail.com</a>
+    </p>
+    <p style="margin-top:16px;font-size:11px;opacity:0.6">Design mockup for demonstration — not the live website.</p>
+  </footer>
+
+  <div class="sticky-bar">
+    <a class="btn btn-outline" href="tel:+15624333588" style="flex:1">Call</a>
+    <a class="btn btn-primary" href="mailto:DeuxSalonBarber@gmail.com?subject=Book%20appointment" style="flex:1">Book</a>
+  </div>
+</body>
+</html>
