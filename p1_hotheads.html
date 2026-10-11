@@ -20,6 +20,8 @@
   --cream2:#efe6d8;
   --ink:#102000;
   --muted:#5a6a4a;
+  --nav-h:64px;
+  --banner-h:34px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -28,16 +30,17 @@ img{max-width:100%;display:block}
 a{color:inherit}
 .wrap{width:min(1120px,92%);margin:0 auto}
 
-/* mockup strip */
+/* sticky-nav anchor offset (banner + nav) */
+#menu,#stylists,#visit,#top{scroll-margin-top:calc(var(--banner-h) + var(--nav-h) + 8px)}
+
 .mockup-banner{
   background:#1a1a1a;color:#f0e6d8;font-size:.78rem;letter-spacing:.04em;
   text-align:center;padding:.55rem 1rem;line-height:1.4
 }
 .mockup-banner strong{color:var(--sand)}
 
-/* nav */
-.nav{position:sticky;top:0;z-index:40;background:rgba(16,32,0,.92);backdrop-filter:blur(10px);color:var(--cream);border-bottom:1px solid rgba(224,192,160,.15)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
+.nav{position:sticky;top:0;z-index:40;background:rgba(16,32,0,.94);backdrop-filter:blur(10px);color:var(--cream);border-bottom:1px solid rgba(224,192,160,.15)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0;min-height:var(--nav-h)}
 .nav-brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
 .nav-brand img{height:34px;width:34px;object-fit:cover;border-radius:6px;border:1px solid rgba(224,192,160,.35)}
 .nav-brand span{font-family:Fraunces,serif;font-size:1.2rem;font-weight:500;letter-spacing:.01em;color:var(--sand)}
@@ -58,7 +61,6 @@ a{color:inherit}
 .btn-outline-dark{border:1.5px solid var(--green);color:var(--green);background:transparent}
 .btn-dark{background:var(--green);color:var(--sand);box-shadow:0 8px 22px rgba(16,32,0,.22)}
 
-/* HERO — full-bleed photography */
 .hero{
   position:relative;min-height:min(88vh,760px);display:grid;align-items:end;
   color:var(--cream);overflow:hidden;background:var(--green)
@@ -82,7 +84,7 @@ a{color:inherit}
 .hero h1{
   font-family:Fraunces,serif;font-weight:700;
   font-size:clamp(2.75rem,7.5vw,4.6rem);line-height:.98;
-  max-width:11ch;margin-bottom:1rem;color:#f8f2ea
+  max-width:12ch;margin-bottom:1rem;color:#f8f2ea
 }
 .hero h1 em{font-style:italic;font-weight:500;color:var(--sand)}
 .hero .lede{
@@ -95,33 +97,25 @@ a{color:inherit}
 }
 .hero-meta strong{color:var(--sand);font-weight:600}
 
-/* photo rhythm strip */
+/* continuous interior strip — no dark botanical gap */
 .strip{
-  display:grid;grid-template-columns:1.35fr .85fr .9fr;gap:.55rem;
-  padding:.55rem;background:var(--green)
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:.45rem;
+  padding:.45rem;background:var(--green)
 }
-.strip img{width:100%;height:220px;object-fit:cover}
-.strip .tall{height:220px;object-position:center}
-.strip .botanical{object-fit:cover;object-position:center;background:#000}
+.strip img{width:100%;height:240px;object-fit:cover;object-position:center}
 
-/* sections */
 .section{padding:4rem 0}
-.section.tight{padding:3.2rem 0}
 .section.alt{background:var(--cream2)}
-.section.dark{background:var(--green);color:var(--cream)}
 .eyebrow{
   text-transform:uppercase;letter-spacing:.16em;font-size:.7rem;
   color:var(--muted);margin-bottom:.45rem;font-weight:700
 }
-.section.dark .eyebrow{color:var(--sand2)}
 .section h2{
   font-family:Fraunces,serif;font-weight:700;
   font-size:clamp(1.9rem,3.4vw,2.65rem);line-height:1.12;margin-bottom:.55rem
 }
 .section .sub{max-width:38rem;color:#4a5a3a;margin-bottom:1.6rem}
-.section.dark .sub{color:rgba(245,239,230,.78)}
 
-/* single pricing — not duplicated cards+table */
 .menu{
   display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem;
   border-top:1px solid rgba(16,32,0,.12)
@@ -136,32 +130,32 @@ a{color:inherit}
   font-family:Fraunces,serif;font-size:1.15rem;color:var(--green2);white-space:nowrap
 }
 
-/* stylists — typographic, not cheap color blocks */
+/* stylists with real portraits */
 .stylist-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.4rem
 }
 .stylist{
-  background:#fff;border:1px solid #d9cfbf;border-radius:4px 4px 16px 16px;
-  padding:1.25rem 1.2rem 1.15rem;position:relative;min-height:148px;
-  display:flex;flex-direction:column;justify-content:space-between;
+  background:#fff;border:1px solid #d9cfbf;border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;
   box-shadow:0 10px 28px rgba(16,32,0,.05)
 }
-.stylist::before{
-  content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--sand);
-  border-radius:4px 4px 0 0
+.stylist.featured{box-shadow:0 12px 32px rgba(16,32,0,.1);border-color:var(--sand2)}
+.stylist-photo{
+  aspect-ratio:1/1.05;width:100%;object-fit:cover;object-position:center top;
+  background:var(--cream2)
 }
-.stylist.featured::before{background:linear-gradient(90deg,var(--sand),#8a9a6a)}
+.stylist-body{padding:1rem 1.1rem 1.15rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
 .stylist h3{
-  font-family:Fraunces,serif;font-size:1.55rem;font-weight:700;line-height:1.1
+  font-family:Fraunces,serif;font-size:1.35rem;font-weight:700;line-height:1.1
 }
-.stylist .role{font-size:.88rem;color:var(--muted);margin:.4rem 0 .9rem}
+.stylist .role{font-size:.86rem;color:var(--muted)}
 .stylist a{
+  margin-top:auto;padding-top:.55rem;
   color:var(--green);font-weight:700;text-decoration:none;font-size:.95rem;
   border-bottom:1px solid rgba(16,32,0,.25);align-self:flex-start;padding-bottom:1px
 }
-.stylist a:hover{border-bottom-color:var(--green);color:var(--green2)}
+.stylist a:hover{border-bottom-color:var(--green)}
 
-/* sunday banner */
 .sunday{
   display:grid;grid-template-columns:1.1fr .9fr;gap:0;align-items:stretch;
   margin-top:2rem;border-radius:18px;overflow:hidden;background:var(--green2)
@@ -171,7 +165,6 @@ a{color:inherit}
 .sunday-copy p{opacity:.9;margin-bottom:1.1rem;max-width:28rem}
 .sunday img{width:100%;height:100%;min-height:240px;object-fit:cover;object-position:center 35%}
 
-/* visit */
 .visit{display:grid;grid-template-columns:1fr 1.05fr;gap:1.4rem;align-items:stretch}
 .visit-card{
   background:#fff;border:1px solid #d9cfbf;border-radius:18px;padding:1.6rem 1.5rem;
@@ -181,9 +174,8 @@ a{color:inherit}
 .visit-card .hours{font-size:.92rem;color:var(--muted)}
 .visit-visual{display:grid;grid-template-rows:1fr auto;gap:.7rem}
 .map-frame{border:0;width:100%;height:240px;border-radius:16px;background:#ddd}
-.visit-visual .plant{
-  border-radius:16px;height:160px;width:100%;object-fit:cover;object-position:center;
-  background:#000
+.visit-visual .interior{
+  border-radius:16px;height:160px;width:100%;object-fit:cover;object-position:center
 }
 
 footer{
@@ -204,7 +196,8 @@ footer .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
   .hero{min-height:78vh}
   .hero-content{padding:3.2rem 0 2.4rem}
   .strip{grid-template-columns:1fr}
-  .strip img{height:180px}
+  .strip img{height:190px}
+  .strip img:last-child{display:block}
   .stylist-grid{grid-template-columns:1fr}
   .section{padding:3rem 0}
 }
@@ -229,13 +222,12 @@ footer .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
 </div></header>
 
 <main id="top">
-  <!-- cinematic hero -->
   <section class="hero" aria-label="Welcome">
     <img class="hero-bg" src="assets/hotheads/images/img_23.png" alt="HotHeads Pasadena salon interior with green sofa and styling stations"/>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="hero-kicker">Pasadena · family salon</p>
-      <h1>Welcome to <em>Hotheads</em></h1>
+      <h1>Welcome to <em>HotHeads</em></h1>
       <p class="lede">This isn’t your typical salon. We treat everyone like family—laid-back attitude paired with years of styling experience, from classic cuts and color to eyebrow threading.</p>
       <div class="hero-cta">
         <a class="btn btn-sand" href="tel:+16262215943">Book by phone</a>
@@ -248,14 +240,12 @@ footer .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
     </div>
   </section>
 
-  <!-- photography rhythm -->
-  <div class="strip" aria-hidden="true">
-    <img class="tall" src="assets/hotheads/images/img_15.jpg" alt=""/>
-    <img class="botanical" src="assets/hotheads/images/img_08.png" alt=""/>
-    <img src="assets/hotheads/images/img_22.png" alt=""/>
+  <div class="strip" aria-label="Salon photos">
+    <img src="assets/hotheads/images/img_15.jpg" alt="Busy day inside HotHeads"/>
+    <img src="assets/hotheads/images/interior/salon_chairs.png" alt="HotHeads styling chairs"/>
+    <img src="assets/hotheads/images/interior/hair_washers.png" alt="HotHeads wash stations"/>
   </div>
 
-  <!-- ONE pricing presentation -->
   <section class="section" id="menu"><div class="wrap">
     <p class="eyebrow">Services · starting prices</p>
     <h2>One clear menu</h2>
@@ -278,35 +268,58 @@ footer .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
     </div>
   </div></section>
 
-  <!-- stylists -->
   <section class="section alt" id="stylists"><div class="wrap">
     <p class="eyebrow">Our stylists</p>
     <h2>Call or text directly</h2>
-    <p class="sub">Real names and numbers from the salon—no placeholder bios. Book the person you already trust.</p>
+    <p class="sub">Real names, numbers, and portraits from the salon—no placeholder bios. Book the person you already trust.</p>
     <div class="stylist-grid">
       <article class="stylist">
-        <div><h3>Carla</h3><p class="role">Cut &amp; Color Specialist</p></div>
-        <a href="tel:+16266161406">(626) 616-1406</a>
+        <img class="stylist-photo" src="assets/hotheads/images/stylists/carla.png" alt="Carla, HotHeads stylist" loading="lazy"/>
+        <div class="stylist-body">
+          <h3>Carla</h3>
+          <p class="role">Cut &amp; Color Specialist</p>
+          <a href="tel:+16266161406">(626) 616-1406</a>
+        </div>
       </article>
       <article class="stylist">
-        <div><h3>Stephanie</h3><p class="role">Cut &amp; Color Specialist</p></div>
-        <a href="tel:+18184287699">(818) 428-7699</a>
+        <img class="stylist-photo" src="assets/hotheads/images/stylists/stephanie.png" alt="Stephanie, HotHeads stylist" loading="lazy"/>
+        <div class="stylist-body">
+          <h3>Stephanie</h3>
+          <p class="role">Cut &amp; Color Specialist</p>
+          <a href="tel:+18184287699">(818) 428-7699</a>
+        </div>
       </article>
       <article class="stylist">
-        <div><h3>Erika</h3><p class="role">Cut &amp; Color Specialist</p></div>
-        <a href="tel:+13108766335">(310) 876-6335</a>
+        <img class="stylist-photo" src="assets/hotheads/images/stylists/erika.png" alt="Erika, HotHeads stylist" loading="lazy"/>
+        <div class="stylist-body">
+          <h3>Erika</h3>
+          <p class="role">Cut &amp; Color Specialist</p>
+          <a href="tel:+13108766335">(310) 876-6335</a>
+        </div>
       </article>
       <article class="stylist">
-        <div><h3>Maral</h3><p class="role">Threading · Cut &amp; Color</p></div>
-        <a href="tel:+16262218492">(626) 221-8492</a>
+        <img class="stylist-photo" src="assets/hotheads/images/stylists/maral.png" alt="Maral, HotHeads stylist" loading="lazy"/>
+        <div class="stylist-body">
+          <h3>Maral</h3>
+          <p class="role">Threading · Cut &amp; Color</p>
+          <a href="tel:+16262218492">(626) 221-8492</a>
+        </div>
       </article>
       <article class="stylist">
-        <div><h3>Jazmine</h3><p class="role">Cut &amp; Color Specialist</p></div>
-        <a href="tel:+16262215943">(626) 221-5943</a>
+        <img class="stylist-photo" src="assets/hotheads/images/stylists/jazmine.png" alt="Jazmine, HotHeads stylist" loading="lazy"/>
+        <div class="stylist-body">
+          <h3>Jazmine</h3>
+          <p class="role">Cut &amp; Color Specialist</p>
+          <a href="tel:+16262215943">(626) 221-5943</a>
+        </div>
       </article>
       <article class="stylist featured">
-        <div><h3>Taleen</h3><p class="role">Sunday Brazilian Blowout &amp; Blow-Dry</p></div>
-        <a href="tel:+16269934836">(626) 993-4836</a>
+        <img class="stylist-photo" src="assets/hotheads/images/stylists/taleen.jpg" alt="Taleen, HotHeads stylist" loading="lazy"/>
+        <div class="stylist-body">
+          <h3>Taleen</h3>
+          <p class="role">Sunday Brazilian Blowout &amp; Blow-Dry</p>
+          <a href="tel:+16269934836">(626) 993-4836</a>
+        </div>
       </article>
     </div>
 
@@ -316,15 +329,14 @@ footer .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
         <p>Now offering Brazilian Blowouts and Blow-Drys on Sundays. Please contact Taleen directly to book—don’t wait for the weekday desk.</p>
         <a class="btn btn-sand" href="tel:+16269934836">Call Taleen</a>
       </div>
-      <img src="assets/hotheads/images/img_15.jpg" alt="Busy day inside HotHeads salon"/>
+      <img src="assets/hotheads/images/interior/washing_hair.png" alt="Hair wash station at HotHeads"/>
     </div>
   </div></section>
 
-  <!-- visit -->
   <section class="section" id="visit"><div class="wrap">
     <p class="eyebrow">Located in Pasadena</p>
     <h2>Visit the greenery</h2>
-    <p class="sub" style="margin-bottom:1.4rem">Phone, email, or stop by—our favourite is still walking into the plants and saying hi.</p>
+    <p class="sub" style="margin-bottom:1.4rem">Phone, email, or stop by—our favourite is still walking in and saying hi.</p>
     <div class="visit">
       <div class="visit-card">
         <address>
@@ -345,7 +357,7 @@ footer .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
         <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://maps.google.com/maps?q=2513%20E.%20Colorado%20Blvd%2C%20Pasadena%2C%20CA%2091107&z=15&output=embed"
           title="Map to HotHeads Salon"></iframe>
-        <img class="plant" src="assets/hotheads/images/img_08.png" alt="Monstera leaves — visit the greenery"/>
+        <img class="interior" src="assets/hotheads/images/interior/purple_wall.png" alt="HotHeads salon art wall"/>
       </div>
     </div>
   </div></section>
