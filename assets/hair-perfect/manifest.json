@@ -1,0 +1,204 @@
+{
+  "slug": "hair-perfect",
+  "source_url": "https://hairperfectsalon.com/",
+  "fetch_url": "https://web.archive.org/web/20250101142439id_/https://hairperfectsalon.com/",
+  "http_status": 200,
+  "ok": true,
+  "title": "Hair Perfect Salon – We make your hair perfect!",
+  "emails": [
+    "hairperfectpasadena@gmail.com"
+  ],
+  "phones": [
+    "626-304-9286"
+  ],
+  "copy": [
+    "Our Team",
+    "Services",
+    "Contact Us",
+    "Hair Perfect Salon",
+    "Pasadena • since 2020",
+    "We take immense pride in our salon family - a tight-knit team of passionate stylists who bring a wealth of experience and creativity to every chair, ensuring that each client leaves our salon not just with fabulous hair but with a renewed sense of confidence and beauty.",
+    "Read More",
+    "OUR HAPPY CUSTOMERS",
+    "Discover the transformative artistry of our Hair Perfect Salon through a captivating visual journey, showcasing the radiant, flowing hair and stunning styles of our satisfied and delighted clients in our gallery.",
+    "Our Services",
+    "Explore a diverse menu of pampering experiences on our Services page, where our skilled stylists offer a range of hair and beauty services tailored to elevate your unique style.",
+    "Frequently asked questions",
+    "Have questions? Navigate our FAQ page for quick answers to your most common queries.",
+    "Contact info",
+    "135 W California Blvd, Pasadena, CA 91105",
+    "hairperfectpasadena@gmail.com",
+    "Tel. 626 304 9286",
+    "Send us your questions or comments. We would love to hear from you!"
+  ],
+  "colors": {
+    "sampled": [
+      "#ffffff",
+      "#000000",
+      "#32373c",
+      "#c59d5f",
+      "#282828",
+      "#222222",
+      "#ebebeb",
+      "#abb8c3",
+      "#f78da7",
+      "#cf2e2e",
+      "#ff6900",
+      "#fcb900",
+      "#7bdcb5",
+      "#00d084",
+      "#8ed1fc",
+      "#0693e3",
+      "#9b51e0"
+    ],
+    "primary_candidates": [
+      "#c59d5f",
+      "#222222",
+      "#ebebeb",
+      "#f78da7",
+      "#cf2e2e",
+      "#ff6900",
+      "#fcb900",
+      "#7bdcb5"
+    ]
+  },
+  "assets": {
+    "logos": [
+      {
+        "file": "logos/logo_01.jpg",
+        "bytes": 66390
+      },
+      {
+        "file": "logos/logo_270.png",
+        "bytes": 91767
+      },
+      {
+        "file": "logos/logo_favicon_270.png",
+        "bytes": 91767
+      },
+      {
+        "file": "logos/logo_main.jpg",
+        "bytes": 66390
+      }
+    ],
+    "images": [
+      {
+        "file": "images/fullsize_render.jpg",
+        "bytes": 823425
+      },
+      {
+        "file": "images/gallery_01_kids_img5173.jpg",
+        "bytes": 252620
+      },
+      {
+        "file": "images/gallery_02_img5306.jpg",
+        "bytes": 119372
+      },
+      {
+        "file": "images/gallery_03_img6197.jpg",
+        "bytes": 23399
+      },
+      {
+        "file": "images/gallery_04_balayage.jpg",
+        "bytes": 110981
+      },
+      {
+        "file": "images/gallery_05_updo_1.jpg",
+        "bytes": 262974
+      },
+      {
+        "file": "images/gallery_06_updo_2.jpg",
+        "bytes": 728288
+      },
+      {
+        "file": "images/gallery_07_bleach_tone.jpg",
+        "bytes": 387867
+      },
+      {
+        "file": "images/gallery_08_curls.jpg",
+        "bytes": 546480
+      },
+      {
+        "file": "images/gallery_09_balayage_2.jpg",
+        "bytes": 379590
+      },
+      {
+        "file": "images/gallery_10_hollywood_waves.jpg",
+        "bytes": 253699
+      },
+      {
+        "file": "images/gallery_11_keratin.jpg",
+        "bytes": 66320
+      },
+      {
+        "file": "images/gallery_12_hair_cut.jpg",
+        "bytes": 259119
+      },
+      {
+        "file": "images/gallery_13_red_hair.jpg",
+        "bytes": 502411
+      },
+      {
+        "file": "images/gallery_14_recents.png",
+        "bytes": 12955366
+      },
+      {
+        "file": "images/gallery_15_img2183.jpg",
+        "bytes": 178290
+      },
+      {
+        "file": "images/gallery_16_lightening_toner.jpg",
+        "bytes": 913343
+      },
+      {
+        "file": "images/gallery_17_img5020.jpg",
+        "bytes": 171557
+      },
+      {
+        "file": "images/gallery_18_perm_weave.jpg",
+        "bytes": 182577
+      },
+      {
+        "file": "images/gallery_19_image000002.jpg",
+        "bytes": 176985
+      },
+      {
+        "file": "images/hero_h6_img_1.jpg",
+        "bytes": 20245
+      },
+      {
+        "file": "images/team_ani.png",
+        "bytes": 436962
+      },
+      {
+        "file": "images/team_buran.png",
+        "bytes": 529540
+      },
+      {
+        "file": "images/team_luz.png",
+        "bytes": 520728
+      },
+      {
+        "file": "images/team_nina.png",
+        "bytes": 549273
+      },
+      {
+        "file": "images/team_taline.png",
+        "bytes": 456579
+      },
+      {
+        "file": "images/this_one_550.jpg",
+        "bytes": 36451
+      }
+    ]
+  },
+  "gaps": [],
+  "notes": [
+    "live homepage HTTP 403; HTML from Wayback id_ snapshot 20250101142439",
+    "some wp-content assets still fetchable live (logo); many gallery assets missing from snapshot HTML / 404 on archive",
+    "email fallback from batch table if not in snapshot",
+    "Browser capture filled gallery/team/hero; live curl homepage often SiteGround captcha (202)",
+    "theme-stock/ holds shutterstock/theme assets — do not use as salon photos"
+  ],
+  "image_manifest": "image_manifest.json"
+}

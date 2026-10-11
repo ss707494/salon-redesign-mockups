@@ -1,359 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deux Salon &amp; Barber — Long Beach (Design Mockup)</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Deux Salon &amp; Barber · Long Beach</title>
+<link rel="icon" href="assets/deux/logos/favicon_01.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --ink: #121212;
-    --mist: #7A8B99;
-    --white: #FFFFFF;
-    --gray: #EEEFF1;
-    --muted: #5C6670;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-    color: var(--ink);
-    background: var(--white);
-    line-height: 1.55;
-    font-size: 16px;
-  }
-  h1, h2, h3 {
-    font-family: Montserrat, system-ui, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-  a { color: inherit; }
-  .mock-banner {
-    background: var(--ink);
-    color: #D0D4D8;
-    text-align: center;
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-  .mock-banner strong { color: #A8B8C4; }
-  header.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    background: var(--white);
-    border-bottom: 1px solid var(--gray);
-    position: sticky;
-    top: 0;
-    z-index: 20;
-  }
-  .logo {
-    font-family: Montserrat, system-ui, sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .logo span { color: var(--mist); font-weight: 500; }
-  .nav-cta { display: flex; gap: 8px; }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 0 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    border: 2px solid transparent;
-    letter-spacing: 0.02em;
-  }
-  .btn-primary { background: var(--ink); color: #fff; }
-  .btn-primary:hover { background: #2a2a2a; }
-  .btn-outline {
-    background: transparent;
-    border-color: var(--ink);
-    color: var(--ink);
-  }
-  .btn-outline:hover { background: var(--ink); color: #fff; }
-  .hero {
-    padding: 72px 20px 60px;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .hero .eyebrow {
-    color: var(--mist);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 2.85rem);
-    line-height: 1.15;
-    margin-bottom: 14px;
-  }
-  .hero .lead {
-    color: var(--muted);
-    max-width: 480px;
-    margin: 0 auto 28px;
-  }
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  section {
-    padding: 48px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  section h2 {
-    font-size: 1.4rem;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .section-intro {
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 28px;
-    font-size: 0.95rem;
-  }
-  .services {
-    display: grid;
-    gap: 12px;
-  }
-  @media (min-width: 640px) {
-    .services { grid-template-columns: repeat(3, 1fr); }
-  }
-  .svc {
-    background: var(--gray);
-    border-radius: 10px;
-    padding: 24px 18px;
-    text-align: left;
-    border-left: 3px solid var(--mist);
-  }
-  .svc h3 {
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .svc p { color: var(--muted); font-size: 0.9rem; }
-  .svc.highlight {
-    background: var(--ink);
-    color: #fff;
-    border-left-color: var(--mist);
-  }
-  .svc.highlight p { color: #C8D0D6; }
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-  @media (max-width: 480px) {
-    .gallery { grid-template-columns: repeat(2, 1fr); }
-  }
-  .gallery .tile {
-    aspect-ratio: 1;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #2a2a2a, #7A8B99);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.7);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .gallery .tile:nth-child(even) {
-    background: linear-gradient(135deg, #3a3a3a, #5A6B79);
-  }
-  .note {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 12px;
-  }
-  .policy {
-    background: var(--gray);
-    border-radius: 10px;
-    padding: 20px 22px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.92rem;
-  }
-  .policy strong { color: var(--ink); }
-  .visit-grid {
-    display: grid;
-    gap: 16px;
-  }
-  @media (min-width: 640px) {
-    .visit-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .visit-card {
-    background: var(--gray);
-    border-radius: 10px;
-    padding: 24px;
-  }
-  .visit-card h3 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--mist);
-    margin-bottom: 12px;
-  }
-  .visit-card p, .visit-card a {
-    font-size: 0.95rem;
-    color: var(--ink);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 4px;
-  }
-  .visit-card a:hover { color: var(--mist); }
-  .hours-list { list-style: none; }
-  .hours-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    border-bottom: 1px solid #DDDEE2;
-    font-size: 0.92rem;
-  }
-  .hours-list li:last-child { border-bottom: none; }
-  .hours-list .closed { color: var(--muted); }
-  footer {
-    background: var(--ink);
-    color: #9AA3AB;
-    padding: 36px 20px;
-    text-align: center;
-    font-size: 0.9rem;
-  }
-  footer .name {
-    color: #fff;
-    font-family: Montserrat, system-ui, sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  footer a { color: #A8B8C4; text-decoration: none; }
-  .sticky-bar {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: #fff;
-    border-top: 1px solid var(--gray);
-    padding: 10px 16px;
-    display: flex;
-    gap: 8px;
-    z-index: 30;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
-  }
-  @media (min-width: 768px) { .sticky-bar { display: none; } }
-  body { padding-bottom: 72px; }
-  @media (min-width: 768px) { body { padding-bottom: 0; } }
+:root{
+  --ink:#161616; --mist:#5f7a85; --deep:#2f4b54; --orange:#e08020; --orange2:#f09020; --fog:#f6f6f6; --line:#d8e0e4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;background:#fff;color:var(--ink);line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1120px,92%);margin:0 auto}
+.nav{position:sticky;top:0;z-index:30;background:rgba(22,22,22,.96);color:#fff}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;gap:1rem}
+.wordmark{font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:.95rem;text-decoration:none}
+.nav a:not(.btn){text-decoration:none;font-size:.9rem;opacity:.9}
+.nav-links{display:flex;gap:1rem;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.7rem 1.2rem;border-radius:4px;font-weight:700;text-decoration:none;font-size:.9rem;letter-spacing:.02em}
+.btn-orange{background:var(--orange);color:#111}
+.btn-ghost{border:1.5px solid #fff;color:#fff;background:transparent}
+.btn-dark{background:var(--ink);color:#fff}
+.hero{position:relative;min-height:78vh;display:grid;align-items:end;color:#fff;background:var(--ink)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72}
+.hero-overlay{position:relative;padding:4.5rem 0 3rem;background:linear-gradient(180deg,transparent 20%,rgba(22,22,22,.85) 100%)}
+.hero h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(2.2rem,6vw,4rem);line-height:1.05;text-transform:uppercase;max-width:14ch}
+.hero p{max-width:36rem;margin:1rem 0 1.4rem;font-size:1.05rem;opacity:.95}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem}
+.section{padding:3.2rem 0}
+.section.dark{background:var(--ink);color:#eee}
+.section.mist{background:var(--fog)}
+.eyebrow{font-family:Montserrat,sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-bottom:.4rem}
+.section h2{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;letter-spacing:.03em}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+.card{background:#fff;border:1px solid var(--line);padding:1.3rem;border-top:4px solid var(--deep)}
+.card h3{font-family:Montserrat,sans-serif;font-size:1rem;text-transform:uppercase;margin-bottom:.55rem;color:var(--deep)}
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:120px;gap:.45rem;margin-top:1.4rem}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery .tall{grid-row:span 2}
+.gallery .wide{grid-column:span 2}
+.hours{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem}
+.panel{background:#fff;border:1px solid var(--line);padding:1.4rem}
+.panel.dark{background:var(--deep);color:#fff;border:0}
+.panel h3{font-family:Montserrat,sans-serif;text-transform:uppercase;font-size:.95rem;margin-bottom:.8rem}
+.hours-row{display:flex;justify-content:space-between;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:.95rem}
+.note{font-size:.9rem;opacity:.9;margin-top:1rem}
+footer{background:#111;color:#9aa;padding:1.4rem 0;font-size:.85rem}
+footer a{color:#ddd}
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+  .gallery .wide,.gallery .tall{grid-column:span 1;grid-row:span 1}
+  .hours{grid-template-columns:1fr}
+  .nav-links a:not(.btn){display:none}
+}
 </style>
 </head>
 <body>
-  <div class="mock-banner">设计样机 · Design mockup — <strong>not the live site</strong> / 非线上站点</div>
-  <header class="nav">
-    <div class="logo">Deux <span>Salon &amp; Barber</span></div>
-    <div class="nav-cta">
-      <a class="btn btn-outline" href="tel:+15624333588">Call</a>
-      <a class="btn btn-primary" href="mailto:DeuxSalonBarber@gmail.com?subject=Book%20appointment">Book</a>
-    </div>
-  </header>
+<header class="nav"><div class="wrap nav-inner">
+  <a class="wordmark" href="#top">Deux Salon &amp; Barber</a>
+  <nav class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#visit">Visit</a>
+    <a class="btn btn-orange" href="https://deuxsalonbarber.com/" target="_blank" rel="noopener">Book Online</a>
+  </nav>
+</div></header>
 
-  <section class="hero">
-    <div class="eyebrow">Long Beach</div>
+<section class="hero" id="top">
+  <img src="assets/deux/images/gallery_10.jpg" alt="Salon work at Deux"/>
+  <div class="hero-overlay"><div class="wrap">
+    <p class="eyebrow" style="color:var(--orange2)">Long Beach</p>
     <h1>Creating your best look</h1>
-    <p class="lead">Salon and barber under one roof. Cut, color, and care — book ahead so we can give you the time you deserve.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="mailto:DeuxSalonBarber@gmail.com?subject=Book%20appointment">Book appointment</a>
-      <a class="btn btn-outline" href="tel:+15624333588">Call (562) 433-3588</a>
+    <p>Hair is our passion—and it shows on every client who walks out our doors. Cut, color, barber, and a free clean-up between visits.</p>
+    <div class="hero-cta">
+      <a class="btn btn-orange" href="https://deuxsalonbarber.com/" target="_blank" rel="noopener">Book Online</a>
+      <a class="btn btn-ghost" href="tel:+15624333588">Call (562) 433-3588</a>
     </div>
-  </section>
+  </div></div>
+</section>
 
-  <section id="services">
-    <h2>Services</h2>
-    <p class="section-intro">What we do best — clear and easy to scan.</p>
-    <div class="services">
-      <div class="svc">
-        <h3>Cut &amp; color</h3>
-        <p>Full-service cuts and color for salon and barber guests.</p>
-      </div>
-      <div class="svc">
-        <h3>Color specialist</h3>
-        <p>Color work with care — ask about the look you want.</p>
-      </div>
-      <div class="svc highlight">
-        <h3>Free clean-up cut</h3>
-        <p>Complimentary clean-up cut between visits — a Deux perk for returning guests.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <h2>Work</h2>
-    <p class="section-intro">Gallery slots for salon photos.</p>
-    <div class="gallery">
-      <div class="tile">Cut</div>
-      <div class="tile">Color</div>
-      <div class="tile">Barber</div>
-      <div class="tile">Style</div>
-      <div class="tile">Finish</div>
-      <div class="tile">Look</div>
-    </div>
-    <p class="note">Placeholder tiles — replace with real salon photos. No fabricated testimonials.</p>
-  </section>
-
-  <section id="policy">
-    <h2>Booking note</h2>
-    <div class="policy">
-      <strong>24-hour cancellation</strong> — please give us at least 24 hours’ notice if you need to cancel or reschedule, so we can open the slot for another guest.
-    </div>
-  </section>
-
-  <section id="visit">
-    <h2>Visit</h2>
-    <p class="section-intro">Address, hours, and how to reach us.</p>
-    <div class="visit-grid">
-      <div class="visit-card">
-        <h3>Location</h3>
-        <p>3232 E Broadway</p>
-        <p>Long Beach, CA</p>
-        <p style="margin-top:14px">
-          <a href="tel:+15624333588">(562) 433-3588</a>
-          <a href="mailto:DeuxSalonBarber@gmail.com">DeuxSalonBarber@gmail.com</a>
-        </p>
-      </div>
-      <div class="visit-card">
-        <h3>Hours</h3>
-        <ul class="hours-list">
-          <li><span>Monday</span><span class="closed">Closed</span></li>
-          <li><span>Tue – Sat</span><span>10:00 – 6:00</span></li>
-          <li><span>Sunday</span><span>10:00 – 4:00</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="name">Deux Salon &amp; Barber</div>
-    <p>3232 E Broadway, Long Beach, CA</p>
-    <p style="margin-top:8px">
-      <a href="tel:+15624333588">(562) 433-3588</a> ·
-      <a href="mailto:DeuxSalonBarber@gmail.com">DeuxSalonBarber@gmail.com</a>
-    </p>
-    <p style="margin-top:16px;font-size:11px;opacity:0.6">Design mockup for demonstration — not the live website.</p>
-  </footer>
-
-  <div class="sticky-bar">
-    <a class="btn btn-outline" href="tel:+15624333588" style="flex:1">Call</a>
-    <a class="btn btn-primary" href="mailto:DeuxSalonBarber@gmail.com?subject=Book%20appointment" style="flex:1">Book</a>
+<section class="section mist" id="services"><div class="wrap">
+  <p class="eyebrow">Services</p>
+  <h2>Let us help you shine</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Look Your Best</h3>
+      <p>Through ongoing education, our stylists stay current on the latest cut and color styles and techniques to bring you the looks you want.</p>
+    </article>
+    <article class="card">
+      <h3>Your True Colors</h3>
+      <p>From natural colors to pastel hues, our technicians can mix almost anything—then finish with a fresh cut and a plan to keep color vibrant between visits.</p>
+    </article>
+    <article class="card">
+      <h3>Growing Relationships</h3>
+      <p>Have a look in mind but not sure how to get there? We’ll map a plan together. Stick with us—we offer a <strong>free clean-up cut</strong> between appointments.</p>
+    </article>
   </div>
+</div></section>
+
+<section class="section dark" id="gallery"><div class="wrap">
+  <p class="eyebrow" style="color:var(--orange2)">Photo gallery</p>
+  <h2>See the work</h2>
+  <div class="gallery">
+    <img class="wide tall" src="assets/deux/images/gallery_03.jpg" alt="Deux salon work"/>
+    <img src="assets/deux/images/gallery_04.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_05.jpg" alt=""/>
+    <img class="tall" src="assets/deux/images/gallery_08.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_09.jpg" alt=""/>
+    <img class="wide" src="assets/deux/images/gallery_11.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_12.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_13.jpg" alt=""/>
+    <img class="wide" src="assets/deux/images/gallery_14.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_15.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_18.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_19.jpg" alt=""/>
+    <img src="assets/deux/images/gallery_07.jpg" alt=""/>
+  </div>
+</div></section>
+
+<section class="section" id="visit"><div class="wrap hours">
+  <div class="panel dark">
+    <h3>Hours</h3>
+    <div class="hours-row"><span>Monday</span><span>Closed</span></div>
+    <div class="hours-row"><span>Tuesday – Saturday</span><span>10am – 6pm</span></div>
+    <div class="hours-row"><span>Sunday</span><span>10am – 4pm</span></div>
+    <p class="note"><strong>Cancellation:</strong> accepted up to 24 hours before. Within 24 hours, cancellations are charged 50% of the scheduled cost.</p>
+  </div>
+  <div class="panel">
+    <h3>Get in touch</h3>
+    <p><strong>3232 E Broadway</strong><br/>Long Beach, CA 90803</p>
+    <p style="margin:.8rem 0"><a href="tel:+15624333588">(562) 433-3588</a><br/>
+    <a href="mailto:DeuxSalonBarber@gmail.com">DeuxSalonBarber@gmail.com</a></p>
+    <div class="hero-cta">
+      <a class="btn btn-orange" href="https://deuxsalonbarber.com/" target="_blank" rel="noopener">Book Online</a>
+      <a class="btn btn-dark" href="https://maps.google.com/?q=3232+E+Broadway,+Long+Beach,+CA+90803" target="_blank" rel="noopener">Get directions</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem">
+  <span>© Deux Salon &amp; Barber · Long Beach</span>
+  <span><a href="mailto:DeuxSalonBarber@gmail.com">Email</a> · <a href="tel:+15624333588">Call</a></span>
+</div></footer>
 </body>
 </html>

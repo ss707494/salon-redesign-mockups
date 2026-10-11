@@ -1,0 +1,90 @@
+{
+  "slug": "classic-hair-cuts",
+  "source_url": "http://www.classichaircuts.weebly.com/",
+  "fetch_url": "https://web.archive.org/web/20260916134324id_/https://classichaircuts.weebly.com/",
+  "http_status": 200,
+  "ok": true,
+  "title": "Classic Hair Cuts - Home",
+  "emails": [
+    "classichaircuts@gmail.com"
+  ],
+  "phones": [],
+  "copy": [
+    "Classic Hair Cuts",
+    "Location and Contact",
+    "Products",
+    "Discounts",
+    "Salon Technology",
+    "Men - Women - Children",
+    "Providing great Salon services since 2000",
+    "Powered by",
+    "Create your own unique website with customizable templates.",
+    "Get Started"
+  ],
+  "colors": {
+    "primary_candidates": [
+      "#e0c0a0",
+      "#e0b090",
+      "#d0a080",
+      "#e0c0b0",
+      "#d0b090",
+      "#c09070",
+      "#c0e0e0",
+      "#a0d0d0"
+    ],
+    "from_images": [
+      "#e0c0a0",
+      "#e0b090",
+      "#d0a080",
+      "#e0c0b0",
+      "#d0b090",
+      "#c09070",
+      "#c0e0e0",
+      "#a0d0d0"
+    ]
+  },
+  "assets": {
+    "logos": [],
+    "images": [
+      {
+        "file": "images/img_01.jpg",
+        "source": "wayback if_",
+        "bytes": 12745
+      },
+      {
+        "file": "images/img_02.jpg",
+        "source": "wayback if_",
+        "bytes": 18094
+      },
+      {
+        "file": "images/img_03.jpg",
+        "source": "wayback if_",
+        "bytes": 20312
+      },
+      {
+        "file": "images/img_04.jpg",
+        "source": "wayback if_",
+        "bytes": 18093
+      },
+      {
+        "file": "images/img_05.jpg",
+        "source": "wayback if_",
+        "bytes": 35972
+      },
+      {
+        "file": "images/img_06.jpg",
+        "source": "wayback if_",
+        "bytes": 23873
+      }
+    ]
+  },
+  "gaps": [
+    "no_logo_downloaded",
+    "live_site_403_or_unreachable"
+  ],
+  "notes": [
+    "live Weebly returns 403/unreachable from this host",
+    "HTML + gallery JPGs from Wayback if_ snapshot 20260916134324",
+    "no distinct logo asset on site; email from batch table"
+  ]
+}

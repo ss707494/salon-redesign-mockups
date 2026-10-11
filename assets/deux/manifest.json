@@ -1,0 +1,207 @@
+{
+  "slug": "deux",
+  "source_url": "https://deuxsalonbarber.com/",
+  "final_url": "https://deuxsalonbarber.com/",
+  "http_status": 200,
+  "ok": true,
+  "title": "Deux Salon & Barber",
+  "emails": [
+    "DeuxSalonBarber@gmail.com"
+  ],
+  "phones": [
+    "(562) 433-3588"
+  ],
+  "copy": [
+    "Deux Salon & Barber",
+    "Create Account",
+    "Bookings",
+    "My Account",
+    "Signed in as:",
+    "filler@godaddy.com",
+    "Sign out",
+    "Contact Us",
+    "Services",
+    "Let us help you shine!",
+    "Creating Your best Look",
+    "Book Online",
+    "Photo Gallery",
+    "About Us",
+    "Look Your Best",
+    "Hair is our passion, and our passion shows on every client that walks out of our doors. Through ongoing education, our stylists stay up to date on the latest cut and color styles and techniques to bring you the looks you want.",
+    "Your True Colors",
+    "From natural colors to pastel hues our technicians can mix up almost anything! Then, follow it up with a fresh cut and style. You will leave here with vibrant hair and a plan to keep it vibrant between visits.",
+    "Growing Relationships",
+    "If you have a look you want but don't know how to achieve, we can work together to form a plan. Stick with us. We offer a free clean-up cut between your appointments and solid advice on how to keep your hair healthy!",
+    "Cancellation Policy",
+    "Cancellations accepted up to 24 hours before the scheduled service. Within 24 hours of the service, cancellations will be charged 50% of the scheduled cost.",
+    "3232 E Broadway, Long Beach, CA 90803",
+    "DeuxSalonBarber@gmail.com",
+    "Monday: Closed",
+    "Tuesday - Saturday: 10am-6pm",
+    "Sunday: 10am-4pm",
+    "Get in Touch",
+    "This site is protected by reCAPTCHA and the Google",
+    "Privacy Policy",
+    "Terms of Service",
+    "Get directions",
+    "Copyright © 2023 Deux Salon & Barber - All Rights Reserved.",
+    "Powered by",
+    "This website uses cookies.",
+    "We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data."
+  ],
+  "colors": {
+    "sampled": [
+      "#000000",
+      "#ffffff",
+      "#161616",
+      "#5f7a85",
+      "#eeeeee",
+      "#1b1b1b",
+      "#5b757f",
+      "#c4e5f2",
+      "#cccccc",
+      "#ffff00",
+      "#efefef",
+      "#517d8c",
+      "#1f333a",
+      "#5e5e5e",
+      "#2f4b54",
+      "#f6f6f6",
+      "#151515",
+      "#575757",
+      "#b0b0b0",
+      "#2a444c",
+      "#e2e2e2",
+      "#474747",
+      "#dadada",
+      "#fafdfe",
+      "#7999a6"
+    ],
+    "primary_candidates": [
+      "#a09070",
+      "#f09020",
+      "#e08020",
+      "#002030",
+      "#002020",
+      "#90b0a0",
+      "#909070",
+      "#d0c0a0"
+    ],
+    "from_images": [
+      "#a09070",
+      "#f09020",
+      "#e08020",
+      "#002030",
+      "#002020",
+      "#90b0a0",
+      "#909070",
+      "#d0c0a0"
+    ]
+  },
+  "assets": {
+    "logos": [
+      {
+        "file": "logos/favicon_01.jpg",
+        "bytes": 794
+      },
+      {
+        "file": "logos/favicon_02.jpg",
+        "bytes": 846
+      },
+      {
+        "file": "logos/favicon_03.jpg",
+        "bytes": 981
+      }
+    ],
+    "images": [
+      {
+        "file": "images/gallery_01.jpg",
+        "bytes": 20917
+      },
+      {
+        "file": "images/gallery_02.jpg",
+        "bytes": 54460
+      },
+      {
+        "file": "images/gallery_03.jpg",
+        "bytes": 545013
+      },
+      {
+        "file": "images/gallery_04.jpg",
+        "bytes": 256990
+      },
+      {
+        "file": "images/gallery_05.jpg",
+        "bytes": 139429
+      },
+      {
+        "file": "images/gallery_06.jpg",
+        "bytes": 40477
+      },
+      {
+        "file": "images/gallery_07.jpg",
+        "bytes": 216385
+      },
+      {
+        "file": "images/gallery_08.jpg",
+        "bytes": 477894
+      },
+      {
+        "file": "images/gallery_09.jpg",
+        "bytes": 472095
+      },
+      {
+        "file": "images/gallery_10.jpg",
+        "bytes": 642077
+      },
+      {
+        "file": "images/gallery_11.jpg",
+        "bytes": 559740
+      },
+      {
+        "file": "images/gallery_12.jpg",
+        "bytes": 574390
+      },
+      {
+        "file": "images/gallery_13.jpg",
+        "bytes": 540097
+      },
+      {
+        "file": "images/gallery_14.jpg",
+        "bytes": 576097
+      },
+      {
+        "file": "images/gallery_15.jpg",
+        "bytes": 284930
+      },
+      {
+        "file": "images/gallery_16.jpg",
+        "bytes": 20014
+      },
+      {
+        "file": "images/gallery_17.jpg",
+        "bytes": 30660
+      },
+      {
+        "file": "images/gallery_18.jpg",
+        "bytes": 494730
+      },
+      {
+        "file": "images/gallery_19.jpg",
+        "bytes": 547959
+      },
+      {
+        "file": "images/og_01.jpg",
+        "bytes": 120733
+      }
+    ]
+  },
+  "gaps": [],
+  "notes": [
+    "gallery_* images captured from live GoDaddy page via browser; HTML alone had few assets",
+    "Header is text wordmark only; favicon_* are generic PWA, not salon logo",
+    "og_01.jpg and GoDaddy circle chrome are stock — prefer gallery_* salon photos",
+    "image_manifest.json maps gallery files to wsimg URLs"
+  ],
+  "image_manifest": "image_manifest.json"
+}

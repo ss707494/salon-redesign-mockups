@@ -1,313 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Classic Hair Cuts — Castro Valley (Design Mockup)</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Classic Hair Cuts · Castro Valley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --navy: #2C3E50;
-    --gold: #C9A227;
-    --white: #FFFFFF;
-    --gray: #F4F5F7;
-    --muted: #5A6570;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    color: var(--navy);
-    background: var(--white);
-    line-height: 1.55;
-    font-size: 16px;
-  }
-  h1, h2, h3, .serif { font-family: Georgia, "Times New Roman", serif; }
-  a { color: inherit; }
-  .mock-banner {
-    background: var(--navy);
-    color: #E8ECF0;
-    text-align: center;
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-  .mock-banner strong { color: var(--gold); }
-  header.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    background: var(--white);
-    border-bottom: 1px solid #E5E8EC;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-  }
-  .logo {
-    font-family: Georgia, serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-  }
-  .logo span { color: var(--gold); }
-  .nav-cta { display: flex; gap: 8px; }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 0 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    border: 2px solid transparent;
-    font-family: system-ui, sans-serif;
-  }
-  .btn-primary { background: var(--navy); color: #fff; }
-  .btn-primary:hover { filter: brightness(1.1); }
-  .btn-gold {
-    background: var(--gold);
-    color: var(--navy);
-  }
-  .btn-outline {
-    background: transparent;
-    border-color: var(--navy);
-    color: var(--navy);
-  }
-  .hero {
-    background: linear-gradient(160deg, var(--gray) 0%, #fff 70%);
-    padding: 64px 20px 56px;
-    text-align: center;
-  }
-  .hero .since {
-    display: inline-block;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 999px;
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-size: clamp(2.1rem, 5vw, 3rem);
-    line-height: 1.15;
-    margin-bottom: 10px;
-  }
-  .hero .tags {
-    color: var(--muted);
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    letter-spacing: 0.04em;
-  }
-  .hero .lead {
-    color: var(--muted);
-    max-width: 480px;
-    margin: 0 auto 28px;
-  }
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  section {
-    padding: 48px 20px;
-    max-width: 880px;
-    margin: 0 auto;
-  }
-  section h2 {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .section-intro {
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 28px;
-    font-size: 0.95rem;
-  }
-  .services {
-    display: grid;
-    gap: 14px;
-  }
-  @media (min-width: 640px) {
-    .services { grid-template-columns: repeat(3, 1fr); }
-  }
-  .svc {
-    background: var(--gray);
-    border-radius: 10px;
-    padding: 28px 20px;
-    text-align: center;
-    border-top: 3px solid var(--gold);
-  }
-  .svc .icon {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-  .svc h3 {
-    font-size: 1.15rem;
-    margin-bottom: 8px;
-  }
-  .svc p { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
-  .svc .ask {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .trust {
-    background: var(--navy);
-    color: #fff;
-    text-align: center;
-    padding: 36px 20px;
-  }
-  .trust p {
-    max-width: 520px;
-    margin: 0 auto;
-    font-family: Georgia, serif;
-    font-size: 1.2rem;
-    line-height: 1.45;
-  }
-  .trust .gold { color: var(--gold); }
-  .contact-grid {
-    display: grid;
-    gap: 16px;
-  }
-  @media (min-width: 640px) {
-    .contact-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .contact-card {
-    background: var(--gray);
-    border-radius: 10px;
-    padding: 24px;
-  }
-  .contact-card h3 {
-    font-size: 1.05rem;
-    margin-bottom: 10px;
-  }
-  .contact-card p, .contact-card a {
-    color: var(--muted);
-    font-size: 0.95rem;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 4px;
-  }
-  .contact-card a:hover { color: var(--gold); }
-  footer {
-    background: var(--navy);
-    color: #A8B2BC;
-    padding: 36px 20px;
-    text-align: center;
-    font-size: 0.9rem;
-  }
-  footer .name {
-    font-family: Georgia, serif;
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-  footer a { color: var(--gold); text-decoration: none; }
-  .sticky-bar {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: #fff;
-    border-top: 1px solid #E5E8EC;
-    padding: 10px 16px;
-    display: flex;
-    gap: 8px;
-    z-index: 30;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
-  }
-  @media (min-width: 768px) { .sticky-bar { display: none; } }
-  body { padding-bottom: 72px; }
-  @media (min-width: 768px) { body { padding-bottom: 0; } }
+:root{
+  --clay:#c09070; --clay2:#d0a080; --sand:#e0c0a0; --teal:#a0d0d0; --ink:#3a2a20; --cream:#faf6f1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Sans 3",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(960px,92%);margin:0 auto}
+.nav{background:rgba(250,246,241,.95);border-bottom:1px solid #e8d8c8;position:sticky;top:0;z-index:10;backdrop-filter:blur(6px)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}
+.wordmark{font-family:"Libre Baskerville",Georgia,serif;font-size:1.25rem;text-decoration:none;line-height:1.2}
+.wordmark small{display:block;font-family:"Source Sans 3",sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#7a6555;margin-top:.2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.75rem 1.25rem;border-radius:6px;text-decoration:none;font-weight:600}
+.btn-clay{background:var(--clay);color:#fff}
+.btn-line{border:1.5px solid var(--ink);background:transparent}
+.hero{padding:2.8rem 0 2rem;display:grid;grid-template-columns:1.05fr .95fr;gap:1.8rem;align-items:center}
+.hero h1{font-family:"Libre Baskerville",Georgia,serif;font-size:clamp(2rem,4.5vw,2.9rem);line-height:1.15;margin:.4rem 0 1rem}
+.hero .rule{width:64px;height:2px;background:var(--clay);margin:0 0 1rem}
+.lede{font-size:1.08rem;max-width:30rem;margin-bottom:1.3rem}
+.hero-photo{border-radius:12px;overflow:hidden;box-shadow:0 16px 36px rgba(58,42,32,.15);border:4px solid #fff}
+.hero-photo img{width:100%;height:380px;object-fit:cover}
+.section{padding:2.6rem 0}
+.section.teal{background:linear-gradient(180deg,#e8f4f4,var(--cream))}
+.eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:#7a6555;margin-bottom:.35rem}
+.section h2{font-family:"Libre Baskerville",Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.6rem}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.2rem}
+.svc{background:#fff;border:1px solid #e5d5c5;border-radius:10px;padding:1.2rem;text-align:center}
+.svc h3{font-family:"Libre Baskerville",Georgia,serif;font-size:1.2rem;margin-bottom:.35rem}
+.trust{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;background:var(--ink);color:var(--sand);border-radius:12px;padding:1.3rem 1.5rem;margin-top:1.6rem}
+.trust strong{font-family:"Libre Baskerville",Georgia,serif;font-size:1.35rem;color:#fff}
+.atmos{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:1.2rem}
+.atmos img{width:100%;height:200px;object-fit:cover;border-radius:10px;border:3px solid #fff;box-shadow:0 8px 20px rgba(58,42,32,.08)}
+.contact{background:#fff;border:1px solid #e5d5c5;border-radius:12px;padding:1.5rem;margin-top:1rem}
+.contact p{margin:.4rem 0}
+footer{padding:1.5rem 0 2rem;color:#7a6555;font-size:.9rem;border-top:1px solid #e8d8c8;margin-top:1rem}
+@media (max-width:800px){
+  .hero,.services,.atmos{grid-template-columns:1fr}
+  .hero-photo img{height:260px}
+}
 </style>
 </head>
 <body>
-  <div class="mock-banner">设计样机 · Design mockup — <strong>not the live site</strong> / 非线上站点</div>
-  <header class="nav">
-    <div class="logo">Classic <span>Hair Cuts</span></div>
-    <div class="nav-cta">
-      <a class="btn btn-outline" href="mailto:classichaircuts@gmail.com">Email</a>
-      <a class="btn btn-primary" href="mailto:classichaircuts@gmail.com?subject=Appointment%20inquiry">Call / Book</a>
-    </div>
-  </header>
+<header class="nav"><div class="wrap nav-inner">
+  <a class="wordmark" href="#top">Classic Hair Cuts<small>Castro Valley · since 2000</small></a>
+  <a class="btn btn-clay" href="mailto:classichaircuts@gmail.com">Email us</a>
+</div></header>
 
-  <section class="hero">
-    <div class="since">Since 2000</div>
-    <h1>Classic Hair Cuts</h1>
-    <p class="tags">Men · Women · Children</p>
-    <p class="lead">A neighborhood barbershop &amp; salon in Castro Valley. Straightforward cuts for the whole family — email or call to book.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="mailto:classichaircuts@gmail.com?subject=Appointment%20inquiry">Email to book</a>
-      <a class="btn btn-gold" href="mailto:classichaircuts@gmail.com">classichaircuts@gmail.com</a>
+<main id="top">
+<section class="wrap hero">
+  <div>
+    <p class="eyebrow">Neighborhood salon</p>
+    <h1>Men · Women · Children</h1>
+    <div class="rule"></div>
+    <p class="lede">Providing great salon services since 2000. A warm, local shop—not a flashy template. Come in for classic cuts the whole family can count on.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.7rem">
+      <a class="btn btn-clay" href="mailto:classichaircuts@gmail.com">Email classichaircuts@gmail.com</a>
+      <a class="btn btn-line" href="#visit">Location &amp; contact</a>
     </div>
-  </section>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/classic-hair-cuts/images/img_05.jpg" alt="Inside Classic Hair Cuts"/>
+  </div>
+</section>
 
-  <section id="services">
-    <h2>Services</h2>
-    <p class="section-intro">Clear menu for every guest. Pricing by request.</p>
-    <div class="services">
-      <div class="svc">
-        <div class="icon" aria-hidden="true">✂</div>
-        <h3>Men</h3>
-        <p>Classic cuts, fades, and tidy finishes.</p>
-        <span class="ask">Ask for quote</span>
-      </div>
-      <div class="svc">
-        <div class="icon" aria-hidden="true">✂</div>
-        <h3>Women</h3>
-        <p>Cuts, trims, and simple styling.</p>
-        <span class="ask">Ask for quote</span>
-      </div>
-      <div class="svc">
-        <div class="icon" aria-hidden="true">✂</div>
-        <h3>Children</h3>
-        <p>Patient, kid-friendly haircuts.</p>
-        <span class="ask">Ask for quote</span>
-      </div>
-    </div>
-  </section>
-
+<section class="section teal"><div class="wrap">
+  <p class="eyebrow">Services</p>
+  <h2>What we offer</h2>
+  <p>Simple menu for the whole family. Ask us about pricing when you reach out.</p>
+  <div class="services">
+    <article class="svc"><h3>Men</h3><p>Classic cuts &amp; tidy finishes</p></article>
+    <article class="svc"><h3>Women</h3><p>Cuts, styling &amp; everyday looks</p></article>
+    <article class="svc"><h3>Children</h3><p>Patient, family-friendly chairs</p></article>
+  </div>
   <div class="trust">
-    <p>Locally serving Castro Valley <span class="gold">since 2000</span> — classic cuts, no fuss.</p>
+    <div><strong>Since 2000</strong><div>Serving Castro Valley neighbors for over two decades.</div></div>
+    <a class="btn btn-clay" href="mailto:classichaircuts@gmail.com">Get in touch</a>
   </div>
+</div></section>
 
-  <section id="contact">
-    <h2>Visit / Contact</h2>
-    <p class="section-intro">Reach us by email. Hours by phone inquiry.</p>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Email</h3>
-        <a href="mailto:classichaircuts@gmail.com">classichaircuts@gmail.com</a>
-        <p style="margin-top:12px">Best for booking questions and appointment requests.</p>
-      </div>
-      <div class="contact-card">
-        <h3>Hours &amp; location</h3>
-        <p>Castro Valley, CA</p>
-        <p>Hours: please email or call to confirm</p>
-        <p style="margin-top:12px;font-size:0.85rem">Address details available on request — we keep the public page simple and accurate.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:28px">
-      <a class="btn btn-primary" href="mailto:classichaircuts@gmail.com?subject=Appointment%20inquiry">Email Classic Hair Cuts</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="name">Classic Hair Cuts</div>
-    <p>Castro Valley, CA · Since 2000</p>
-    <p style="margin-top:8px"><a href="mailto:classichaircuts@gmail.com">classichaircuts@gmail.com</a></p>
-    <p style="margin-top:16px;font-size:11px;opacity:0.6">Design mockup for demonstration — not the live website.</p>
-  </footer>
-
-  <div class="sticky-bar">
-    <a class="btn btn-outline" href="mailto:classichaircuts@gmail.com" style="flex:1">Email</a>
-    <a class="btn btn-primary" href="mailto:classichaircuts@gmail.com?subject=Appointment%20inquiry" style="flex:1">Book</a>
+<section class="section"><div class="wrap">
+  <p class="eyebrow">Inside the shop</p>
+  <h2>Warm chairs, real space</h2>
+  <p>Storefront atmosphere—not a fake portfolio wall. These are photos from the salon floor.</p>
+  <div class="atmos">
+    <img src="assets/classic-hair-cuts/images/img_01.jpg" alt="Salon interior"/>
+    <img src="assets/classic-hair-cuts/images/img_02.jpg" alt="Salon interior"/>
+    <img src="assets/classic-hair-cuts/images/img_03.jpg" alt="Salon interior"/>
+    <img src="assets/classic-hair-cuts/images/img_04.jpg" alt="Salon interior"/>
+    <img src="assets/classic-hair-cuts/images/img_06.jpg" alt="Salon interior"/>
+    <img src="assets/classic-hair-cuts/images/img_05.jpg" alt="Salon interior"/>
   </div>
+</div></section>
+
+<section class="section" id="visit"><div class="wrap">
+  <p class="eyebrow">Location and contact</p>
+  <h2>Reach the shop</h2>
+  <div class="contact">
+    <p><strong>Classic Hair Cuts</strong></p>
+    <p>Primary contact: <a href="mailto:classichaircuts@gmail.com"><strong>classichaircuts@gmail.com</strong></a></p>
+    <p>Call or visit after you email—live site contact pages were sparse; email is the clearest public channel we found.</p>
+    <p style="margin-top:1rem"><a class="btn btn-clay" href="mailto:classichaircuts@gmail.com">Email to book / ask</a></p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Classic Hair Cuts · Men · Women · Children · Since 2000</div></footer>
 </body>
 </html>
