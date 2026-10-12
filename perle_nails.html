@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perle Nails · Nail Salon · Orange, CA 92867</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --black-soft: #141414;
+      --gold: #c9a050;
+      --gold-deep: #907040;
+      --gold-hot: #d4b06a;
+      --champagne: #e8dcc8;
+      --ink-on-gold: #0a0a0a;
+      --muted: #a89880;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--champagne);
+      background: var(--black);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1080px, 92%); margin-inline: auto; }
+
+    /* —— Top nav —— */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.4rem 1.15rem;
+      background: rgba(10, 10, 10, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 160, 80, 0.28);
+    }
+    .topbar-logo {
+      height: 42px;
+      width: auto;
+    }
+    .topbar-phone {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 500;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+      color: var(--champagne);
+      background: transparent;
+      padding: 0.2rem 0;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(201, 160, 80, 0.45);
+    }
+    .topbar-phone:hover { color: var(--gold-hot); border-bottom-color: var(--gold); }
+
+    /* —— Hero: Black Pearl Desk —— */
+    .hero {
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 54px);
+      min-height: calc(100dvh - 54px);
+    }
+    .hero-stage {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.7rem 1rem 0.45rem;
+      width: min(960px, 94%);
+      margin-inline: auto;
+      gap: 0;
+      min-height: 0;
+    }
+    .mark-zone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      flex: 0 0 auto;
+    }
+    .hero-mark {
+      width: min(22%, 220px);
+      height: auto;
+      flex-shrink: 0;
+      filter: drop-shadow(0 8px 28px rgba(201, 160, 80, 0.22));
+    }
+    .hook {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      margin: 0;
+      max-width: 36rem;
+      line-height: 1.35;
+      text-align: center;
+      padding: 0.85rem 1rem 0.95rem;
+      width: 100%;
+      background: var(--black);
+      border-bottom: 1px solid rgba(201, 160, 80, 0.18);
+    }
+
+    /* Horizontal desk card — NOT vertical Demure billboard */
+    .desk-card {
+      width: min(100%, 860px);
+      margin-top: 0.9rem;
+      border: 1.5px solid var(--gold-deep);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+      aspect-ratio: 1.85 / 1;
+      min-height: 320px;
+      height: auto;
+      flex: 0 0 auto;
+      max-height: none;
+    }
+    .desk-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+    }
+
+    /* Full-width BOOK bar */
+    .book-bar {
+      margin-top: auto;
+      width: 100%;
+      background: linear-gradient(180deg, var(--gold-hot) 0%, var(--gold) 45%, var(--gold-deep) 100%);
+      border-top: 1px solid rgba(232, 220, 200, 0.35);
+      padding: 0.7rem 1rem 0.65rem;
+      text-align: center;
+    }
+    .book-bar .cta {
+      display: block;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(2rem, 5.5vw, 3.1rem);
+      letter-spacing: 0.12em;
+      color: var(--ink-on-gold);
+      line-height: 1;
+      padding: 0.15rem 0 0.2rem;
+    }
+    .book-bar .cta:hover { color: #1a1208; }
+    .book-bar .sub {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem 1.25rem;
+      margin-top: 0.25rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(10, 10, 10, 0.78);
+    }
+    .book-bar .sub a { color: rgba(10, 10, 10, 0.88); text-decoration: underline; text-underline-offset: 2px; }
+    .book-bar .sub a:hover { color: #000; }
+
+    /* —— Sections below fold —— */
+    section { padding: 3.2rem 0; }
+    .sec-label {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 0.85rem;
+    }
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+      color: var(--champagne);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .services { background: var(--black-soft); border-top: 1px solid rgba(201, 160, 80, 0.15); border-bottom: 1px solid rgba(201, 160, 80, 0.15); }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+    .chip {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      border: 1px solid rgba(201, 160, 80, 0.55);
+      padding: 0.55rem 0.95rem;
+      border-radius: 2px;
+      background: rgba(201, 160, 80, 0.06);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 1.5rem;
+    }
+    .why-item {
+      border-left: 2px solid var(--gold);
+      padding: 0.35rem 0 0.35rem 1rem;
+    }
+    .why-item strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--gold-hot);
+      margin-bottom: 0.2rem;
+    }
+    .why-item p { font-size: 0.95rem; color: var(--muted); }
+
+    .gallery { background: var(--black-soft); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .gallery-grid figure {
+      overflow: hidden;
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      border-radius: 3px;
+      aspect-ratio: 4 / 5;
+      background: #111;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .gallery-grid figcaption {
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 0.4rem 0.5rem;
+      background: rgba(10, 10, 10, 0.85);
+      margin-top: -2.2rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .pedi-list {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+    }
+    .pedi-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(201, 160, 80, 0.18);
+      font-size: 1.02rem;
+      color: var(--champagne);
+    }
+    .pedi-list li span {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      color: var(--gold);
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      min-width: 1.6rem;
+    }
+
+    .promo {
+      background: linear-gradient(180deg, #12100c 0%, var(--black) 100%);
+      border-top: 1px solid rgba(201, 160, 80, 0.2);
+    }
+    .promo-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .promo-img {
+      border: 1px solid var(--gold-deep);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 420px;
+    }
+    .promo-copy p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      max-width: 28rem;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
+      background: var(--gold);
+      color: var(--ink-on-gold);
+      padding: 0.7rem 1.4rem;
+      border-radius: 2px;
+    }
+    .btn-gold:hover { background: var(--gold-hot); }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+    }
+    .visit dl { display: grid; gap: 0.85rem; }
+    .visit dt {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+    .visit dd { color: var(--champagne); font-size: 1.02rem; margin-top: 0.15rem; }
+    .visit a { color: var(--gold-hot); text-decoration: underline; text-underline-offset: 3px; }
+    .map-note {
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      border-radius: 4px;
+      padding: 1.5rem;
+      background: var(--black-soft);
+    }
+    .map-note p { color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
+
+    footer {
+      border-top: 1px solid rgba(201, 160, 80, 0.25);
+      padding: 1.75rem 0 2.25rem;
+      text-align: center;
+    }
+    footer .foot-logo {
+      height: 56px;
+      width: auto;
+      margin: 0 auto 0.85rem;
+    }
+    footer p { font-size: 0.85rem; color: var(--muted); }
+    footer .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.25rem;
+      margin: 0.75rem 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    footer .foot-links a { color: var(--gold); }
+
+    /* —— Mobile: shrink mark; desk + BOOK same first screen —— */
+    @media (max-width: 720px) {
+      .topbar { padding: 0.35rem 0.85rem; }
+      .topbar-logo { height: 34px; }
+      .topbar-phone { font-size: 0.78rem; padding: 0.15rem 0; font-weight: 500; }
+      .hero { min-height: calc(100vh - 48px); min-height: calc(100dvh - 48px); }
+      .hero-stage { padding: 0.55rem 0.75rem 0.35rem; }
+      .hero-mark { width: min(28%, 118px); }
+      .hook {
+        font-size: 0.88rem;
+        padding: 0.75rem 0.85rem 0.9rem;
+        max-width: none;
+      }
+      .desk-card {
+        margin-top: 0.55rem;
+        aspect-ratio: 1.8 / 1;
+        min-height: 190px;
+        width: 100%;
+      }
+      .book-bar { padding: 0.7rem 0.75rem 0.65rem; }
+      .book-bar .cta { font-size: 1.85rem; letter-spacing: 0.1em; }
+      .book-bar .sub { font-size: 0.78rem; gap: 0.2rem 0.85rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid figure:last-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+      .promo-inner, .visit-grid { grid-template-columns: 1fr; }
+      .promo-img { max-width: 100%; }
+      section { padding: 2.4rem 0; }
+    }
+    @media (max-width: 420px) {
+      .hero-mark { width: min(26%, 108px); }
+      .chips .chip { font-size: 0.72rem; padding: 0.45rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#top" aria-label="Perle Nails home">
+      <img class="topbar-logo" src="assets/perle-nails/logos/logo_primary.png" alt="Perle Nails" width="532" height="494" />
+    </a>
+    <a class="topbar-phone" href="tel:+16573484415">(657) 348-4415</a>
+  </header>
+
+  <main id="top">
+    <!-- Hero: large gold P + horizontal desk card + BOOK bar (NOT Demure / Nailicious / Breeze) -->
+    <section class="hero" aria-label="Book Perle Nails">
+      <div class="hero-stage">
+        <div class="mark-zone">
+          <img
+            class="hero-mark"
+            src="assets/perle-nails/logos/logo_primary.png"
+            alt="Perle Nails gold P wordmark"
+            width="532"
+            height="494"
+          />
+        </div>
+        <figure class="desk-card">
+          <img
+            src="assets/perle-nails/images/photo_15_full.jpg"
+            alt="Pearl and ruby nail art on the desk"
+            width="736"
+            height="350"
+          />
+        </figure>
+      </div>
+      <div class="book-bar">
+        <a class="cta" href="https://lk.macmarketing.us/PerleNails-Booking" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
+        <div class="sub">
+          <a href="tel:+16573484415">(657) 348-4415</a>
+          <span>Walk-ins welcome when available</span>
+        </div>
+      </div>
+    </section>
+
+    <p class="hook">Orange · We don’t rush your nails · 7-day beauty guarantee</p>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <p class="sec-label">SERVICES</p>
+        <h2>Mani · Gel · Acrylic · Dip · Art · Pedi</h2>
+        <div class="chips" role="list">
+          <span class="chip" role="listitem">Manicure</span>
+          <span class="chip" role="listitem">Gel</span>
+          <span class="chip" role="listitem">Acrylic</span>
+          <span class="chip" role="listitem">Dip Powder</span>
+          <span class="chip" role="listitem">Nail Art</span>
+          <span class="chip" role="listitem">Pedicure</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <p class="sec-label">WHY PERLE</p>
+        <h2>Pearl-level care, every visit</h2>
+        <div class="why-grid">
+          <div class="why-item">
+            <strong>Clean &amp; professional</strong>
+            <p>Sanitized tools, spotless stations — hygiene matches the finish.</p>
+          </div>
+          <div class="why-item">
+            <strong>We don’t rush your nails</strong>
+            <p>Shape, polish, and detail get the time they need. No shortcuts.</p>
+          </div>
+          <div class="why-item">
+            <strong>Huge color collection</strong>
+            <p>From quiet neutrals to bold seasonal shades — pick what fits you.</p>
+          </div>
+          <div class="why-item">
+            <strong>7-day beauty guarantee</strong>
+            <p>If something’s off within 7 days, tell us — we’ll make it right.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+        <p class="sec-label">GALLERY</p>
+        <h2>Real sets from the desk</h2>
+        <div class="gallery-grid">
+          <figure>
+            <img src="assets/perle-nails/images/photo_21_full.jpg" alt="Tortoiseshell nail art set" width="1095" height="1280" loading="lazy" />
+            <figcaption>Nail art · acrylic</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/perle-nails/images/img_02.jpg" alt="Detailed nail art close-up" width="876" height="1024" loading="lazy" />
+            <figcaption>Gel · detail work</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/perle-nails/images/img_07.jpg" alt="Nail art finish" width="768" height="898" loading="lazy" />
+            <figcaption>Acrylic · finish</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pedi">
+      <div class="wrap">
+        <p class="sec-label">PEDICURE MENU</p>
+        <h2>Spa pedi, text menu only</h2>
+        <ol class="pedi-list">
+          <li><span>01</span> Organic Jelly Ultimate Pedicure with Special Candle Massage</li>
+          <li><span>02</span> Herbal Detox Pedicure with Special Candle Massage</li>
+          <li><span>03</span> Gel Polish or Paraffin Signature</li>
+          <li><span>04</span> Organic Pedicure</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="promo" id="promo">
+      <div class="wrap promo-inner">
+        <div class="promo-img">
+          <img src="assets/perle-nails/images/soft_opening_promo.png" alt="Perle Nails soft opening promo" width="1167" height="1167" loading="lazy" />
+        </div>
+        <div class="promo-copy">
+          <p class="sec-label">SOFT OPENING</p>
+          <h2>Book your moment of luxury</h2>
+          <p>Appointments recommended. Walk-ins welcome when the desk is free. Call or book online — same gold standard either way.</p>
+          <a class="btn-gold" href="https://lk.macmarketing.us/PerleNails-Booking" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap visit-grid">
+        <div>
+          <p class="sec-label">VISIT</p>
+          <h2>Perle Nails · Orange</h2>
+          <dl>
+            <div>
+              <dt>Address</dt>
+              <dd>732 N Tustin St, Orange, CA 92867</dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd><a href="tel:+16573484415">(657) 348-4415</a></dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:Perlenails@icloud.com">Perlenails@icloud.com</a></dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Mon–Sat 09:30–19:30<br />Sun 10:00–18:00</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="map-note">
+          <p class="sec-label" style="margin-bottom:0.4rem">ON N TUSTIN</p>
+          <strong style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem;color:var(--champagne);">Walk-ins welcome when available</strong>
+          <p>Booking ahead keeps your slot and our focus on your set. Soft lighting, clean stations, pearl-level finish.</p>
+          <p style="margin-top:1rem;">
+            <a class="btn-gold" href="tel:+16573484415">CALL NOW</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img class="foot-logo" src="assets/perle-nails/logos/logo_primary.png" alt="Perle Nails" width="532" height="494" />
+    <div class="foot-links">
+      <a href="https://lk.macmarketing.us/PerleNails-Booking" target="_blank" rel="noopener noreferrer">Book</a>
+      <a href="tel:+16573484415">(657) 348-4415</a>
+      <a href="mailto:Perlenails@icloud.com">Email</a>
+      <a href="#services">Services</a>
+      <a href="#visit">Visit</a>
+    </div>
+    <p>732 N Tustin St, Orange, CA 92867 · Mon–Sat 09:30–19:30 · Sun 10:00–18:00</p>
+    <p style="margin-top:0.4rem;">© 2026 Perle Nails · Redesign mockup</p>
+  </footer>
+</body>
+</html>
