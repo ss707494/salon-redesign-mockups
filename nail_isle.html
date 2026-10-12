@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nail Isle · Fountain Valley, CA</title>
+  <meta name="description" content="Nail Isle — Fountain Valley. ONE GUEST. ONE JET. 100% PEACE OF MIND. Book online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --black-soft: #121212;
+      --champagne: #e0c090;
+      --gold: #d4af37;
+      --gold-hot: #f0d9a0;
+      --gold-deep: #a88840;
+      --ink: #0a0a0a;
+      --muted: #a89878;
+      --cream: #f2ebe0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--cream);
+      background: var(--black);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1080px, 92%); margin-inline: auto; }
+
+    /* —— Topbar —— */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.45rem 1.15rem;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(224, 192, 144, 0.22);
+    }
+    .topbar-logo {
+      height: 40px;
+      width: auto;
+    }
+    .topbar-phone {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 500;
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+      color: var(--champagne);
+      border-bottom: 1px solid rgba(224, 192, 144, 0.4);
+      padding-bottom: 1px;
+    }
+    .topbar-phone:hover { color: var(--gold-hot); border-bottom-color: var(--gold); }
+
+    /* —— Hero: Double-Ring Isle Spotlight —— */
+    .hero {
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 52px);
+      min-height: calc(100dvh - 52px);
+    }
+    .hero-stage {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.1rem 1rem 0.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      width: min(70vmin, 560px);
+      height: min(70vmin, 560px);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(224, 192, 144, 0.16) 0%, rgba(212, 175, 55, 0.06) 42%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Circular isle gate — CSS double rings; nails fill interior (no N overlay) */
+    .isle-gate {
+      position: relative;
+      z-index: 1;
+      width: min(52vh, 460px);
+      height: min(52vh, 460px);
+      max-width: 88vw;
+      max-height: 88vw;
+      border-radius: 50%;
+      flex-shrink: 0;
+      /* Outer ring */
+      border: 5px solid var(--champagne);
+      box-shadow:
+        0 0 0 7px var(--black),
+        0 0 0 11px var(--gold),
+        0 0 42px rgba(224, 192, 144, 0.32),
+        inset 0 0 0 1px rgba(224, 192, 144, 0.15);
+      overflow: hidden;
+      background: #111;
+    }
+    .isle-photo {
+      position: absolute;
+      /* Thin inner margin so nail disk >> 50% of ring interior */
+      inset: 2.5%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #111;
+      z-index: 1;
+    }
+    .isle-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 40%;
+    }
+
+    .hero-hook {
+      position: relative;
+      z-index: 1;
+      margin-top: 1.15rem;
+      text-align: center;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(0.95rem, 2.1vw, 1.35rem);
+      letter-spacing: 0.22em;
+      color: var(--champagne);
+      opacity: 0.95;
+      padding: 0 0.75rem;
+      white-space: nowrap;
+    }
+
+    /* BOOK bar */
+    .book-bar {
+      flex: 0 0 auto;
+      display: block;
+      background: linear-gradient(180deg, #e8d0a0 0%, #d4af37 55%, #c49a2e 100%);
+      color: var(--ink);
+      text-align: center;
+      padding: 1.2rem 1rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      transition: filter 0.15s ease;
+    }
+    .book-bar:hover { filter: brightness(1.06); }
+    .book-bar-main {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.4rem, 7.5vw, 4.2rem);
+      letter-spacing: 0.12em;
+      line-height: 0.95;
+      color: var(--ink);
+    }
+    .book-bar-sub {
+      margin-top: 0.35rem;
+      font-family: "DM Sans", sans-serif;
+      font-size: clamp(0.78rem, 1.5vw, 0.95rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(10, 10, 10, 0.78);
+    }
+    .book-bar-sub span { opacity: 0.45; margin: 0 0.45rem; }
+
+    /* —— Hygiene —— */
+    .hygiene {
+      background: var(--black-soft);
+      padding: 3.2rem 0 2.8rem;
+      border-top: 1px solid rgba(224, 192, 144, 0.12);
+    }
+    .section-kicker {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.28em;
+      font-size: 0.9rem;
+      color: var(--gold);
+      margin-bottom: 0.55rem;
+    }
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      font-size: clamp(1.7rem, 3.4vw, 2.45rem);
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1.6rem;
+    }
+    .hygiene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .hygiene-card {
+      background: var(--black);
+      border: 1px solid rgba(224, 192, 144, 0.22);
+      border-radius: 12px;
+      padding: 1.35rem 1.2rem 1.4rem;
+    }
+    .hygiene-num {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .hygiene-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--champagne);
+      margin-bottom: 0.45rem;
+    }
+    .hygiene-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* —— Services —— */
+    .services {
+      padding: 3rem 0 2.6rem;
+      background: var(--black);
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.4rem;
+    }
+    .chip {
+      display: inline-block;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(224, 192, 144, 0.35);
+      background: rgba(224, 192, 144, 0.06);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--champagne);
+    }
+
+    /* —— Gallery —— */
+    .gallery {
+      padding: 2.4rem 0 3rem;
+      background: var(--black-soft);
+      border-top: 1px solid rgba(224, 192, 144, 0.1);
+    }
+    .gal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.55rem;
+      margin-top: 1.2rem;
+    }
+    .gal-grid figure {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #111;
+    }
+    .gal-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.35s ease;
+    }
+    .gal-grid figure:hover img { transform: scale(1.04); }
+    .gal-grid .mid { object-position: 50% 45%; }
+
+    /* —— Visit —— */
+    .visit {
+      padding: 3rem 0 2.6rem;
+      background: var(--black);
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .visit h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      color: var(--cream);
+    }
+    .visit-meta {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+    }
+    .visit-meta strong {
+      color: var(--champagne);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+    .visit-meta a { color: var(--gold-hot); border-bottom: 1px solid rgba(212, 175, 55, 0.35); }
+    .hours-list {
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .hours-list span {
+      display: inline-block;
+      min-width: 5.2rem;
+      color: var(--champagne);
+      font-weight: 600;
+    }
+    .visit-cta {
+      display: inline-block;
+      margin-top: 1.4rem;
+      padding: 0.95rem 1.6rem;
+      background: linear-gradient(180deg, #e8d0a0, #d4af37);
+      color: var(--ink);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.55rem;
+      letter-spacing: 0.14em;
+      border-radius: 4px;
+    }
+    .visit-cta:hover { filter: brightness(1.06); }
+    .tagline {
+      margin-top: 1.1rem;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--champagne);
+    }
+    .socials {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .socials a { border-bottom: 1px solid rgba(224, 192, 144, 0.3); color: var(--champagne); }
+    .socials a:hover { color: var(--gold-hot); }
+
+    /* —— Footer —— */
+    .site-footer {
+      border-top: 1px solid rgba(224, 192, 144, 0.18);
+      padding: 1.4rem 1.15rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: #050505;
+    }
+    .site-footer img { height: 36px; width: auto; }
+    .site-footer p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* —— Mobile —— */
+    @media (max-width: 760px) {
+      .topbar { padding: 0.4rem 0.85rem; }
+      .topbar-logo { height: 34px; }
+      .topbar-phone { font-size: 0.78rem; }
+      .hero {
+        min-height: calc(100vh - 48px);
+        min-height: calc(100dvh - 48px);
+      }
+      .hero-stage {
+        padding: 0.7rem 0.75rem 0.35rem;
+        justify-content: center;
+      }
+      .isle-gate {
+        width: min(44vh, 72vw);
+        height: min(44vh, 72vw);
+        border-width: 4px;
+        box-shadow:
+          0 0 0 5px var(--black),
+          0 0 0 8px var(--gold),
+          0 0 28px rgba(224, 192, 144, 0.28),
+          inset 0 0 0 1px rgba(224, 192, 144, 0.12);
+      }
+      .isle-photo { inset: 2%; }
+      .hero-hook {
+        margin-top: 0.55rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 96vw;
+      }
+      .book-bar {
+        padding: 1.55rem 0.85rem 1.35rem;
+        min-height: 5.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .book-bar-main {
+        font-size: 2.7rem;
+        letter-spacing: 0.1em;
+      }
+      .book-bar-sub { font-size: 0.76rem; }
+      .hygiene-grid { grid-template-columns: 1fr; }
+      .gal-grid { grid-template-columns: repeat(2, 1fr); }
+      .visit-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+    }
+    @media (max-width: 420px) {
+      .hero-hook {
+        letter-spacing: 0.1em;
+        font-size: 0.68rem;
+      }
+      .isle-gate {
+        width: min(42vh, 74vw);
+        height: min(42vh, 74vw);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#top" aria-label="Nail Isle home">
+      <img class="topbar-logo" src="assets/nail-isle/logos/logo_primary.png" alt="Nail Isle" width="40" height="38" />
+    </a>
+    <a class="topbar-phone" href="tel:+17149791714">(714) 979-1714</a>
+  </header>
+
+  <main id="top">
+    <!-- First screen: Double-Ring Isle Spotlight -->
+    <section class="hero" aria-label="Nail Isle spotlight">
+      <div class="hero-stage">
+        <div class="isle-gate" role="img" aria-label="Double-ring spotlight framing manicure">
+          <div class="isle-photo">
+            <img src="assets/nail-isle/images/photo_05.jpg" alt="Almond nude and brown polka-dot floral manicure" width="800" height="800" />
+          </div>
+        </div>
+        <p class="hero-hook">ONE GUEST. ONE JET. 100% PEACE OF MIND</p>
+      </div>
+      <a class="book-bar" href="https://booking.galaxyaccess.us/nailisle1714" target="_blank" rel="noopener">
+        <div class="book-bar-main">BOOK NOW</div>
+        <div class="book-bar-sub">(714) 979-1714 <span>·</span> Sea you at the Isle!</div>
+      </a>
+    </section>
+
+    <!-- Hygiene -->
+    <section class="hygiene" id="hygiene">
+      <div class="wrap">
+        <p class="section-kicker">WHY THE ISLE</p>
+        <h2 class="section-title">Safe getaway beauty — no extra cost.</h2>
+        <div class="hygiene-grid">
+          <article class="hygiene-card">
+            <div class="hygiene-num">01</div>
+            <h3>Disposable jet</h3>
+            <p>ONE GUEST. ONE JET. Exclusive single-use pedicure jet system — fresh for you alone, every visit.</p>
+          </article>
+          <article class="hygiene-card">
+            <div class="hygiene-num">02</div>
+            <h3>Medical-grade sterilize</h3>
+            <p>All tools sanitized to medical-grade standards before they ever touch you.</p>
+          </article>
+          <article class="hygiene-card">
+            <div class="hygiene-num">03</div>
+            <h3>No MMA · HEMA-free · Après Gel-X</h3>
+            <p>We say no to harmful chemicals. Soft gel extensions and HEMA-free polishes that protect nail health.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <p class="section-kicker">SERVICES</p>
+        <h2 class="section-title">Your nails. Your isle.</h2>
+        <div class="chip-row">
+          <span class="chip">Manicure</span>
+          <span class="chip">Pedicure</span>
+          <span class="chip">The Isle Mani / Pedi</span>
+          <span class="chip">Après Gel-X</span>
+          <span class="chip">Dipping Powder</span>
+          <span class="chip">Builder Gel</span>
+          <span class="chip">Nail Art</span>
+          <span class="chip">Waxing</span>
+          <span class="chip">Kids (10 &amp; under)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+        <p class="section-kicker">GALLERY</p>
+        <h2 class="section-title">Real work from the Isle.</h2>
+        <div class="gal-grid">
+          <figure><img class="mid" src="assets/nail-isle/images/photo_05.jpg" alt="Nude brown polka floral almond nails" width="540" height="540" loading="lazy" /></figure>
+          <figure><img class="mid" src="assets/nail-isle/images/photo_08.jpg" alt="Denim French tip manicure" width="540" height="540" loading="lazy" /></figure>
+          <figure><img class="mid" src="assets/nail-isle/images/photo_07.jpg" alt="Nail art close-up" width="540" height="540" loading="lazy" /></figure>
+          <figure><img class="mid" src="assets/nail-isle/images/photo_13.jpg" alt="Salon nail design" width="540" height="540" loading="lazy" /></figure>
+          <figure><img class="mid" src="assets/nail-isle/images/photo_14.jpg" alt="Gel manicure detail" width="540" height="540" loading="lazy" /></figure>
+          <figure><img class="mid" src="assets/nail-isle/images/photo_15.jpg" alt="Nail art detail" width="540" height="540" loading="lazy" /></figure>
+          <figure><img class="mid" src="assets/nail-isle/images/photo_17.jpg" alt="Polished nail design" width="540" height="540" loading="lazy" /></figure>
+          <figure><img class="mid" src="assets/nail-isle/images/photo_18.jpg" alt="Finished manicure" width="540" height="540" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section class="visit" id="visit">
+      <div class="wrap visit-grid">
+        <div>
+          <p class="section-kicker">VISIT</p>
+          <h2>Fountain Valley</h2>
+          <p class="visit-meta">
+            <strong>Address</strong>
+            17870 Newhope St Suite 101<br />
+            Fountain Valley, CA 92708
+          </p>
+          <p class="visit-meta">
+            <strong>Call or text</strong>
+            <a href="tel:+17149791714">(714) 979-1714</a>
+          </p>
+          <p class="visit-meta">
+            <strong>Email</strong>
+            <a href="mailto:nailisle@yahoo.com">nailisle@yahoo.com</a>
+          </p>
+          <p class="tagline">Sea you at the Isle!</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/nailisle_fv" target="_blank" rel="noopener">IG nailisle_fv</a>
+            <a href="https://www.facebook.com/NailIsleFountainValley/" target="_blank" rel="noopener">FB NailIsleFountainValley</a>
+          </div>
+          <a class="visit-cta" href="https://booking.galaxyaccess.us/nailisle1714" target="_blank" rel="noopener">BOOK NOW</a>
+        </div>
+        <div>
+          <p class="section-kicker">HOURS</p>
+          <ul class="hours-list">
+            <li><span>Mon–Fri</span> 9:30 AM – 7:00 PM</li>
+            <li><span>Saturday</span> 9:00 AM – 6:00 PM</li>
+            <li><span>Sunday</span> 10:00 AM – 5:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/nail-isle/logos/logo_primary.png" alt="Nail Isle" width="36" height="34" />
+    <p>Nail Isle · Fountain Valley · © <span id="y"></span></p>
+  </footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
