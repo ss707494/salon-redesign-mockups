@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- v10.2 · Art Direction A · Neon Stripe Pedi Stage -->
+  <title>Expo Nails · Cypress CA — Book Online</title>
+  <meta name="description" content="Expo Nails on Valley View St, Cypress. Neon pedi stage, manicures, pedicures, nail art. Book online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --charcoal: #1a1510;
+      --stage: #f5f2ec;
+      --white: #ffffff;
+      --ink: #161412;
+      --muted: #6b6560;
+      --line: #e6e1d8;
+      --gold: #cfae6d;
+      --gold-deep: #ad8f55;
+      --gold-lite: #f7df99;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--stage);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1120px, 92%); margin-inline: auto; }
+
+    /* —— Tiny nav —— */
+    .nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.4rem;
+      pointer-events: none;
+    }
+    .nav > * { pointer-events: auto; }
+    .nav-logo {
+      height: 20px;
+      width: auto;
+      opacity: 0.9;
+    }
+    .nav-call {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: rgba(245,242,236,0.92);
+      border: 1px solid rgba(22,20,18,0.12);
+      padding: 0.4em 0.85em;
+      border-radius: 999px;
+    }
+    .nav-call:hover { border-color: var(--gold-deep); }
+
+    /* —— Hero: neon stage ~60 + dark bar ~40 —— */
+    .hero {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+    }
+
+    .hero-stage {
+      background: var(--stage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4.25rem 2.25rem 2.75rem;
+      position: relative;
+    }
+    /* Rounded landscape card — NOT circle, NOT 1:1 square stamp */
+    .neon-card {
+      width: min(96%, 640px);
+      aspect-ratio: 5 / 4;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #ddd;
+      box-shadow:
+        0 28px 64px rgba(10,10,10,0.14),
+        0 6px 18px rgba(10,10,10,0.06);
+    }
+    .neon-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* mid-upper: neon EXPO on stripes + gold pillows; weaken holiday bags */
+      object-position: 50% 28%;
+    }
+
+    .hero-bar {
+      background: linear-gradient(165deg, var(--black) 0%, var(--charcoal) 100%);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.85rem;
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+    /* Medium wide gold wordmark ~160–180px — do NOT stretch full bar */
+    .bar-logo {
+      width: min(48%, 172px);
+      height: auto;
+    }
+    .book-mega {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Outfit", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.6rem, 5.2vw, 4.1rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      color: var(--black);
+      background: var(--white);
+      border: 2px solid var(--gold);
+      padding: 0.55em 1.05em;
+      border-radius: 10px;
+      min-width: min(88%, 280px);
+      box-shadow: 0 0 0 1px rgba(207,174,109,0.25);
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .book-mega:hover {
+      background: var(--gold-lite);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(207,174,109,0.28);
+    }
+    .bar-phone {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.78);
+      border-bottom: 1px solid transparent;
+    }
+    .bar-phone:hover {
+      color: var(--gold-lite);
+      border-bottom-color: rgba(247,223,153,0.45);
+    }
+    .bar-hairline {
+      width: 48px;
+      height: 1px;
+      background: var(--gold-deep);
+      opacity: 0.7;
+    }
+
+    /* —— Intro / location —— */
+    .intro {
+      padding: 3.5rem 0 2.5rem;
+      text-align: center;
+    }
+    .intro-loc {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.85rem;
+    }
+    .intro h1 {
+      font-family: "Libre Baskerville", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.55rem, 3.2vw, 2.35rem);
+      line-height: 1.25;
+      color: var(--ink);
+      max-width: 22ch;
+      margin: 0 auto 1rem;
+    }
+    .intro p {
+      max-width: 42ch;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* —— Service chips (text only) —— */
+    .services {
+      padding: 0.5rem 0 3.75rem;
+    }
+    .services h2 {
+      font-family: "Libre Baskerville", Georgia, serif;
+      font-size: 1.35rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .chip-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.45em;
+      font-size: 0.88rem;
+      font-weight: 500;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.55em 1em;
+      color: var(--ink);
+    }
+    .chip strong {
+      font-weight: 700;
+      color: var(--gold-deep);
+      font-variant-numeric: tabular-nums;
+    }
+    .chip-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 0.35rem;
+    }
+
+    /* —— Gallery —— */
+    .gallery {
+      background: var(--white);
+      padding: 3.75rem 0 4rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .gallery h2 {
+      font-family: "Libre Baskerville", Georgia, serif;
+      font-size: 1.35rem;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    .gallery-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+    }
+    .gallery-grid figure {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #eee;
+      aspect-ratio: 4 / 3;
+    }
+    .gallery-grid figure.tall { aspect-ratio: 3 / 4; }
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .g-int-132 img { object-position: 50% 40%; }
+    .g-int-133 img { object-position: 50% 45%; }
+    .g-int-134 img { object-position: 50% 50%; }
+    .g-int-136 img { object-position: 50% 40%; }
+    .g-nail-94 img { object-position: 50% 50%; }
+    .g-nail-18 img { object-position: 50% 45%; }
+
+    /* —— Visit —— */
+    .visit {
+      padding: 3.75rem 0 3.5rem;
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .visit h2 {
+      font-family: "Libre Baskerville", Georgia, serif;
+      font-size: 1.35rem;
+      margin-bottom: 1.1rem;
+    }
+    .visit dt {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+    .visit dt:first-child { margin-top: 0; }
+    .visit dd {
+      font-size: 1.02rem;
+      margin-top: 0.25rem;
+    }
+    .visit a.maps {
+      display: inline-block;
+      margin-top: 1.15rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--gold-deep);
+      border-bottom: 1px solid rgba(173,143,85,0.45);
+    }
+    .visit a.maps:hover { border-bottom-color: var(--gold-deep); }
+    .visit-side {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #ddd;
+      box-shadow: 0 12px 32px rgba(10,10,10,0.08);
+    }
+    .visit-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 42%;
+    }
+
+    /* —— Footer CTA —— */
+    .foot {
+      background: var(--black);
+      color: var(--white);
+      padding: 3.25rem 0 2.5rem;
+      text-align: center;
+    }
+    .foot .book-mega {
+      margin-bottom: 1.5rem;
+    }
+    .foot-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem 1.4rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 1.25rem;
+    }
+    .foot-meta a:hover { color: var(--gold-lite); }
+    .foot-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.02em;
+    }
+
+    /* —— Mobile —— */
+    @media (max-width: 820px) {
+      .nav-logo { height: 16px; }
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-stage {
+        padding: 3.6rem 1.15rem 1.35rem;
+        min-height: 52vh;
+      }
+      .neon-card {
+        width: 100%;
+        aspect-ratio: 5 / 4;
+        border-radius: 18px;
+      }
+      .neon-card img {
+        object-position: 50% 26%;
+      }
+      .hero-bar {
+        padding: 2.4rem 1.35rem 2.75rem;
+        gap: 1.35rem;
+        min-height: 42vh;
+      }
+      /* Hide large bar logo on mobile — tiny nav logo only (no dual mega-marks) */
+      .bar-logo { display: none; }
+      .bar-hairline { display: none; }
+      .book-mega {
+        font-size: clamp(2.4rem, 14vw, 3.4rem);
+        min-width: 92%;
+        width: 92%;
+        padding: 0.65em 0.9em;
+      }
+      .bar-phone { font-size: 1.05rem; }
+      .intro { padding: 2.75rem 0 2rem; }
+      .intro h1 { max-width: 18ch; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+      }
+      .gallery-grid figure.span2 { grid-column: span 2; }
+      .visit-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+      .visit-side { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav" aria-label="Top">
+    <a href="#top" aria-label="Expo Nails home">
+      <img class="nav-logo" src="assets/expo-nails/logos/logo_primary.png" alt="Expo Nails" width="198" height="52" />
+    </a>
+    <a class="nav-call" href="tel:+17148263984">(714) 826-3984</a>
+  </header>
+
+  <main id="top">
+    <!-- ① Neon pedi hero + BOOK -->
+    <section class="hero" aria-label="Neon stripe pedi stage">
+      <div class="hero-stage">
+        <div class="neon-card">
+          <img
+            src="assets/expo-nails/images/photo_131.jpg"
+            alt="Expo Nails neon sign on black-and-white stripe wall above black pedicure chairs with gold pillows"
+            width="1600"
+            height="1015"
+          />
+        </div>
+      </div>
+      <aside class="hero-bar">
+        <img
+          class="bar-logo"
+          src="assets/expo-nails/logos/logo_primary.png"
+          alt="EXPO Nails"
+          width="172"
+          height="46"
+        />
+        <div class="bar-hairline" aria-hidden="true"></div>
+        <a
+          class="book-mega"
+          href="https://booking.gocheckin.net/v2/19748"
+          target="_blank"
+          rel="noopener noreferrer"
+        >BOOK</a>
+        <a class="bar-phone" href="tel:+17148263984">(714) 826-3984</a>
+      </aside>
+    </section>
+
+    <!-- ② Cypress · Valley View + service chips -->
+    <section class="intro wrap" aria-labelledby="intro-h">
+      <p class="intro-loc">Cypress · Valley View St</p>
+      <h1 id="intro-h">Every set of nails has the potential for elegance.</h1>
+      <p>Walk into the neon stripe pedi wall on Valley View — manicures, pedicures, and nail art crafted for Cypress.</p>
+    </section>
+
+    <section class="services wrap" aria-labelledby="svc-h">
+      <h2 id="svc-h">Services</h2>
+      <div class="chip-groups">
+        <div>
+          <p class="chip-label">Pedicure</p>
+          <div class="chip-row">
+            <span class="chip">Indulge Pedi <strong>$57</strong></span>
+            <span class="chip">Royal <strong>$47</strong></span>
+            <span class="chip">Deluxe Spa <strong>$39</strong></span>
+            <span class="chip">Express <strong>$25</strong></span>
+          </div>
+        </div>
+        <div>
+          <p class="chip-label">Manicure</p>
+          <div class="chip-row">
+            <span class="chip">Gel Mani <strong>$35</strong></span>
+            <span class="chip">Deluxe Mani <strong>$37</strong></span>
+          </div>
+        </div>
+        <div>
+          <p class="chip-label">Enhancements</p>
+          <div class="chip-row">
+            <span class="chip">Gel acrylic <strong>$55+</strong></span>
+            <span class="chip">Dip <strong>$45+</strong></span>
+            <span class="chip">Gel X <strong>$55+</strong></span>
+            <span class="chip">Ombré <strong>$65+</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ Gallery: interiors + nail mid-crops -->
+    <section class="gallery" aria-labelledby="gal-h">
+      <div class="wrap">
+        <h2 id="gal-h">Inside Expo</h2>
+        <p class="gallery-sub">Powder wall, front desk, and real nail work — no stock filler.</p>
+        <div class="gallery-grid">
+          <figure class="g-int-132">
+            <img src="assets/expo-nails/images/photo_132.jpg" alt="Powder wall and front desk at Expo Nails" width="1200" height="900" loading="lazy" />
+          </figure>
+          <figure class="g-int-133">
+            <img src="assets/expo-nails/images/photo_133.jpg" alt="Front desk long counter at Expo Nails" width="1200" height="900" loading="lazy" />
+          </figure>
+          <figure class="g-int-134">
+            <img src="assets/expo-nails/images/photo_134.jpg" alt="Salon interior detail at Expo Nails" width="1200" height="900" loading="lazy" />
+          </figure>
+          <figure class="g-nail-94 tall">
+            <img src="assets/expo-nails/images/photo_94.webp" alt="Stiletto nail art by Expo Nails" width="800" height="1000" loading="lazy" />
+          </figure>
+          <figure class="g-nail-18 tall">
+            <img src="assets/expo-nails/images/photo_18.webp" alt="Marble and gold nail art by Expo Nails" width="800" height="1000" loading="lazy" />
+          </figure>
+          <figure class="g-int-136">
+            <img src="assets/expo-nails/images/photo_136.jpg" alt="Salon interior at Expo Nails" width="1200" height="900" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ Visit -->
+    <section class="visit wrap" aria-labelledby="visit-h">
+      <div class="visit-grid">
+        <div>
+          <h2 id="visit-h">Visit</h2>
+          <dl>
+            <dt>Hours</dt>
+            <dd>Mon–Sat 10:00 AM–7:00 PM<br />Sunday Closed</dd>
+            <dt>Address</dt>
+            <dd>9177 Valley View St<br />Cypress, CA 90630</dd>
+            <dt>Phone</dt>
+            <dd><a href="tel:+17148263984">(714) 826-3984</a></dd>
+          </dl>
+          <a class="maps" href="https://maps.app.goo.gl/p2tJcQwzXShCheXAA" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
+        </div>
+        <div class="visit-side">
+          <img src="assets/expo-nails/images/photo_132.jpg" alt="Powder wall welcome desk at Expo Nails" width="1200" height="900" loading="lazy" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ⑤ Footer BOOK -->
+  <footer class="foot">
+    <div class="wrap">
+      <a
+        class="book-mega"
+        href="https://booking.gocheckin.net/v2/19748"
+        target="_blank"
+        rel="noopener noreferrer"
+      >BOOK</a>
+      <div class="foot-meta">
+        <a href="mailto:hmai31039@gmail.com">hmai31039@gmail.com</a>
+        <a href="https://www.instagram.com/expo_nails?hl=en" target="_blank" rel="noopener noreferrer">Instagram @expo_nails</a>
+        <a href="tel:+17148263984">(714) 826-3984</a>
+      </div>
+      <p class="foot-copy">Expo Nails · Cypress, CA</p>
+    </div>
+  </footer>
+
+</body>
+</html>
