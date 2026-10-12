@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- v10.2 · Art Direction A · Gold Seal Nail Orbit -->
+  <title>Glow Nails &amp; Spa · Long Beach — Book Online</title>
+  <meta name="description" content="Glow Nails &amp; Spa on California Pl, Long Beach. Real nail art, pedicures, Gel X, acrylic. Book online via abcapp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f7efe6;
+      --cream-deep: #f2e2d2;
+      --black: #0a0a0a;
+      --charcoal: #1a1510;
+      --ink: #1c1814;
+      --muted: #6e655c;
+      --line: #e8dccf;
+      --gold: #986818;
+      --gold-mid: #a06818;
+      --gold-warm: #dfba9f;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1120px, 92%); margin-inline: auto; }
+
+    /* —— Tiny nav —— */
+    .nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      pointer-events: none;
+    }
+    .nav > * { pointer-events: auto; }
+    .nav-seal {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(10,10,10,0.18);
+    }
+    .nav-call {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: rgba(247,239,230,0.94);
+      border: 1px solid rgba(28,24,20,0.12);
+      padding: 0.42em 0.9em;
+      border-radius: 999px;
+    }
+    .nav-call:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* —— Hero: cream orbit ~55 + dark bar ~45 —— */
+    .hero {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+    }
+
+    .hero-stage {
+      background: linear-gradient(160deg, var(--cream) 0%, var(--cream-deep) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4.5rem 1.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Orbit: seal sun + nail tiles */
+    .orbit {
+      position: relative;
+      width: min(92%, 520px);
+      aspect-ratio: 1 / 1;
+      max-height: min(78vh, 560px);
+    }
+    .orbit-sun {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(132px, 28%, 158px);
+      height: clamp(132px, 28%, 158px);
+      border-radius: 50%;
+      z-index: 5;
+      box-shadow:
+        0 10px 28px rgba(26,21,16,0.16),
+        0 0 0 4px rgba(247,239,230,0.95),
+        0 0 0 5px rgba(152,104,24,0.22);
+      background: var(--cream);
+      object-fit: cover;
+    }
+
+    .orbit-card {
+      position: absolute;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ddd;
+      box-shadow:
+        0 10px 24px rgba(26,21,16,0.12),
+        0 2px 6px rgba(26,21,16,0.06);
+      border: 2px solid rgba(247,239,230,0.9);
+    }
+    .orbit-card img {
+      width: 135%;
+      height: 135%;
+      max-width: none;
+      object-fit: cover;
+      /* mid-crop: favor finger centers; push past bottom-left watermark + address */
+      object-position: 60% 26%;
+      position: relative;
+      left: -16%;
+      top: -10%;
+    }
+    /* Lead card — larger, upper-right of seal */
+    .orbit-card.lead {
+      width: 34%;
+      aspect-ratio: 1 / 1;
+      left: 58%;
+      top: 8%;
+      z-index: 4;
+      border-radius: 16px;
+      box-shadow:
+        0 16px 36px rgba(26,21,16,0.18),
+        0 4px 10px rgba(26,21,16,0.08);
+    }
+    .orbit-card.lead img { object-position: 58% 24%; }
+    /* Smaller orbit tiles — staggered ring, NOT perfect circle masks */
+    .orbit-card.c1 { width: 22%; aspect-ratio: 1; left: 6%; top: 10%; z-index: 3; }
+    .orbit-card.c2 { width: 20%; aspect-ratio: 1; left: 32%; top: 2%; z-index: 2; }
+    .orbit-card.c3 { width: 21%; aspect-ratio: 1; left: 4%; top: 38%; z-index: 3; }
+    .orbit-card.c4 { width: 23%; aspect-ratio: 1; left: 72%; top: 42%; z-index: 3; }
+    .orbit-card.c5 { width: 20%; aspect-ratio: 1; left: 10%; top: 68%; z-index: 2; }
+    .orbit-card.c6 { width: 22%; aspect-ratio: 1; left: 38%; top: 74%; z-index: 3; }
+    .orbit-card.c7 { width: 21%; aspect-ratio: 1; left: 66%; top: 70%; z-index: 2; }
+
+    .orbit-card.c1 img { object-position: 58% 30%; }
+    .orbit-card.c2 img { object-position: 56% 28%; }
+    .orbit-card.c3 img { object-position: 58% 32%; }
+    .orbit-card.c4 img { object-position: 55% 30%; }
+    .orbit-card.c5 img { object-position: 58% 28%; }
+    .orbit-card.c6 img { object-position: 56% 30%; }
+    .orbit-card.c7 img { object-position: 55% 28%; }
+
+    /* Dark booking bar — no second large seal (nav has tiny one) */
+    .hero-bar {
+      background: linear-gradient(168deg, var(--charcoal) 0%, var(--black) 100%);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.65rem;
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+    .book-mega {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Manrope", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.55rem, 5vw, 3.9rem);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: var(--black);
+      background: var(--white);
+      border: 2px solid var(--gold);
+      padding: 0.52em 1.05em;
+      border-radius: 10px;
+      min-width: min(90%, 280px);
+      box-shadow: 0 0 0 1px rgba(152,104,24,0.28);
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .book-mega:hover {
+      background: #f5e6c8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(152,104,24,0.3);
+    }
+    .bar-phone {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.78);
+      border-bottom: 1px solid transparent;
+    }
+    .bar-phone:hover {
+      color: var(--gold-warm);
+      border-bottom-color: rgba(223,186,159,0.45);
+    }
+
+    /* —— Intro —— */
+    .intro {
+      padding: 3.5rem 0 2.25rem;
+      text-align: center;
+    }
+    .intro-loc {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.85rem;
+    }
+    .intro h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(1.65rem, 3.4vw, 2.5rem);
+      line-height: 1.2;
+      color: var(--ink);
+      max-width: 24ch;
+      margin: 0 auto 1rem;
+    }
+    .intro p {
+      max-width: 44ch;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* —— Service chips —— */
+    .services { padding: 0.5rem 0 3.75rem; }
+    .services h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .chip-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .chip-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 0.35rem;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.45em;
+      font-size: 0.88rem;
+      font-weight: 500;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.55em 1em;
+      color: var(--ink);
+    }
+    .chip strong {
+      font-weight: 700;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* —— Gallery —— */
+    .gallery {
+      background: var(--white);
+      padding: 3.75rem 0 4rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .gallery h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    .gallery-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .gallery-grid figure {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #eee;
+      aspect-ratio: 1 / 1;
+    }
+    .gallery-grid figure.wide {
+      grid-column: span 2;
+      aspect-ratio: 16 / 10;
+    }
+    .gallery-grid img {
+      width: 118%;
+      height: 118%;
+      max-width: none;
+      object-fit: cover;
+      object-position: 58% 30%;
+      position: relative;
+      left: -9%;
+      top: -6%;
+    }
+
+    /* —— Visit —— */
+    .visit { padding: 3.75rem 0 3.5rem; }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .visit h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+    }
+    .visit dt {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+    .visit dt:first-of-type { margin-top: 0; }
+    .visit dd {
+      font-size: 1.02rem;
+      margin-top: 0.25rem;
+    }
+    .visit a.maps {
+      display: inline-block;
+      margin-top: 1.15rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gold);
+      border-bottom: 1px solid rgba(152,104,24,0.4);
+    }
+    .visit a.maps:hover { border-bottom-color: var(--gold); }
+    .map-frame {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #ddd;
+      box-shadow: 0 12px 32px rgba(10,10,10,0.08);
+      border: 1px solid var(--line);
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* —— Footer —— */
+    .foot {
+      background: var(--black);
+      color: var(--white);
+      padding: 3.25rem 0 2.5rem;
+      text-align: center;
+    }
+    .foot .book-mega { margin-bottom: 1.5rem; }
+    .foot-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem 1.4rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 1.25rem;
+    }
+    .foot-meta a:hover { color: var(--gold-warm); }
+    .foot-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.02em;
+    }
+
+    /* —— Mobile —— */
+    @media (max-width: 820px) {
+      .nav-seal { width: 30px; height: 30px; }
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-stage {
+        padding: 3.5rem 1rem 1.25rem;
+        min-height: 58vh;
+      }
+      .orbit {
+        width: min(96%, 380px);
+        max-height: none;
+        aspect-ratio: 1 / 1.05;
+      }
+      .orbit-sun {
+        width: clamp(100px, 26%, 120px);
+        height: clamp(100px, 26%, 120px);
+      }
+      /* Mobile: one-large + three-small still showing sep-17 lead; hide extras */
+      .orbit-card.c2,
+      .orbit-card.c4,
+      .orbit-card.c5,
+      .orbit-card.c7 { display: none; }
+      .orbit-card.lead {
+        width: 42%;
+        left: 52%;
+        top: 6%;
+      }
+      .orbit-card.c1 {
+        width: 28%;
+        left: 6%;
+        top: 12%;
+      }
+      .orbit-card.c3 {
+        width: 26%;
+        left: 8%;
+        top: 58%;
+      }
+      .orbit-card.c6 {
+        width: 30%;
+        left: 48%;
+        top: 62%;
+      }
+      .hero-bar {
+        padding: 2rem 1.25rem 2.35rem;
+        gap: 1.15rem;
+        /* hide large bar seal — only BOOK + phone (Critic habit) */
+      }
+      .book-mega {
+        font-size: clamp(2.4rem, 12vw, 3.2rem);
+        min-width: 92%;
+        padding: 0.62em 0.9em;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-grid figure.wide {
+        grid-column: span 2;
+      }
+      .visit-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" aria-label="Site">
+    <a href="#top" aria-label="Glow Nails &amp; Spa home">
+      <img class="nav-seal" src="assets/glow-nails-spa/logos/logo_primary.png" alt="Glow Nails &amp; Spa" width="36" height="36" />
+    </a>
+    <a class="nav-call" href="tel:+15629663979">(562) 966-3979</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Book Glow Nails &amp; Spa">
+      <div class="hero-stage">
+        <div class="orbit" aria-hidden="false">
+          <img class="orbit-sun" src="assets/glow-nails-spa/logos/logo_primary.png" alt="Glow Nails &amp; Spa gold seal" width="158" height="158" />
+
+          <!-- Lead orbit card: sep-17 tropical -->
+          <figure class="orbit-card lead">
+            <img src="assets/glow-nails-spa/images/gallery-glow-nails-spa-sep-17%20(1)-28.webp" alt="Tropical hand-painted nail art" width="320" height="320" />
+          </figure>
+          <figure class="orbit-card c1">
+            <img src="assets/glow-nails-spa/images/gallery-Mar%205%20Glow%20Nails%20and%20Spa%20(1)-3.jpeg" alt="3D jeweled stiletto nails" width="200" height="200" />
+          </figure>
+          <figure class="orbit-card c2">
+            <img src="assets/glow-nails-spa/images/gallery-Glow%20Nails%20Spa%20100326%20(1)-7.jpeg" alt="Emerald cat-eye nails" width="180" height="180" />
+          </figure>
+          <figure class="orbit-card c3">
+            <img src="assets/glow-nails-spa/images/gallery-Nail%20Art%20Design_Aug%2019%20(1)-32.webp" alt="Dried flower and gold foil nails" width="190" height="190" />
+          </figure>
+          <figure class="orbit-card c4">
+            <img src="assets/glow-nails-spa/images/gallery-glow-nails-spa-sep-17%20(2)-28.webp" alt="Summer nail art set" width="200" height="200" />
+          </figure>
+          <figure class="orbit-card c5">
+            <img src="assets/glow-nails-spa/images/gallery-Latest%20Nail%20Ideas%20April%20(1)-19.jpeg" alt="April nail ideas" width="180" height="180" />
+          </figure>
+          <figure class="orbit-card c6">
+            <img src="assets/glow-nails-spa/images/gallery-Mar%205%20Glow%20Nails%20and%20Spa%20(2)-3.jpeg" alt="Color stone nail art" width="200" height="200" />
+          </figure>
+          <figure class="orbit-card c7">
+            <img src="assets/glow-nails-spa/images/gallery-Glow%20Nails%20Spa%20100326%20(3)-7.jpeg" alt="Cat-eye and chrome nails" width="190" height="190" />
+          </figure>
+        </div>
+      </div>
+
+      <aside class="hero-bar">
+        <a class="book-mega" href="https://abcapp.us/feedback/appointment?appid=uuTDTAJ" target="_blank" rel="noopener">BOOK</a>
+        <a class="bar-phone" href="tel:+15629663979">(562) 966-3979</a>
+      </aside>
+    </section>
+
+    <section class="intro">
+      <div class="wrap">
+        <p class="intro-loc">Long Beach · California Pl</p>
+        <h1>Self-care is more than a service — it’s an experience.</h1>
+        <p>Look &amp; feel your best. Glow inside and out at Glow Nails &amp; Spa — real nail art from our Long Beach studio. Book in one tap.</p>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-label="Services">
+      <div class="wrap">
+        <h2>Menu highlights</h2>
+        <div class="chip-groups">
+          <div>
+            <p class="chip-label">Pedicure</p>
+            <div class="chip-row">
+              <span class="chip">Express Pedi <strong>$30</strong></span>
+              <span class="chip">Essential <strong>$38</strong></span>
+              <span class="chip">Exfoliate <strong>$55</strong></span>
+              <span class="chip">Dreaming Cloud <strong>$70</strong></span>
+              <span class="chip">Blissful Jelly <strong>$75</strong></span>
+              <span class="chip">Golden <strong>$80</strong></span>
+              <span class="chip">CBD Oasis <strong>$90</strong></span>
+            </div>
+          </div>
+          <div>
+            <p class="chip-label">Manicure &amp; enhancements</p>
+            <div class="chip-row">
+              <span class="chip">Express Mani <strong>$20</strong></span>
+              <span class="chip">Dreamy Glow <strong>$40</strong></span>
+              <span class="chip">Gel X <strong>$65</strong></span>
+              <span class="chip">Builder Gel <strong>$60</strong></span>
+              <span class="chip">Acrylic <strong>$55</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery" aria-label="Nail gallery">
+      <div class="wrap">
+        <h2>From our gallery</h2>
+        <p class="gallery-sub">Mid-cropped studio work — no stock filler.</p>
+        <div class="gallery-grid">
+          <figure class="wide">
+            <img src="assets/glow-nails-spa/images/gallery-glow-nails-spa-sep-17%20(3)-28.webp" alt="Tropical nail set detail" width="800" height="500" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="assets/glow-nails-spa/images/gallery-Nail%20Art%20Design_Aug%2019%20(3)-32.webp" alt="Gold foil nail art" width="400" height="400" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="assets/glow-nails-spa/images/gallery-Latest%20Nail%20Ideas%20April%20(5)-21.jpeg" alt="April nail design" width="400" height="400" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="assets/glow-nails-spa/images/gallery-Mar%2016%20Glow%20Nails%20and%20Spa%20(1)-54.jpeg" alt="March nail art" width="400" height="400" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="assets/glow-nails-spa/images/gallery-glow-nails-spa-sep-17%20(4)-28.webp" alt="Hand-painted summer nails" width="400" height="400" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="assets/glow-nails-spa/images/gallery-Mar%205%20Glow%20Nails%20and%20Spa%20(3)-3.jpeg" alt="Jeweled nail detail" width="400" height="400" loading="lazy" />
+          </figure>
+          <figure class="wide">
+            <img src="assets/glow-nails-spa/images/gallery-Glow%20Nails%20Spa%20100326%20(2)-7.jpeg" alt="Cat-eye nail set" width="800" height="500" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-label="Visit">
+      <div class="wrap visit-grid">
+        <div>
+          <h2>Visit</h2>
+          <dl>
+            <dt>Hours</dt>
+            <dd>Mon–Fri 9:30 AM–7:00 PM</dd>
+            <dd>Sat 9:30 AM–6:00 PM</dd>
+            <dd>Sun 10:00 AM–5:00 PM</dd>
+            <dt>Address</dt>
+            <dd>4456 California Pl<br />Long Beach, CA 90807</dd>
+            <dt>Phone</dt>
+            <dd><a href="tel:+15629663979">(562) 966-3979</a></dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:villagonails08@yahoo.com">villagonails08@yahoo.com</a></dd>
+          </dl>
+          <a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=4456+California+Pl,+Long+Beach,+CA+90807" target="_blank" rel="noopener">Open in Maps</a>
+        </div>
+        <div class="map-frame">
+          <iframe
+            title="Glow Nails &amp; Spa on Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.975440153349!2d-118.1828678!3d33.838744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd336c8140a533%3A0x4e96a4bb721fce3b!2sGlow%20Nails%20%26%20Spa!5e0!3m2!1sen!2s!4v1769801342223!5m2!1sen!2s"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <a class="book-mega" href="https://abcapp.us/feedback/appointment?appid=uuTDTAJ" target="_blank" rel="noopener">BOOK</a>
+      <div class="foot-meta">
+        <a href="tel:+15629663979">(562) 966-3979</a>
+        <a href="mailto:villagonails08@yahoo.com">villagonails08@yahoo.com</a>
+        <a href="https://www.instagram.com/glownailslongbeach" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p class="foot-copy">Glow Nails &amp; Spa · 4456 California Pl, Long Beach, CA 90807</p>
+    </div>
+  </footer>
+</body>
+</html>
