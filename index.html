@@ -3,149 +3,317 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>改版样机索引 · Redesign Mockups</title>
+<title>改版对照 · Before / After · Redesign Gallery</title>
+<meta name="description" content="Salon & spa redesign mockups — before/after gallery for cold outreach demos.">
 <style>
+  :root {
+    --bg: #F3EDE4;
+    --ink: #1C1814;
+    --muted: #6E655C;
+    --card: #FFFCF8;
+    --line: #E4D8C8;
+    --accent: #C45C3E;
+    --accent-soft: #F0D9CF;
+    --before: #8A7E70;
+    --after: #2F6B4F;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    background: #F4F3F0;
-    color: #1A1A1A;
-    line-height: 1.5;
-    padding: 24px 16px 48px;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif SC", serif;
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #F8E8DC 0%, transparent 55%),
+      radial-gradient(900px 400px at 100% 0%, #E8F0EA 0%, transparent 50%),
+      var(--bg);
+    color: var(--ink);
+    line-height: 1.45;
+    padding: 28px 16px 64px;
+    min-height: 100vh;
   }
-  .wrap { max-width: 720px; margin: 0 auto; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
   .banner {
-    background: #1A1A1A;
-    color: #E8E4DF;
-    text-align: center;
-    font-size: 12px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    margin-bottom: 28px;
+    display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: center;
+    background: var(--ink); color: #F3EDE4;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 12px; letter-spacing: 0.02em;
+    padding: 10px 16px; border-radius: 999px; margin-bottom: 28px;
   }
-  .banner strong { color: #E07A5F; }
-  h1 {
-    font-size: 1.6rem;
-    letter-spacing: -0.02em;
-    margin-bottom: 6px;
+  .banner strong { color: #F0A890; font-weight: 700; }
+  header { text-align: center; margin-bottom: 36px; }
+  header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.4rem);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 8px;
   }
-  .sub {
-    color: #6B6560;
-    font-size: 0.95rem;
-    margin-bottom: 28px;
+  header h1 span { color: var(--accent); font-weight: 600; }
+  header .sub {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--muted); font-size: 0.98rem; max-width: 560px; margin: 0 auto;
   }
-  .card {
-    display: block;
+  .count {
+    display: inline-block; margin-top: 14px;
+    font-family: system-ui, sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .grid { display: flex; flex-direction: column; gap: 22px; }
+  .project {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 8px 28px rgba(28, 24, 20, 0.05);
+  }
+  .project-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 6px 16px; margin-bottom: 14px;
+  }
+  .project-head h2 {
+    font-size: 1.25rem; letter-spacing: -0.01em;
+  }
+  .project-head .meta {
+    font-family: system-ui, sans-serif; font-size: 12px; color: var(--muted);
+  }
+  .ba {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 700px) {
+    .ba { grid-template-columns: 1fr; }
+  }
+  .shot {
+    display: block; text-decoration: none; color: inherit;
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line);
     background: #fff;
-    border: 1px solid #E8E4DF;
-    border-radius: 12px;
-    padding: 20px 22px;
-    margin-bottom: 12px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s;
   }
-  .card:hover {
-    border-color: #1A1A1A;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  .shot:hover {
+    transform: translateY(-2px);
+    border-color: var(--ink);
+    box-shadow: 0 10px 24px rgba(28,24,20,0.1);
   }
-  .card .tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #E07A5F;
-    margin-bottom: 6px;
+  .shot .label {
+    font-family: system-ui, sans-serif;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 12px 6px;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
   }
-  .card h2 {
-    font-size: 1.15rem;
-    margin-bottom: 4px;
+  .shot.before .label { color: var(--before); }
+  .shot.after .label { color: var(--after); }
+  .shot .label .hint {
+    font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--muted); font-size: 11px;
   }
-  .card p {
-    color: #6B6560;
-    font-size: 0.9rem;
+  .shot .frame {
+    aspect-ratio: 16 / 10;
+    background: #EDE6DC;
+    overflow: hidden;
   }
-  .card .url {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #9A948C;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  .shot .frame img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
   }
   footer {
-    margin-top: 32px;
-    font-size: 12px;
-    color: #9A948C;
-    text-align: center;
+    margin-top: 40px; text-align: center;
+    font-family: system-ui, sans-serif;
+    font-size: 12px; color: var(--muted);
   }
+  footer a { color: var(--accent); }
 </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="banner">设计样机索引 · Design mockups — <strong>not live sites</strong> / 非线上站点</div>
-    <h1>加州沙龙试跑 · 改版样机</h1>
-    <p class="sub">P1–P4 高保真 HTML（原站真实图/色）。相对路径引用 assets/&lt;slug&gt;/；手机友好，主 CTA 为 mailto / tel。</p>
+    <div class="banner">
+      <span><strong>Demo mockups</strong> · not live client sites</span>
+      <span>Cold-outreach redesign samples</span>
+    </div>
 
-    <a class="card" href="p1_hotheads.html?v=polish2b">
-      <div class="tag">P1</div>
-      <h2>HotHeads Salon</h2>
-      <p>Pasadena — 深绿+暖沙真素材；去占位；价目一次；发型师实名电话</p>
-      <div class="url">p1_hotheads.html</div>
-    </a>
+    <header>
+      <h1>改版对照 <span>· Before / After</span></h1>
+      <p class="sub">点击缩略图在新标签打开原站或改版样机。Mockups for outreach demos — not production client sites.</p>
+      <span class="count">10 projects</span>
+    </header>
 
-    <a class="card" href="p2_classic_hair_cuts.html">
-      <div class="tag">P2</div>
-      <h2>Classic Hair Cuts</h2>
-      <p>Castro Valley — 无 logo 字标 + 6 张店内图；Email 主 CTA</p>
-      <div class="url">p2_classic_hair_cuts.html</div>
-    </a>
+    <div class="grid">
 
-    <a class="card" href="p3_hair_perfect.html">
-      <div class="tag">P3</div>
-      <h2>Hair Perfect Salon</h2>
-      <p>Pasadena — logo/hero/gallery/team 真图；去重；FAQ 一次</p>
-      <div class="url">p3_hair_perfect.html</div>
-    </a>
+      <article class="project">
+        <div class="project-head">
+          <h2>HotHeads Salon</h2>
+          <span class="meta">Pasadena · hair</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://www.hotheadspasadena.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_hotheads.jpg" alt="HotHeads original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="p1_hotheads.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_hotheads.jpg" alt="HotHeads redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
 
-    <a class="card" href="p4_deux.html">
-      <div class="tag">P4</div>
-      <h2>Deux Salon &amp; Barber</h2>
-      <p>Long Beach — gallery 网格真图 + Book Online / free clean-up</p>
-      <div class="url">p4_deux.html</div>
-    </a>
+      <article class="project">
+        <div class="project-head">
+          <h2>Classic Hair Cuts</h2>
+          <span class="meta">Weebly · barber</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="http://www.classichaircuts.weebly.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_classic.jpg" alt="Classic Hair Cuts original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="p2_classic_hair_cuts.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_classic.jpg" alt="Classic Hair Cuts redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
 
-    <footer>Cold-email redesign demos · 仅示意，不改生产站</footer>
+      <article class="project">
+        <div class="project-head">
+          <h2>Hair Perfect</h2>
+          <span class="meta">salon</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://hairperfectsalon.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_hair_perfect.jpg" alt="Hair Perfect original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="p3_hair_perfect.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_hair_perfect.jpg" alt="Hair Perfect redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Deux Salon</h2>
+          <span class="meta">barber</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://deuxsalonbarber.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_deux.jpg" alt="Deux Salon original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="p4_deux.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_deux.jpg" alt="Deux Salon redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Royal Pet Beauty</h2>
+          <span class="meta">pet grooming</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://www.royalpetbeautyshop.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_royal.jpg" alt="Royal Pet original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="royal_pet_beauty.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_royal.jpg" alt="Royal Pet redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>The Gates Salon</h2>
+          <span class="meta">Salon Republic</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://thegatessalon.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_gates.jpg" alt="The Gates original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="the_gates_salon.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_gates.jpg" alt="The Gates redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Demure Nails &amp; Spa</h2>
+          <span class="meta">nails</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://demurespanails.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_demure.jpg" alt="Demure original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="demure_nails_spa.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_demure.jpg" alt="Demure redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Nailicious Spa</h2>
+          <span class="meta">nails</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://nailiciousspainc.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_nailicious.jpg" alt="Nailicious original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="nailicious_spa.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_nailicious.jpg" alt="Nailicious redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>Beauty Breeze Nails</h2>
+          <span class="meta">San Diego · nails</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://beautybreezenailsspa.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_beauty_breeze.jpg" alt="Beauty Breeze original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="beauty_breeze_nails.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_beauty_breeze.jpg" alt="Beauty Breeze redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>The Bone Inn</h2>
+          <span class="meta">Austin · dog daycare</span>
+        </div>
+        <div class="ba">
+          <a class="shot before" href="https://www.theboneinn.com/" target="_blank" rel="noopener">
+            <div class="label"><span>Before</span><span class="hint">原站 ↗</span></div>
+            <div class="frame"><img src="thumbs/before_bone_inn.jpg" alt="The Bone Inn original" loading="lazy"></div>
+          </a>
+          <a class="shot after" href="the_bone_inn.html" target="_blank" rel="noopener">
+            <div class="label"><span>After</span><span class="hint">改版 ↗</span></div>
+            <div class="frame"><img src="thumbs/after_bone_inn.jpg" alt="The Bone Inn redesign" loading="lazy"></div>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <footer>
+      <p>Mockups for cold outreach · not affiliated with the original businesses.</p>
+      <p style="margin-top:6px"><a href="https://github.com/ss707494/salon-redesign-mockups">github.com/ss707494/salon-redesign-mockups</a></p>
+    </footer>
   </div>
-
-  <a class="card" href="royal_pet_beauty.html">
-    <strong>Royal Pet Beauty Shop</strong>
-    <span>Minneapolis pet grooming · warm sand redesign</span>
-  </a>
-  <a class="card" href="the_gates_salon.html">
-    <strong>The Gates Salon</strong>
-    <span>Pasadena · Black Suite Editorial (batch2)</span>
-  </a>
-  <a class="card" href="demure_nails_spa.html">
-    <strong>Demure Nails &amp; Spa</strong>
-    <span>Orange · Nail Billboard Booking (batch2)</span>
-  </a>
-  <a class="card" href="nailicious_spa.html">
-    <strong>Nailicious &amp; Spa</strong>
-    <span>Orange · Rose-Gold Type Billboard (batch2)</span>
-  </a>
-  <a class="card" href="beauty_breeze_nails.html">
-    <strong>Beauty Breeze Nails &amp; Spa</strong>
-    <span>San Diego · Cinema Mosaic Booking (batch2)</span>
-  </a>
-  <a class="card" href="the_bone_inn.html">
-    <strong>The Bone Inn</strong>
-    <span>Austin · Neon Sign + Bath POV</span>
-  </a>
-
-
-
-
-
-
 </body>
 </html>
