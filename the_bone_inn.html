@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Bone Inn · Dog Boarding &amp; Daycare · South Austin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --black-2: #121212;
+      --neon: #f0a030;
+      --neon-hot: #e04010;
+      --teal: #a0d0d0;
+      --cream: #f5f0e8;
+      --muted: #9a9590;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--cream);
+      background: var(--black);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .topbar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+    }
+    .topbar-logo {
+      height: 38px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(240, 160, 48, 0.35));
+    }
+    .topbar-phone {
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      color: var(--neon);
+      border: 1px solid rgba(240, 160, 48, 0.45);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(10, 10, 10, 0.65);
+      backdrop-filter: blur(6px);
+    }
+    .topbar-phone:hover { background: rgba(240, 160, 48, 0.18); }
+
+    /* —— Hero: photo-dominant stage + neon corner + BOOK overlay —— */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      overflow: hidden;
+      padding: 3.75rem 1.35rem 1rem;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(ellipse 55% 50% at 70% 45%, rgba(224, 64, 16, 0.14) 0%, transparent 55%),
+        var(--black);
+    }
+
+    .hero-stage {
+      position: relative;
+      flex: 1;
+      display: grid;
+      /* Photo dominates ~62%; brand strip ~38% — not 50/50 */
+      grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+      gap: 1.25rem;
+      align-items: stretch;
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
+      min-height: calc(100dvh - 4.75rem);
+    }
+
+    .hero-brand {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding-top: 0.5rem;
+      z-index: 5;
+    }
+    .hero-logo {
+      width: clamp(160px, 22vw, 280px);
+      height: auto;
+      filter:
+        drop-shadow(0 0 14px rgba(240, 160, 48, 0.5))
+        drop-shadow(0 0 28px rgba(224, 64, 16, 0.28));
+    }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .hook {
+      font-size: clamp(0.95rem, 1.35vw, 1.1rem);
+      font-weight: 600;
+      color: var(--cream);
+      max-width: 16rem;
+      line-height: 1.35;
+    }
+    .hook em {
+      font-style: normal;
+      color: var(--neon);
+    }
+
+    /* Photo half — dominates */
+    .hero-photo-wrap {
+      position: relative;
+      align-self: stretch;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 3px rgba(240, 160, 48, 0.4),
+        0 28px 70px rgba(0, 0, 0, 0.7),
+        0 0 60px rgba(224, 64, 16, 0.18);
+      min-height: 0;
+    }
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      max-height: calc(100dvh - 5rem);
+      object-fit: cover;
+      object-position: center 15%;
+    }
+
+    /* CTA band overlaid on bottom of bath card */
+    .cta-overlay {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      z-index: 6;
+      padding: 1.1rem 1.15rem 1rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 28%, rgba(0,0,0,0.92) 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .btn-book {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(2.35rem, 4vw, 3.35rem);
+      letter-spacing: 0.07em;
+      padding: 0.75rem 1.4rem 0.6rem;
+      min-height: 3.85rem;
+      background: linear-gradient(180deg, #f07028 0%, var(--neon-hot) 50%, #b02808 100%);
+      color: #fff;
+      border-radius: 12px;
+      box-shadow:
+        0 0 0 3px rgba(240, 160, 48, 0.45),
+        0 10px 36px rgba(224, 64, 16, 0.55),
+        0 0 48px rgba(224, 64, 16, 0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-book:hover {
+      transform: translateY(-2px) scale(1.015);
+      box-shadow:
+        0 0 0 3px rgba(240, 160, 48, 0.65),
+        0 14px 42px rgba(224, 64, 16, 0.65);
+    }
+    .cta-phone-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+    .cta-phone-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .cta-phone-num {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
+      letter-spacing: 0.04em;
+      color: var(--neon);
+      line-height: 1;
+    }
+    .cta-phone-num:hover { color: #ffc060; }
+
+    .photo-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 5;
+      background: rgba(10, 10, 10, 0.8);
+      border: 1px solid rgba(160, 208, 208, 0.45);
+      color: var(--teal);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    /* —— Services —— */
+    .services {
+      padding: 3.5rem 1.5rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.25rem;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .service-card {
+      background: var(--black-2);
+      border: 1px solid rgba(240, 160, 48, 0.18);
+      border-radius: 14px;
+      padding: 1.35rem 1.15rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      min-height: 160px;
+    }
+    .service-card h3 {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 1.65rem;
+      letter-spacing: 0.04em;
+      color: var(--neon);
+      font-weight: 400;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .service-card .price {
+      margin-top: auto;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--cream);
+    }
+
+    .decor {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0.85;
+    }
+    .decor img {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(240, 160, 48, 0.2));
+    }
+    .decor-note {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      max-width: 10rem;
+    }
+
+    .visit {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid rgba(240, 160, 48, 0.15);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .visit h2 {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.05em;
+      color: var(--neon);
+      margin-bottom: 0.75rem;
+    }
+    .visit p, .visit a {
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .visit a { color: var(--teal); }
+    .visit a:hover { color: var(--neon); }
+    .visit-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .visit .btn-book {
+      font-size: 1.85rem;
+      min-height: 3.4rem;
+      width: auto;
+      min-width: 240px;
+      padding: 0.65rem 1.4rem 0.55rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    footer img {
+      height: 48px;
+      width: auto;
+      margin: 0 auto 0.75rem;
+      opacity: 0.9;
+    }
+
+    /* —— Mobile: nav → compact logo → bath → giant BOOK+phone —— */
+    @media (max-width: 820px) {
+      .topbar-logo { height: 32px; }
+      .hero {
+        padding: 3.75rem 0.85rem 1rem;
+        min-height: 100dvh;
+      }
+      .hero-stage {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        min-height: 0;
+        flex: 1;
+      }
+      .hero-brand {
+        align-items: center;
+        text-align: center;
+        gap: 0.25rem;
+        padding-top: 0;
+        order: 1;
+      }
+      .hero-logo {
+        width: min(42vw, 148px);
+      }
+      .eyebrow { font-size: 0.62rem; letter-spacing: 0.12em; }
+      .hook {
+        font-size: 0.82rem;
+        max-width: 18rem;
+        line-height: 1.3;
+      }
+      .hero-photo-wrap {
+        order: 2;
+        flex: 1;
+        min-height: 0;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+      .hero-photo {
+        flex: 1;
+        min-height: 220px;
+        max-height: none;
+        height: auto;
+        aspect-ratio: auto;
+        /* Fill remaining viewport so logo+bath+CTA share first screen */
+        max-height: calc(100dvh - 13.5rem);
+        object-fit: cover;
+      }
+      .cta-overlay {
+        position: relative;
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.95) 40%);
+        padding: 0.65rem 0.75rem 0.85rem;
+        margin-top: -3.5rem;
+      }
+      .btn-book {
+        font-size: 2.35rem;
+        min-height: 3.6rem;
+        padding: 0.7rem 1rem 0.55rem;
+      }
+      .cta-phone-num { font-size: 1.55rem; }
+      .photo-badge {
+        top: 0.65rem;
+        right: 0.65rem;
+        font-size: 0.6rem;
+      }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .visit { grid-template-columns: 1fr; }
+      .decor { gap: 1rem; }
+      .decor img { width: 64px; height: 64px; }
+    }
+    @media (max-width: 480px) {
+      .service-grid { grid-template-columns: 1fr; }
+      .hero-logo { width: min(38vw, 132px); }
+      .btn-book { font-size: 2.15rem; min-height: 3.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#top" aria-label="The Bone Inn home">
+      <img class="topbar-logo" src="assets/the-bone-inn/logos/logo_primary.png" alt="The Bone Inn" width="120" height="78" />
+    </a>
+    <a class="topbar-phone" href="tel:+15123502985">(512) 350-2985</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Book dog boarding and daycare">
+      <div class="hero-stage">
+        <div class="hero-brand">
+          <img
+            class="hero-logo"
+            src="assets/the-bone-inn/logos/logo_primary.png"
+            alt="The Bone Inn — neon dog boarding &amp; daycare mark"
+            width="280"
+            height="182"
+          />
+          <p class="eyebrow">South Austin · Dog-only</p>
+          <p class="hook"><em>Skip the drive</em> — DayCamp picks up anywhere in Austin</p>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <img
+            class="hero-photo"
+            src="assets/the-bone-inn/images/baths_service.png"
+            alt="Real dog in a grooming tub at The Bone Inn baths station"
+            width="720"
+            height="900"
+          />
+          <span class="photo-badge">Baths · on site</span>
+          <div class="cta-overlay">
+            <a class="btn-book" href="https://theboneinn.portal.gingrapp.com" target="_blank" rel="noopener">BOOK NOW</a>
+            <div class="cta-phone-row">
+              <span class="cta-phone-label">Call</span>
+              <a class="cta-phone-num" href="tel:+15123502985">(512) 350-2985</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-label="Services">
+      <p class="section-label">Services</p>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Boarding</h3>
+          <p>Safe, comfortable home away from home with 24/7 monitoring and experienced staff.</p>
+        </article>
+        <article class="service-card">
+          <h3>Day Care</h3>
+          <p>Play, socialization, and enrichment in a stimulating South Austin facility.</p>
+        </article>
+        <article class="service-card">
+          <h3>Day Camp</h3>
+          <p>Van pickup &amp; drop-off anywhere in Austin for daycare or boarding.</p>
+        </article>
+        <article class="service-card">
+          <h3>Baths</h3>
+          <p>Premium shampoo, brush, and blow-dry. Fresh and fluffy.</p>
+          <span class="price">From $35+</span>
+        </article>
+      </div>
+    </section>
+
+    <div class="decor" aria-hidden="true">
+      <img src="assets/the-bone-inn/images/img_20.png" alt="" width="88" height="88" />
+      <p class="decor-note">Brand art · not photography</p>
+      <img src="assets/the-bone-inn/images/img_21.png" alt="" width="88" height="88" />
+    </div>
+
+    <section class="visit" id="visit" aria-label="Visit and contact">
+      <div>
+        <h2>Visit</h2>
+        <p>2005 Southern Oaks Drive<br />Austin, Texas 78745</p>
+        <p><a href="mailto:theboneinnatx@gmail.com">theboneinnatx@gmail.com</a></p>
+        <p><a href="tel:+15123502985">(512) 350-2985</a></p>
+      </div>
+      <div class="visit-cta">
+        <a class="btn-book" href="https://theboneinn.portal.gingrapp.com" target="_blank" rel="noopener">BOOK NOW</a>
+        <a href="mailto:theboneinnatx@gmail.com">Or email us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/the-bone-inn/logos/logo_primary.png" alt="The Bone Inn" width="120" height="78" />
+    <p>© The Bone Inn, LLC · South Austin · Dog boarding &amp; daycare</p>
+  </footer>
+</body>
+</html>
