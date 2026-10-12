@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nailicious &amp; Spa · Orange, CA — Book Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* Matched to logo_primary.jpg plate edges (~#bca293 / #c3ac9e) */
+      --plate: #c3ac9e;
+      --plate-mid: #bca293;
+      --plate-deep: #a89080;
+      --champagne: #c3ac9e;
+      --champagne-deep: #b29786;
+      --rose-soft: #d4b5a6;
+      --coral: #fdb1aa;
+      --coral-hot: #f89a90;
+      --brown: #3a2a22;
+      --brown-mid: #4a342a;
+      --brown-soft: #6b4e40;
+      --cream: #e8d5c8;
+      --white: #f5ebe3;
+      --rose-gold: #c9a08e;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--brown);
+      background: #e8d5c8;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* —— Phone-only top bar (no store-name duplicate) —— */
+    .topbar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1rem 1.5rem;
+    }
+    .topbar-phone {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--brown);
+      background: rgba(253, 177, 170, 0.55);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+    }
+
+    /* —— Poster hero: plate-matched field + rose-gold frame —— */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3.5rem 1.25rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+      /* Solid plate match so logo jpg beige dissolves into poster */
+      background:
+        radial-gradient(ellipse 95% 75% at 40% 25%, #cbb8a8 0%, transparent 58%),
+        linear-gradient(160deg, #c9b4a3 0%, #c5af9e 35%, #b9a090 68%, #ae9284 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 1rem;
+      border: 2px solid rgba(201, 160, 142, 0.7);
+      box-shadow: inset 0 0 0 1px rgba(255, 235, 220, 0.25);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      width: clamp(200px, 30vw, 360px);
+      max-width: 88%;
+    }
+    /* Rose-gold band embeds the mark; inner fill = plate avg so seams soften */
+    .logo-frame {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(145deg, #e0c4b0 0%, #c9a08e 40%, #9a7a68 100%);
+      box-shadow:
+        0 0 0 1px rgba(90, 60, 45, 0.22),
+        0 8px 24px rgba(58, 42, 34, 0.16);
+    }
+    .logo-frame-inner {
+      background: #c5af9e;
+      line-height: 0;
+    }
+    .hero-logo {
+      width: 100%;
+      display: block;
+    }
+    .hero-hook {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(1.15rem, 2.6vw, 1.65rem);
+      letter-spacing: 0.18em;
+      color: var(--brown);
+      line-height: 1.15;
+      margin-top: 0.35rem;
+    }
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 1.35rem 1.25rem;
+      background: var(--coral);
+      color: var(--brown);
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(2.5rem, 6.2vw, 3.85rem);
+      letter-spacing: 0.12em;
+      line-height: 1;
+      border: none;
+      border-radius: 4px;
+      box-shadow:
+        0 5px 0 #e07a70,
+        0 16px 36px rgba(58, 42, 34, 0.22);
+      transition: transform 0.15s ease, background 0.15s ease;
+      margin-top: 0.15rem;
+    }
+    .hero-cta:hover {
+      background: var(--coral-hot);
+      transform: translateY(-2px);
+    }
+    .hero-phone {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(1.75rem, 4.2vw, 2.6rem);
+      letter-spacing: 0.08em;
+      color: var(--brown);
+      margin-top: 0.1rem;
+    }
+    .hero-phone span {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brown-soft);
+      margin-bottom: 0.15rem;
+    }
+    .hero-since {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brown-soft);
+      margin-top: 0.25rem;
+    }
+
+    /* —— Sections —— */
+    section { padding: 4rem 1.5rem; }
+    .wrap { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brown-soft);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+      color: var(--brown);
+      margin-bottom: 1.75rem;
+      line-height: 1.15;
+    }
+
+    /* Services — text + color blocks, no photos */
+    .services {
+      background: var(--white);
+    }
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .svc-card {
+      padding: 2rem 1.5rem;
+      border-radius: 6px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card::before {
+      content: "";
+      position: absolute;
+      top: 1.25rem;
+      left: 1.5rem;
+      width: 36px;
+      height: 3px;
+      background: currentColor;
+      opacity: 0.55;
+    }
+    .svc-card h3 {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .svc-card p {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      opacity: 0.85;
+      position: relative;
+    }
+    .svc-man { background: linear-gradient(145deg, #f6e8e0, #edd5c8); color: var(--brown); }
+    .svc-ped { background: linear-gradient(145deg, #fde4df, #f9cfc8); color: var(--brown); }
+    .svc-art { background: linear-gradient(145deg, #e8d5c8, #d4b5a4); color: var(--brown); }
+
+    /* Why us */
+    .why {
+      background: #e8d5c8;
+    }
+    .why-copy {
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--brown-mid);
+    }
+    .why-copy strong { color: var(--brown); font-weight: 700; }
+
+    /* Testimonial */
+    .quote {
+      background: var(--brown);
+      color: #f3ebe4;
+      padding: 4rem 1.5rem;
+    }
+    .quote blockquote {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote p {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.45;
+      margin-bottom: 1.25rem;
+    }
+    .quote cite {
+      font-family: "DM Sans", sans-serif;
+      font-style: normal;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    /* Visit */
+    .visit {
+      background: #e8d5c8;
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .visit-block h3 {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.85rem;
+      color: var(--brown);
+    }
+    .visit-block p, .visit-block a {
+      font-size: 1rem;
+      color: var(--brown-mid);
+      line-height: 1.65;
+    }
+    .visit-block a:hover { color: var(--brown); text-decoration: underline; }
+    .hours-list {
+      list-style: none;
+      font-size: 0.95rem;
+      color: var(--brown-mid);
+    }
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(58, 42, 34, 0.1);
+      max-width: 320px;
+    }
+    .hours-list span:first-child { font-weight: 600; color: var(--brown); }
+    .visit-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .btn-coral {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.75rem;
+      background: var(--coral);
+      color: var(--brown);
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      box-shadow: 0 3px 0 #e88a80;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.5rem;
+      border: 1.5px solid var(--brown);
+      color: var(--brown);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--brown);
+      color: #f3ebe4;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .footer-logo {
+      width: 72px;
+      margin: 0 auto 1rem;
+      opacity: 0.95;
+      border-radius: 4px;
+    }
+    footer p {
+      font-size: 0.8rem;
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+    footer a { color: var(--coral); }
+
+    @media (max-width: 720px) {
+      .topbar { padding: 0.85rem 1rem; }
+      .hero {
+        padding: 3.75rem 1rem 2rem;
+        min-height: 100svh;
+      }
+      .hero::before, .hero::after { inset: 0.75rem; }
+      .hero::after { inset: 1rem; }
+      .hero-inner {
+        gap: 0.7rem;
+        width: min(78vw, 300px);
+        max-width: 92%;
+      }
+      .hero-cta {
+        padding: 1.2rem 1rem;
+        font-size: 2.6rem;
+      }
+      .hero-phone { font-size: 1.9rem; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .visit-grid { grid-template-columns: 1fr; gap: 2rem; }
+      section { padding: 3rem 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-phone" href="tel:+17149984263">(714) 998-4263</a>
+  </header>
+
+  <main id="top">
+    <!-- Rose-Gold Type Billboard — zero photography except logo_primary -->
+    <section class="hero" aria-label="Book Nailicious &amp; Spa">
+      <div class="hero-inner">
+        <div class="logo-frame">
+          <div class="logo-frame-inner">
+            <img
+              class="hero-logo"
+              src="assets/nailicious-spa/logos/logo_primary.jpg"
+              alt="Nailicious &amp; Spa"
+              width="512"
+              height="512"
+            />
+          </div>
+        </div>
+        <p class="hero-hook">CREATE YOUR PERFECT NAIL STYLE</p>
+        <a class="hero-cta" href="https://nailiciousspainc.com/appointment/">BOOK NOW</a>
+        <a class="hero-phone" href="tel:+17149984263">
+          <span>Call · Orange, CA</span>
+          (714) 998-4263
+        </a>
+        <p class="hero-since">Since 2005 · Nail &amp; Spa</p>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <p class="eyebrow">What we offer</p>
+        <h2 class="section-title">Manicure · Pedicure · Art</h2>
+        <div class="svc-grid">
+          <article class="svc-card svc-man">
+            <h3>Manicure</h3>
+            <p>Gel French, full-set almond, dip chrome, Gel-X ombré — clean lines, lasting polish.</p>
+          </article>
+          <article class="svc-card svc-ped">
+            <h3>Pedicure</h3>
+            <p>Spa pedi treatments that renew tired feet — comfort first, color that lasts.</p>
+          </article>
+          <article class="svc-card svc-art">
+            <h3>Art</h3>
+            <p>Cat eye, neon ombré, metallic chrome, 3D shells — custom designs that turn heads.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="about">
+      <div class="wrap">
+        <p class="eyebrow">Why us</p>
+        <h2 class="section-title">Excellence since 2005</h2>
+        <p class="why-copy">
+          <strong>Nailicious &amp; Spa</strong> is committed to excellence and the highest degree of customer satisfaction.
+          We provide stress reduction and renewed vitality through an integrated, personalized spa experience —
+          facials, waxing / hair removal, body spa treatments, and mani / pedi. Look and feel your very best.
+        </p>
+      </div>
+    </section>
+
+    <section class="quote" aria-label="Client review">
+      <blockquote>
+        <p>“Kathy and her team are welcoming and consistently deliver excellent customer service!”</p>
+        <cite>Kelli P. · Orange</cite>
+      </blockquote>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap">
+        <p class="eyebrow">Visit</p>
+        <h2 class="section-title">Come see us</h2>
+        <div class="visit-grid">
+          <div class="visit-block">
+            <h3>Location</h3>
+            <p>
+              1856 N Tustin St<br />
+              Orange, CA 92865
+            </p>
+            <p style="margin-top:0.75rem">
+              <a href="tel:+17149984263">(714) 998-4263</a><br />
+              <a href="mailto:nailiciousspainc@gmail.com">nailiciousspainc@gmail.com</a>
+            </p>
+            <div class="visit-cta-row">
+              <a class="btn-coral" href="https://nailiciousspainc.com/appointment/">BOOK NOW</a>
+              <a class="btn-outline" href="mailto:nailiciousspainc@gmail.com">Email us</a>
+            </div>
+          </div>
+          <div class="visit-block">
+            <h3>Hours</h3>
+            <ul class="hours-list">
+              <li><span>Mon–Thu</span><span>10am – 6:30pm</span></li>
+              <li><span>Friday</span><span>9am – 7pm</span></li>
+              <li><span>Saturday</span><span>9am – 6pm</span></li>
+              <li><span>Sunday</span><span>10am – 5pm</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img
+      class="footer-logo"
+      src="assets/nailicious-spa/logos/logo_primary.jpg"
+      alt=""
+      width="72"
+      height="72"
+    />
+    <p>
+      Nailicious &amp; Spa · 1856 N Tustin St, Orange, CA 92865<br />
+      <a href="tel:+17149984263">(714) 998-4263</a>
+      ·
+      <a href="mailto:nailiciousspainc@gmail.com">nailiciousspainc@gmail.com</a>
+    </p>
+  </footer>
+</body>
+</html>
