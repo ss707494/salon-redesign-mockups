@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- v10.2 real-photo retest · Art Direction A · Gloss Slash Booking -->
+  <title>Glossy Nails &amp; Spa · Orange CA — Book Online</title>
+  <meta name="description" content="Glossy Nails &amp; Spa in Orange, CA. Real nail art, single-use sanitation. Book online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #111111;
+      --black-deep: #0a0a0a;
+      --champagne: #e0d0a0;
+      --champagne-hot: #f0e0b8;
+      --white: #fafaf8;
+      --muted: #9a9588;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--white);
+      background: var(--black-deep);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1100px, 92%); margin-inline: auto; }
+
+    /* —— Slash hero —— */
+    .slash-hero {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    /* Diagonal slash: photo left-large, wedge right */
+    .slash-photo {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+      /* diagonal clip — left side keeps more, right edge slashes */
+      clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+      z-index: 1;
+    }
+    .slash-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* pre-cropped mid frames (images/crops) — no watermark/address */
+      object-position: center 42%;
+    }
+    .slash-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 55%, rgba(17,17,17,0.35) 100%);
+      pointer-events: none;
+    }
+
+    .slash-wedge {
+      position: relative;
+      z-index: 2;
+      margin-left: -18%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.35rem;
+      padding: 2rem 1.5rem 2rem 2.25rem;
+      background: var(--black);
+      text-align: center;
+    }
+    .wedge-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--champagne);
+    }
+    .book-mega {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(4.2rem, 11vw, 7.5rem);
+      letter-spacing: 0.06em;
+      line-height: 0.9;
+      color: var(--black);
+      background: var(--champagne);
+      padding: 0.42em 0.58em 0.34em;
+      min-width: min(100%, 320px);
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 8px 28px rgba(224, 208, 160, 0.22);
+    }
+    .book-mega:hover {
+      background: var(--champagne-hot);
+      transform: scale(1.03);
+    }
+    .wedge-phone {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(224, 208, 160, 0.35);
+      padding-bottom: 2px;
+    }
+    .wedge-phone:hover { color: var(--champagne); }
+
+    /* —— Sanitation + chips —— */
+    .sanitation {
+      background: var(--black);
+      border-top: 1px solid rgba(224, 208, 160, 0.18);
+      border-bottom: 1px solid rgba(224, 208, 160, 0.18);
+      padding: 2.4rem 0;
+    }
+    .sanitation p {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      font-style: italic;
+      color: var(--champagne);
+      text-align: center;
+      max-width: 38rem;
+      margin: 0 auto 1.6rem;
+      line-height: 1.45;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+    .chip {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid rgba(224, 208, 160, 0.4);
+      padding: 0.45rem 0.85rem;
+      background: transparent;
+    }
+
+    /* —— Gallery mid-crop grid —— */
+    .gallery {
+      padding: 3.2rem 0 2.5rem;
+      background: var(--black-deep);
+    }
+    .gallery h2 {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: 0.08em;
+      color: var(--champagne);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.55rem;
+    }
+    .gallery-grid figure {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* pre-cropped mid frames */
+      object-position: center center;
+    }
+
+    /* —— Visit —— */
+    .visit {
+      padding: 3rem 0;
+      background: var(--black);
+      border-top: 1px solid rgba(224, 208, 160, 0.15);
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .visit h2 {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      color: var(--champagne);
+      margin-bottom: 1rem;
+    }
+    .visit address {
+      font-style: normal;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--white);
+    }
+    .visit a { color: var(--champagne); }
+    .visit a:hover { text-decoration: underline; }
+    .hours-list {
+      list-style: none;
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .hours-list span:last-child { color: var(--muted); }
+
+    /* —— Bottom BOOK —— */
+    .book-again {
+      background: var(--champagne);
+      color: var(--black);
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+    .book-again a.book-mega {
+      background: var(--black);
+      color: var(--champagne);
+      box-shadow: none;
+    }
+    .book-again a.book-mega:hover {
+      background: #222;
+      color: var(--champagne-hot);
+    }
+    .book-again .sub {
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+    }
+    .book-again .sub a { border-bottom: 1px solid rgba(17,17,17,0.35); }
+
+    footer {
+      padding: 1.4rem 1rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: var(--black-deep);
+    }
+    footer a { color: var(--champagne); }
+
+    /* —— Mobile: stacked — photo top, full-width BOOK bottom —— */
+    @media (max-width: 760px) {
+      .slash-hero {
+        grid-template-columns: 1fr;
+        min-height: 100dvh;
+      }
+      .slash-photo {
+        clip-path: none;
+        min-height: 52dvh;
+        height: 52dvh;
+      }
+      .slash-photo img {
+        object-position: center 40%;
+      }
+      .slash-photo::after {
+        background: linear-gradient(to bottom, transparent 60%, rgba(17,17,17,0.55) 100%);
+      }
+      .slash-wedge {
+        margin-left: 0;
+        min-height: 48dvh;
+        padding: 1rem 1rem 1.4rem;
+        gap: 1rem;
+        justify-content: center;
+      }
+      .wedge-logo { width: 48px; height: 48px; }
+      .book-mega {
+        font-size: clamp(4.2rem, 22vw, 5.8rem);
+        width: 100%;
+        min-width: 0;
+        min-height: 7.5rem;
+        padding: 1.15em 0.35em 1em;
+      }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .visit-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- A · Gloss Slash Booking · v10.2 real-photo retest -->
+  <section class="slash-hero" aria-label="Glossy Nails &amp; Spa — book now">
+    <div class="slash-photo">
+      <img
+        src="assets/glossy-nails-spa/images/crops/photo_06.jpg"
+        alt="Butterfly-wing coffin nails outdoors — Glossy Nails &amp; Spa, Orange CA"
+        width="900"
+        height="900"
+      />
+    </div>
+    <aside class="slash-wedge">
+      <img
+        class="wedge-logo"
+        src="assets/glossy-nails-spa/logos/logo_primary.png"
+        alt="Glossy Nails &amp; Spa"
+        width="64"
+        height="64"
+      />
+      <a
+        class="book-mega"
+        href="https://booking.gocheckin.net/v2/13908"
+        target="_blank"
+        rel="noopener"
+      >BOOK</a>
+      <a class="wedge-phone" href="tel:+17149419909">(714) 941-9909</a>
+    </aside>
+  </section>
+
+  <section class="sanitation" id="services">
+    <div class="wrap">
+      <p>
+        Single-use tips, buffers &amp; liners — sanitation first, every visit.
+      </p>
+      <div class="chips" aria-label="Services">
+        <span class="chip">Gel X</span>
+        <span class="chip">Acrylic</span>
+        <span class="chip">Dipping</span>
+        <span class="chip">Gel Mani</span>
+        <span class="chip">Pedicure</span>
+        <span class="chip">Nail Art</span>
+        <span class="chip">Waxing</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <h2>Our Work</h2>
+      <div class="gallery-grid">
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_05.jpg" alt="Lime glitter stiletto nails" width="900" height="900" loading="lazy" /></figure>
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_01.jpg" alt="Pop-art red and white stiletto nails" width="900" height="900" loading="lazy" /></figure>
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_12.jpg" alt="Glossy Nails &amp; Spa nail art" width="900" height="900" loading="lazy" /></figure>
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_02.jpg" alt="Ombre coffin nails with swirl art" width="900" height="900" loading="lazy" /></figure>
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_03.jpg" alt="Glossy Nails &amp; Spa nail art" width="900" height="900" loading="lazy" /></figure>
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_04.jpg" alt="Glossy Nails &amp; Spa nail art" width="900" height="900" loading="lazy" /></figure>
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_07.jpg" alt="Glossy Nails &amp; Spa nail art" width="900" height="900" loading="lazy" /></figure>
+        <figure><img src="assets/glossy-nails-spa/images/crops/photo_08.jpg" alt="Glossy Nails &amp; Spa nail art" width="900" height="900" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <h2>Visit</h2>
+        <address>
+          <strong>Glossy Nails &amp; Spa</strong><br />
+          2267 N Tustin St<br />
+          Orange, CA 92865<br /><br />
+          <a href="tel:+17149419909">(714) 941-9909</a><br />
+          <a href="mailto:pequyen1209@gmail.com">pequyen1209@gmail.com</a><br />
+          <a href="https://www.instagram.com/glossynailsnspa" target="_blank" rel="noopener">@glossynailsnspa</a>
+        </address>
+      </div>
+      <div>
+        <h2>Hours</h2>
+        <ul class="hours-list">
+          <li><span>Mon – Fri</span><span>9:30 – 7:00</span></li>
+          <li><span>Saturday</span><span>9:30 – 6:00</span></li>
+          <li><span>Sunday</span><span>Closed</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-again">
+    <a
+      class="book-mega"
+      href="https://booking.gocheckin.net/v2/13908"
+      target="_blank"
+      rel="noopener"
+    >BOOK</a>
+    <p class="sub">
+      Or call <a href="tel:+17149419909">(714) 941-9909</a>
+    </p>
+  </section>
+
+  <footer>
+    © Glossy Nails &amp; Spa · Orange, CA ·
+    <a href="https://booking.gocheckin.net/v2/13908" target="_blank" rel="noopener">Book online</a>
+  </footer>
+</body>
+</html>
