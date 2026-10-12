@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Demure Nails &amp; Spa · Orange, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0c0c0c;
+    --near-black: #111111;
+    --slate: #6a7d8a;
+    --slate-deep: #4a5c68;
+    --warm: #906050;
+    --warm-soft: #b08070;
+    --cream: #f4f1ed;
+    --paper: #faf8f6;
+    --white: #ffffff;
+    --muted: #6b6560;
+    --line: rgba(106,125,138,0.22);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(1120px, 92vw); margin-inline: auto; }
+
+  /* —— NAV: black bar so logo_primary reads —— */
+  .nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 40;
+    background: rgba(0,0,0,0.88);
+    border-bottom: 1px solid rgba(106,125,138,0.25);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    width: min(1120px, 92vw);
+    margin-inline: auto;
+  }
+  .nav-logo img {
+    height: 42px;
+    width: auto;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-phone {
+    color: #fff !important;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .nav-toggle { display: none; background: none; border: 0; color: #fff; font-size: 1.4rem; cursor: pointer; }
+
+  /* —— HERO BILLBOARD —— */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: #000;
+  }
+  .hero-media {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+  }
+  .hero-shade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 32%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.92) 100%),
+      linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.25) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+    padding: 6.5rem 0 3.6rem;
+  }
+  .hero-title {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-weight: 400;
+    font-size: clamp(3.6rem, 10vw, 7.6rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: #fff;
+    max-width: 11ch;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+  }
+  .hero-cta-row {
+    margin-top: 1.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.1rem 1.6rem;
+  }
+  .btn-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 320px;
+    min-height: 78px;
+    padding: 1.25rem 3.2rem;
+    background: #fff;
+    color: var(--ink);
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: 2.35rem;
+    letter-spacing: 0.14em;
+    border-radius: 4px;
+    box-shadow: 0 14px 48px rgba(0,0,0,0.5);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-book:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+  }
+  .phone-strip {
+    display: inline-flex;
+    align-items: center;
+  }
+  .phone-strip a {
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .phone-strip a:hover { color: var(--warm-soft); }
+
+  /* —— SIGNATURE CARDS —— */
+  .sigs {
+    padding: 4.5rem 0 3.5rem;
+    background: var(--paper);
+  }
+  .sec-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 0.5rem;
+  }
+  .sec-title {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .sec-lead {
+    color: var(--muted);
+    max-width: 48ch;
+    margin-bottom: 2rem;
+  }
+  .sig-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+  .sig-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.5rem 1.35rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .sig-card.featured {
+    border-color: var(--slate);
+    box-shadow: 0 16px 40px rgba(74,92,104,0.12);
+  }
+  .sig-card.featured::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--slate), var(--warm));
+  }
+  .sig-star {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 0.55rem;
+  }
+  .sig-name {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: 1.75rem;
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    margin-bottom: 0.65rem;
+  }
+  .sig-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    flex: 1;
+    margin-bottom: 1.2rem;
+  }
+  .sig-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-top: 1px solid var(--line);
+    padding-top: 0.95rem;
+  }
+  .sig-price {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: 2.1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .sig-price small {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-left: 0.25rem;
+  }
+  .sig-note {
+    font-size: 0.72rem;
+    color: var(--slate);
+    font-weight: 600;
+  }
+  .price-foot {
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* —— GALLERY —— */
+  .gallery {
+    padding: 1rem 0 4.5rem;
+    background: var(--near-black);
+    color: #fff;
+  }
+  .gallery .sec-label { color: var(--warm-soft); padding-top: 3.5rem; }
+  .gallery .sec-title { color: #fff; }
+  .gallery .sec-lead { color: rgba(255,255,255,0.62); }
+  .gal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.65rem;
+    margin-top: 1.75rem;
+  }
+  .gal-grid figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 3 / 4;
+    background: #1a1a1a;
+  }
+  .gal-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .gal-grid figure:hover img { transform: scale(1.05); }
+  .gal-grid figure:nth-child(1),
+  .gal-grid figure:nth-child(6) {
+    grid-row: span 1;
+  }
+
+  /* —— QUOTE —— */
+  .quote {
+    padding: 3.5rem 0;
+    background: var(--cream);
+    text-align: center;
+  }
+  .quote blockquote {
+    font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+    font-weight: 500;
+    max-width: 38ch;
+    margin: 0 auto 1rem;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .quote cite {
+    font-style: normal;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* —— VISIT —— */
+  .visit {
+    padding: 4rem 0;
+    background: var(--paper);
+  }
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .visit-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.75rem;
+  }
+  .visit-card h3 {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.85rem;
+  }
+  .visit-card p, .visit-card li {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .visit-card ul { list-style: none; }
+  .visit-card li + li { margin-top: 0.35rem; }
+  .visit-card strong { color: var(--ink); font-weight: 600; }
+  .visit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.4rem;
+  }
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.4rem;
+    background: var(--ink);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 3px;
+  }
+  .btn-solid:hover { background: var(--slate-deep); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+  .btn-ghost:hover { border-color: var(--slate); color: var(--slate-deep); }
+
+  /* —— FOOTER —— */
+  .footer {
+    background: #000;
+    color: rgba(255,255,255,0.7);
+    padding: 2rem 0 2.4rem;
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+  .footer-logo img { height: 36px; width: auto; opacity: 0.95; }
+  .footer-meta {
+    font-size: 0.8rem;
+    text-align: right;
+  }
+  .footer-meta a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.25); }
+  .footer-meta a:hover { border-color: #fff; }
+
+  /* —— MOBILE —— */
+  @media (max-width: 900px) {
+    .sig-grid { grid-template-columns: 1fr; }
+    .gal-grid { grid-template-columns: repeat(2, 1fr); }
+    .visit-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .hero { min-height: 100svh; }
+    .hero-content { padding: 5.5rem 0 2.4rem; }
+    .hero-title { font-size: clamp(3.1rem, 13vw, 4.6rem); max-width: none; }
+    .btn-book {
+      width: 100%;
+      min-width: 0;
+      min-height: 72px;
+      font-size: 2.05rem;
+      padding: 1.15rem 1.5rem;
+    }
+    .hero-cta-row { flex-direction: column; align-items: stretch; gap: 0.95rem; }
+    .phone-strip a { font-size: 1.25rem; }
+    .footer-meta { text-align: left; }
+  }
+  @media (max-width: 480px) {
+    .nav-logo img { height: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Demure Nails &amp; Spa home">
+      <img src="assets/demure-nails-spa/logos/logo_primary.png" alt="Demure Nails &amp; Spa" width="200" height="48" />
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#signatures">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+      <a class="nav-phone" href="tel:+17142798196">(714) 279-8196</a>
+    </nav>
+    <a class="nav-phone" href="tel:+17142798196" style="display:none" id="navPhoneMobile">(714) 279-8196</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- BILLBOARD FIRST SCREEN -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-media">
+      <img
+        src="assets/demure-nails-spa/images/img_04.jpg"
+        alt="Blueberry nail art close-up at Demure Nails &amp; Spa"
+        width="800"
+        height="1200"
+        fetchpriority="high"
+      />
+      <div class="hero-shade" aria-hidden="true"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">NAIL ART THAT STOPS THE SCROLL</h1>
+      <div class="hero-cta-row">
+        <a class="btn-book" href="https://lk.macmarketing.us/DemureNailsSpa-Booking" target="_blank" rel="noopener">BOOK NOW</a>
+        <div class="phone-strip">
+          <a href="tel:+17142798196">(714) 279-8196</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE SERVICES -->
+  <section class="sigs" id="signatures">
+    <div class="wrap">
+      <p class="sec-label">Signature · Cash prices</p>
+      <h2 class="sec-title">THREE STARS WORTH BOOKING</h2>
+      <p class="sec-lead">Our most-loved pedi and mani — jelly bath, detox soaks, hot stone, paraffin. Gel polish +$15.</p>
+      <div class="sig-grid">
+        <article class="sig-card featured">
+          <p class="sig-star">★ Signature</p>
+          <h3 class="sig-name">Organic Jelly Pedi</h3>
+          <p class="sig-desc">Jelly bath, callus treatment, detox scrub, paraffin treatment, 16-minute hot stone massage, cooling gel, leg mask.</p>
+          <div class="sig-price-row">
+            <p class="sig-price">$65 <small>cash</small></p>
+            <span class="sig-note">Card $66.95</span>
+          </div>
+        </article>
+        <article class="sig-card">
+          <p class="sig-star">★ Signature</p>
+          <h3 class="sig-name">Detox Pedicure</h3>
+          <p class="sig-desc">Detox soak, callus treatment, citrus scrub, paraffin treatment, 12-minute hot stone massage, cooling gel, leg mask.</p>
+          <div class="sig-price-row">
+            <p class="sig-price">$50 <small>cash</small></p>
+            <span class="sig-note">Card $51.50</span>
+          </div>
+        </article>
+        <article class="sig-card">
+          <p class="sig-star">★ Signature</p>
+          <h3 class="sig-name">Detox Manicure</h3>
+          <p class="sig-desc">Detox soak, exfoliating citrus scrub, paraffin treatment, 10-minute massage, cooling gel, hand mask.</p>
+          <div class="sig-price-row">
+            <p class="sig-price">$40 <small>cash</small></p>
+            <span class="sig-note">Card $41.20</span>
+          </div>
+        </article>
+      </div>
+      <p class="price-foot">Includes nail trimming, shaping, cuticle care, buff, warm towel, and polish. Combo Mani + Pedi: $2 off cash.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <p class="sec-label">Gallery</p>
+      <h2 class="sec-title">REAL WORK. REAL HANDS.</h2>
+      <p class="sec-lead">From blueberry art to soft spa finishes — the looks guests ask for by name.</p>
+      <div class="gal-grid">
+        <figure><img src="assets/demure-nails-spa/images/img_01.jpg" alt="Nail art gallery 1" loading="lazy" width="400" height="533" /></figure>
+        <figure><img src="assets/demure-nails-spa/images/img_02.jpg" alt="Nail art gallery 2" loading="lazy" width="400" height="533" /></figure>
+        <figure><img src="assets/demure-nails-spa/images/img_03.jpg" alt="Nail art gallery 3" loading="lazy" width="400" height="533" /></figure>
+        <figure><img src="assets/demure-nails-spa/images/img_05.jpg" alt="Nail art gallery 5" loading="lazy" width="400" height="533" /></figure>
+        <figure><img src="assets/demure-nails-spa/images/img_06.jpg" alt="Nail art gallery 6" loading="lazy" width="400" height="533" /></figure>
+        <figure><img src="assets/demure-nails-spa/images/img_07.jpg" alt="Nail art detail gallery 7" loading="lazy" width="400" height="533" /></figure>
+        <figure><img src="assets/demure-nails-spa/images/img_08.jpg" alt="Nail art gallery 8" loading="lazy" width="400" height="533" /></figure>
+        <figure><img src="assets/demure-nails-spa/images/img_04.jpg" alt="Blueberry nail art hero reprise" loading="lazy" width="400" height="533" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL (real from site) -->
+  <section class="quote" aria-label="Guest review">
+    <div class="wrap">
+      <blockquote>“The Organic Jelly Detox Pedi is amazing! My feet feel softer than ever, and the massage melted away all my stress.”</blockquote>
+      <cite>Isolde Harper</cite>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="sec-label">Visit us</p>
+        <h2 class="sec-title">ORANGE · N TUSTIN</h2>
+        <p class="sec-lead" style="margin-bottom:1.25rem">Demure Nails &amp; Spa — tailored nail and spa services designed to pamper, refresh, and inspire confidence.</p>
+        <div class="visit-actions">
+          <a class="btn-solid" href="https://lk.macmarketing.us/DemureNailsSpa-Booking" target="_blank" rel="noopener">Book an appointment</a>
+          <a class="btn-ghost" href="tel:+17142798196">Call (714) 279-8196</a>
+          <a class="btn-ghost" href="mailto:demurenailsoc@gmail.com">Email</a>
+        </div>
+      </div>
+      <div class="visit-card">
+        <h3>Studio details</h3>
+        <ul>
+          <li><strong>Address</strong><br />1968 N Tustin St, Orange, CA 92865</li>
+          <li style="margin-top:0.9rem"><strong>Hours</strong><br />Mon–Sat 10:00 AM – 7:00 PM<br />Sunday 10:00 AM – 5:00 PM</li>
+          <li style="margin-top:0.9rem"><strong>Phone</strong><br /><a href="tel:+17142798196">(714) 279-8196</a></li>
+          <li style="margin-top:0.9rem"><strong>Email</strong><br /><a href="mailto:demurenailsoc@gmail.com">demurenailsoc@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="footer-logo" href="#top">
+      <img src="assets/demure-nails-spa/logos/logo_primary.png" alt="Demure Nails &amp; Spa" width="180" height="43" />
+    </a>
+    <div class="footer-meta">
+      <div>© 2025 Demure Nails &amp; Spa · Orange, CA</div>
+      <div style="margin-top:0.35rem"><a href="mailto:demurenailsoc@gmail.com">demurenailsoc@gmail.com</a> · <a href="tel:+17142798196">(714) 279-8196</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var mq = window.matchMedia("(max-width: 900px)");
+    var el = document.getElementById("navPhoneMobile");
+    function sync() {
+      if (!el) return;
+      el.style.display = mq.matches ? "inline-flex" : "none";
+      el.style.fontWeight = "700";
+      el.style.color = "#fff";
+      el.style.fontSize = "0.85rem";
+      el.style.letterSpacing = "0.04em";
+    }
+    sync();
+    mq.addEventListener("change", sync);
+  })();
+</script>
+</body>
+</html>
