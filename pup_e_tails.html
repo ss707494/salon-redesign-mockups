@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pup-E-Tails · Pet Grooming · Torrance CA since 2002</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mint: #d0e0a0;
+      --mint-soft: #e8f0c8;
+      --cream: #f7f4ec;
+      --teal: #60a0b0;
+      --teal-deep: #3d7a8a;
+      --orange: #f0c070;
+      --orange-hot: #e8a030;
+      --ink: #1a3a5c;
+      --ink-soft: #3a5a7a;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1100px, 92%); margin-inline: auto; }
+
+    /* —— Top nav —— */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.45rem 1.15rem;
+      background: rgba(247, 244, 236, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(96, 160, 176, 0.25);
+    }
+    .topbar-logo {
+      height: 40px;
+      width: auto;
+      border-radius: 50%;
+    }
+    .topbar-phone {
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: var(--mint);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 2px solid var(--teal);
+    }
+    .topbar-phone:hover { background: var(--orange); }
+
+    /* —— Hero r1: centered badge billboard + auxiliary photo (NOT 50/50) —— */
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 18%, rgba(208, 224, 160, 0.9) 0%, transparent 58%),
+        radial-gradient(ellipse 45% 40% at 90% 70%, rgba(96, 160, 176, 0.18) 0%, transparent 55%),
+        var(--cream);
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 54px);
+      min-height: calc(100dvh - 54px);
+    }
+
+    .hero-stage {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.65rem 1rem 0;
+      width: min(920px, 94%);
+      margin-inline: auto;
+      position: relative;
+    }
+
+    .badge-zone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 2;
+    }
+    .badge-billboard {
+      width: min(48vw, 420px);
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 10px var(--white),
+        0 0 0 16px var(--teal),
+        0 22px 48px rgba(26, 58, 92, 0.24);
+      background: var(--white);
+    }
+    .hook {
+      font-family: "Nunito", sans-serif;
+      font-weight: 700;
+      font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+      color: var(--ink-soft);
+      letter-spacing: 0.01em;
+      max-width: 28rem;
+      line-height: 1.35;
+      margin-top: 0.35rem;
+      text-align: center;
+      margin-inline: auto;
+    }
+    .hook strong { color: var(--teal-deep); }
+
+    /* Photo as lower auxiliary card — overlaps bottom of badge zone */
+    .photo-aux {
+      position: relative;
+      z-index: 3;
+      width: min(640px, 100%);
+      margin-top: -3.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .photo-card {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(26, 58, 92, 0.22);
+      border: 4px solid var(--white);
+      background: var(--teal);
+      aspect-ratio: 2.4 / 1;
+      max-height: 220px;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+    }
+    .photo-caption {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      font-weight: 600;
+      text-align: center;
+    }
+    .photo-caption span {
+      display: inline-block;
+      background: var(--mint);
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      margin-right: 0.3rem;
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Desktop: hook + caption stay in stage; mobile notes duplicate below BOOK */
+    .hero-notes { display: none; }
+
+    /* —— BOOK: full-width tall strip button —— */
+    .book-strip {
+      margin-top: auto;
+      background: var(--orange-hot);
+      box-shadow: 0 -6px 28px rgba(232, 160, 48, 0.4);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .book-strip .book-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 76px;
+      padding: 1rem 1.25rem;
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.55rem, 4vw, 2.45rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      border: none;
+      border-radius: 0;
+      text-align: center;
+      transition: background 0.12s ease;
+    }
+    .book-strip .book-cta:hover { background: var(--teal-deep); }
+    .book-strip .book-sub {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem 1rem;
+      padding: 0.45rem 1rem 0.55rem;
+      font-family: "Nunito", sans-serif;
+      background: var(--orange-hot);
+    }
+    .book-strip .book-phone {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink);
+      opacity: 0.9;
+    }
+    .book-strip .book-phone:hover { text-decoration: underline; }
+    .book-strip .walkins {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      opacity: 0.75;
+    }
+
+    /* —— Sections below —— */
+    section { padding: 3rem 0; }
+    .sec-title {
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .services { background: var(--mint-soft); }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+    .chip {
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--ink);
+      border: 2px solid var(--teal);
+      box-shadow: 0 2px 0 rgba(96, 160, 176, 0.35);
+    }
+    .chip.price {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+    .chip.cat {
+      background: var(--cream);
+      border-style: dashed;
+    }
+    .chip-note {
+      margin-top: 0.85rem;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    .why { background: var(--cream); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .why-card {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1.25rem 1.15rem;
+      border-top: 4px solid var(--teal);
+      box-shadow: 0 6px 18px rgba(26, 58, 92, 0.08);
+    }
+    .why-card h3 {
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+    .why-card p { font-size: 0.92rem; color: var(--ink-soft); }
+
+    .gallery { background: var(--mint); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+    }
+    .gallery-grid figure {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 3px solid var(--white);
+      box-shadow: 0 8px 20px rgba(26, 58, 92, 0.12);
+      aspect-ratio: 1;
+      background: var(--teal);
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .visit { background: var(--cream); }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .visit-card {
+      background: var(--white);
+      border-radius: 1.1rem;
+      padding: 1.5rem;
+      border: 2px solid rgba(96, 160, 176, 0.35);
+    }
+    .visit-card h3 {
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .visit-card p, .visit-card li {
+      font-size: 0.98rem;
+      color: var(--ink-soft);
+    }
+    .visit-card ul { list-style: none; margin-top: 0.35rem; }
+    .visit-card a { color: var(--teal-deep); font-weight: 700; }
+    .visit-card a:hover { text-decoration: underline; }
+
+    .cta-again {
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+    .cta-again h2 {
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      margin-bottom: 1rem;
+    }
+    .cta-again .book-cta {
+      display: inline-block;
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--orange-hot);
+      color: var(--ink);
+      padding: 0.85rem 1.75rem;
+      border-radius: 0.65rem;
+      margin: 0.35rem;
+    }
+    .cta-again .book-cta:hover { background: var(--orange); }
+    .cta-again .call-cta {
+      display: inline-block;
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 0.85rem 1.35rem;
+      border-radius: 0.65rem;
+      border: 2px solid var(--mint);
+      color: var(--mint);
+      margin: 0.35rem;
+    }
+
+    footer {
+      background: #122840;
+      color: rgba(247, 244, 236, 0.75);
+      padding: 1.75rem 1rem;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+    footer img {
+      height: 56px;
+      width: auto;
+      margin: 0 auto 0.75rem;
+      border-radius: 50%;
+    }
+    footer a { color: var(--orange); font-weight: 700; }
+
+    /* —— Mobile r1: compact badge + photo + BOOK trio; copy under BOOK —— */
+    @media (max-width: 760px) {
+      .topbar { padding: 0.35rem 0.85rem; }
+      .topbar-logo { height: 32px; }
+      .topbar-phone { font-size: 0.78rem; padding: 0.28rem 0.6rem; }
+
+      .hero {
+        min-height: auto;
+      }
+      .hero-stage {
+        padding: 0.4rem 0.75rem 0.35rem;
+        width: 100%;
+      }
+      .badge-billboard {
+        width: min(34vw, 128px);
+        box-shadow:
+          0 0 0 4px var(--white),
+          0 0 0 7px var(--teal),
+          0 8px 18px rgba(26, 58, 92, 0.2);
+      }
+      /* Hide long copy from first-screen trio */
+      .desktop-only {
+        display: none !important;
+      }
+      .photo-aux {
+        margin-top: 0.4rem;
+        width: 100%;
+      }
+      .photo-card {
+        max-height: 150px;
+        aspect-ratio: 2.1 / 1;
+        border-radius: 0.9rem;
+        border-width: 3px;
+      }
+      .book-strip .book-cta {
+        min-height: 64px;
+        font-size: 1.35rem;
+        letter-spacing: 0.06em;
+        padding: 0.85rem 0.75rem;
+      }
+      .book-strip .book-sub {
+        padding: 0.35rem 0.75rem 0.45rem;
+        gap: 0.25rem 0.75rem;
+      }
+      .book-strip .book-phone { font-size: 0.85rem; font-weight: 600; }
+      .book-strip .walkins { font-size: 0.72rem; }
+
+      /* Notes appear under BOOK (below first-screen trio) */
+      .hero-notes {
+        display: block;
+        padding: 0.75rem 1rem 0.5rem;
+        background: var(--cream);
+        text-align: center;
+      }
+      .hero-notes .hook {
+        display: block;
+        margin: 0 auto 0.4rem;
+        font-size: 0.82rem;
+        max-width: 100%;
+      }
+      .hero-notes .photo-caption {
+        display: block;
+        font-size: 0.8rem;
+      }
+
+      .why-grid, .visit-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid figure:last-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 2 / 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#top" aria-label="Pup-E-Tails home">
+      <img class="topbar-logo" src="assets/pup-e-tails/logos/logo_primary.png" alt="Pup-E-Tails logo" width="40" height="40" />
+    </a>
+    <a class="topbar-phone" href="tel:+13103299344">(310) 329-9344</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-stage">
+        <div class="badge-zone">
+          <img
+            class="badge-billboard"
+            src="assets/pup-e-tails/logos/logo_primary.png"
+            alt="Pup-E-Tails — serving Torrance, CA since 2002"
+            width="420"
+            height="420"
+          />
+        </div>
+        <div class="photo-aux">
+          <div class="photo-card">
+            <img
+              src="assets/pup-e-tails/images/about-2.jpg"
+              alt="Dog receiving professional grooming care at Pup-E-Tails"
+              width="1000"
+              height="500"
+            />
+          </div>
+          <p class="hook desktop-only">
+            <strong>Torrance since 2002</strong> · Not a big-box · Pamper your pup (and cat)
+          </p>
+          <p class="photo-caption desktop-only">
+            <span>Real care</span>
+            Neighborhood salon — dogs, cats &amp; small pets · Haircut from $60
+          </p>
+        </div>
+      </div>
+
+      <div class="book-strip">
+        <a class="book-cta" href="https://www.pup-e-tails.net/appointment">Book Appointment</a>
+        <div class="book-sub">
+          <a class="book-phone" href="tel:+13103299344">(310) 329-9344</a>
+          <span class="walkins">Walk-ins welcome · Mobile grooming available</span>
+        </div>
+      </div>
+
+      <div class="hero-notes" aria-hidden="false">
+        <p class="hook">
+          <strong>Torrance since 2002</strong> · Not a big-box · Pamper your pup (and cat)
+        </p>
+        <p class="photo-caption">
+          <span>Real care</span>
+          Neighborhood salon — dogs, cats &amp; small pets · Haircut from $60
+        </p>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <h2 class="sec-title">What we offer</h2>
+        <div class="chips" role="list">
+          <span class="chip" role="listitem">Dog Grooming</span>
+          <span class="chip cat" role="listitem">Cat Grooming</span>
+          <span class="chip" role="listitem">Bath &amp; Brush</span>
+          <span class="chip price" role="listitem">Haircut from $60</span>
+          <span class="chip" role="listitem">De-shed Treatment</span>
+          <span class="chip" role="listitem">Nail &amp; Ear Care</span>
+          <span class="chip" role="listitem">Deep Cleaning</span>
+        </div>
+        <p class="chip-note">Cat Grooming is gentle, appointment-preferred care — ask us when you book. Pricing varies by breed, size &amp; coat.</p>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="wrap">
+        <h2 class="sec-title">Why Pup-E-Tails</h2>
+        <div class="why-grid">
+          <article class="why-card">
+            <h3>Certified groomers</h3>
+            <p>Experienced pros trained in safe, gentle grooming — 20+ years in Torrance.</p>
+          </article>
+          <article class="why-card">
+            <h3>Organic products</h3>
+            <p>Premium, pet-safe, hypoallergenic shampoos and coat care — no harsh shortcuts.</p>
+          </article>
+          <article class="why-card">
+            <h3>Mobile grooming</h3>
+            <p>Spa-quality grooming at our Artesia Blvd salon or brought to your doorstep.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+        <h2 class="sec-title">In the salon</h2>
+        <div class="gallery-grid">
+          <figure>
+            <img src="assets/pup-e-tails/images/about-1.jpg" alt="Pet grooming studio portrait" width="600" height="600" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="assets/pup-e-tails/images/pet.jpg" alt="Freshly groomed dog" width="600" height="600" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="assets/pup-e-tails/images/pet-2.jpg" alt="Dog after grooming session" width="500" height="350" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap">
+        <h2 class="sec-title">Visit us</h2>
+        <div class="visit-grid">
+          <div class="visit-card">
+            <h3>Pup-E-Tails</h3>
+            <p>
+              2050 Artesia Blvd #104<br />
+              Torrance, CA 90504
+            </p>
+            <p style="margin-top:0.75rem">
+              <a href="tel:+13103299344">(310) 329-9344</a><br />
+              <a href="mailto:pupetails5@att.net">pupetails5@att.net</a>
+            </p>
+            <p style="margin-top:0.75rem;font-size:0.9rem">
+              <a href="https://maps.app.goo.gl/FKkskJe1VofDr9obA" target="_blank" rel="noopener">Open in Maps</a>
+            </p>
+          </div>
+          <div class="visit-card">
+            <h3>Hours</h3>
+            <ul>
+              <li>Mon–Sat · 9:00 am – 6:00 pm</li>
+              <li>Sunday · Closed</li>
+            </ul>
+            <p style="margin-top:0.85rem">Walk-ins welcome when we have openings — booking ahead is best.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-again">
+      <h2>Ready to pamper your pet?</h2>
+      <a class="book-cta" href="https://www.pup-e-tails.net/appointment">Book Appointment</a>
+      <a class="call-cta" href="tel:+13103299344">Call (310) 329-9344</a>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/pup-e-tails/logos/logo_primary.png" alt="Pup-E-Tails" width="56" height="56" />
+    <p>© 2025 Pup-E-Tails LLC · Torrance, CA since 2002</p>
+    <p style="margin-top:0.35rem">
+      <a href="tel:+13103299344">(310) 329-9344</a>
+      ·
+      <a href="mailto:pupetails5@att.net">pupetails5@att.net</a>
+    </p>
+  </footer>
+</body>
+</html>
