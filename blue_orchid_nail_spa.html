@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- v10.2-trial · Art Direction A · Line-Art Orchid Billboard -->
+  <title>Blue Orchid Nail Spa · Costa Mesa — COME ON IN · Book Now (v10.2-trial)</title>
+  <meta name="description" content="Blue Orchid Nail Spa — Best Nail Salon in Costa Mesa. COME ON IN. Book online via Calendly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --black-soft: #111111;
+      --peri: #6070d0;
+      --peri-soft: #8493d6;
+      --peri-hot: #9aa6e0;
+      --white: #f5f5f7;
+      --muted: #a0a4b8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--white);
+      background: var(--black);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1080px, 92%); margin-inline: auto; }
+
+    /* —— Topbar: small logo + thin phone —— */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.5rem 1.15rem;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(96, 112, 208, 0.28);
+    }
+    .topbar-logo {
+      height: 36px;
+      width: auto;
+    }
+    .topbar-phone {
+      font-weight: 500;
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+      color: var(--peri-soft);
+      border-bottom: 1px solid rgba(132, 147, 214, 0.35);
+      padding-bottom: 1px;
+    }
+    .topbar-phone:hover { color: var(--peri-hot); border-bottom-color: var(--peri); }
+
+    /* —— Hero billboard —— */
+    .hero {
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 49px);
+      min-height: calc(100dvh - 49px);
+    }
+    .hero-stage {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem 1rem 0.75rem;
+      text-align: center;
+      position: relative;
+    }
+    /* soft periwinkle glow — not a circular badge */
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      width: min(90vw, 820px);
+      height: min(42vh, 340px);
+      left: 50%;
+      top: 42%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at center,
+        rgba(96, 112, 208, 0.18) 0%,
+        rgba(96, 112, 208, 0.06) 45%,
+        transparent 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      width: min(68vw, 780px);
+      height: auto;
+      margin: 0 auto 1.1rem;
+      filter: drop-shadow(0 0 28px rgba(96, 112, 208, 0.25));
+    }
+    .hero-kicker {
+      position: relative;
+      z-index: 1;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--peri-soft);
+      margin-bottom: 0.45rem;
+    }
+    .hero-hook {
+      position: relative;
+      z-index: 1;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(3.4rem, 11vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin: 0 0 0.35rem;
+    }
+    .hero-hook span {
+      color: var(--peri-soft);
+    }
+    .hero-sub {
+      position: relative;
+      z-index: 1;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+      max-width: 28ch;
+    }
+
+    /* Full-width BOOK strip */
+    .book-strip {
+      display: block;
+      width: 100%;
+      background: var(--peri);
+      color: #fff;
+      text-align: center;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(1.55rem, 4.2vw, 2.15rem);
+      letter-spacing: 0.18em;
+      padding: 1.05rem 1rem 0.95rem;
+      transition: background 0.15s ease, letter-spacing 0.15s ease;
+    }
+    .book-strip:hover {
+      background: #7180d8;
+      letter-spacing: 0.22em;
+    }
+    .book-strip-sub {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+      margin-top: 0.2rem;
+      text-transform: none;
+    }
+    .hero-call {
+      text-align: center;
+      padding: 0.65rem 1rem 0.85rem;
+      background: var(--black);
+      border-top: 1px solid rgba(96, 112, 208, 0.18);
+    }
+    .hero-call a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--peri-soft);
+    }
+    .hero-call a:hover { color: var(--peri-hot); }
+
+    /* —— Service chips (text only, zero images) —— */
+    .services {
+      padding: 3.2rem 0 2.6rem;
+      background: var(--black-soft);
+      border-top: 1px solid rgba(96, 112, 208, 0.2);
+    }
+    .section-label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--peri-soft);
+      margin-bottom: 0.85rem;
+      text-align: center;
+    }
+    .section-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.35rem);
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 1.6rem;
+      color: var(--white);
+    }
+    .chips {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .chip {
+      border: 1px solid rgba(96, 112, 208, 0.4);
+      background: rgba(96, 112, 208, 0.06);
+      padding: 1.15rem 0.85rem;
+      text-align: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .chip:hover {
+      border-color: var(--peri-soft);
+      background: rgba(96, 112, 208, 0.14);
+    }
+    .chip-name {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+      color: var(--peri-soft);
+      margin-bottom: 0.35rem;
+    }
+    .chip-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* —— Prices —— */
+    .prices {
+      padding: 3rem 0 2.8rem;
+      background: var(--black);
+    }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 0.4rem;
+    }
+    .price-card {
+      border-left: 3px solid var(--peri);
+      background: rgba(96, 112, 208, 0.05);
+      padding: 1rem 1.05rem 1.05rem;
+    }
+    .price-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .price-val {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 1.85rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .price-val span {
+      font-size: 1.1rem;
+      color: var(--peri-soft);
+      letter-spacing: 0.06em;
+    }
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    /* —— Visit —— */
+    .visit {
+      padding: 3rem 0;
+      background: var(--black-soft);
+      border-top: 1px solid rgba(96, 112, 208, 0.2);
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-top: 0.5rem;
+    }
+    .visit h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      color: var(--peri-soft);
+    }
+    .visit p, .visit address {
+      font-style: normal;
+      font-size: 0.98rem;
+      color: var(--white);
+      margin-bottom: 0.45rem;
+    }
+    .visit .muted { color: var(--muted); font-size: 0.9rem; }
+    .hours-list {
+      list-style: none;
+      font-size: 0.95rem;
+    }
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(96, 112, 208, 0.15);
+      color: var(--white);
+    }
+    .hours-list li span:last-child { color: var(--peri-soft); font-weight: 500; }
+    .visit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.15rem;
+    }
+    .btn-peri {
+      display: inline-block;
+      background: var(--peri);
+      color: #fff;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.14em;
+      padding: 0.7rem 1.35rem;
+      transition: background 0.15s;
+    }
+    .btn-peri:hover { background: #7180d8; }
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid rgba(132, 147, 214, 0.55);
+      color: var(--peri-soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.72rem 1.1rem;
+    }
+    .btn-ghost:hover { border-color: var(--peri-hot); color: var(--peri-hot); }
+
+    /* —— Final BOOK —— */
+    .final-cta {
+      padding: 3.2rem 1rem;
+      text-align: center;
+      background: var(--black);
+      border-top: 1px solid rgba(96, 112, 208, 0.22);
+    }
+    .final-cta .hook {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .final-cta .hook span { color: var(--peri-soft); }
+    .final-cta .sub {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 1.35rem;
+    }
+    .final-cta .book-strip {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* —— Footer —— */
+    footer {
+      padding: 1.6rem 1.15rem 2rem;
+      border-top: 1px solid rgba(96, 112, 208, 0.22);
+      background: var(--black);
+      text-align: center;
+    }
+    .footer-logo {
+      height: 42px;
+      width: auto;
+      margin: 0 auto 0.85rem;
+      opacity: 0.92;
+    }
+    footer p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    footer a { color: var(--peri-soft); }
+    footer a:hover { color: var(--peri-hot); }
+    .trial-meta {
+      margin-top: 0.7rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(132, 147, 214, 0.45);
+    }
+
+    /* —— Mobile —— */
+    @media (max-width: 720px) {
+      .topbar-logo { height: 30px; }
+      .topbar { padding: 0.42rem 0.85rem; }
+      .hero {
+        min-height: calc(100dvh - 45px);
+      }
+      .hero-stage {
+        padding: 0.85rem 0.85rem 0.5rem;
+        justify-content: center;
+      }
+      .hero-logo {
+        width: 92vw;
+        max-width: 92vw;
+        margin-bottom: 0.75rem;
+      }
+      .hero-hook {
+        font-size: clamp(2.8rem, 14vw, 3.6rem);
+      }
+      .hero-sub {
+        font-size: 1rem;
+        margin-bottom: 0.1rem;
+      }
+      .book-strip {
+        font-size: 1.45rem;
+        padding: 0.95rem 0.85rem 0.85rem;
+      }
+      .chips {
+        grid-template-columns: 1fr 1fr;
+      }
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+      .visit-grid {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+    }
+    @media (max-width: 390px) {
+      .hero-logo { width: 94vw; }
+      .hero-hook { font-size: 2.6rem; }
+      .chips { gap: 0.55rem; }
+      .chip { padding: 0.9rem 0.55rem; }
+      .chip-name { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- v10.2-trial · A · Line-Art Orchid Billboard · zero theme-stock · logo_primary only -->
+
+  <header class="topbar">
+    <a href="#top" aria-label="Blue Orchid Nail Spa home">
+      <img
+        class="topbar-logo"
+        src="assets/blue-orchid-nail-spa/logos/logo_primary.png"
+        alt="Blue Orchid Nail Spa"
+        width="500"
+        height="130"
+      />
+    </a>
+    <a class="topbar-phone" href="tel:+19496905678">(949) 690-5678</a>
+  </header>
+
+  <main id="top">
+    <!-- ① Billboard + BOOK -->
+    <section class="hero" aria-label="Come on in">
+      <div class="hero-stage">
+        <img
+          class="hero-logo"
+          src="assets/blue-orchid-nail-spa/logos/logo_primary.png"
+          alt="Blue Orchid Nail Spa — periwinkle line-art orchid woman mark"
+          width="500"
+          height="130"
+        />
+        <p class="hero-kicker">Best Nail Salon in Costa Mesa</p>
+        <h1 class="hero-hook">COME ON <span>IN</span></h1>
+        <p class="hero-sub">You deserve it — treat yourself to a day at Blue Orchid.</p>
+      </div>
+      <a
+        class="book-strip"
+        href="https://calendly.com/chinhbuitt/blue-orchid-appointment"
+        target="_blank"
+        rel="noopener"
+      >
+        BOOK NOW
+        <span class="book-strip-sub">Online appointment · Calendly</span>
+      </a>
+      <p class="hero-call">
+        or call <a href="tel:+19496905678">(949) 690-5678</a>
+      </p>
+    </section>
+
+    <!-- ② Four text-only service chips -->
+    <section class="services" id="services" aria-label="Services">
+      <div class="wrap">
+        <p class="section-label">What we do</p>
+        <h2 class="section-title">Spa services, Costa Mesa</h2>
+        <div class="chips">
+          <div class="chip">
+            <div class="chip-name">Mani / Pedi</div>
+            <p class="chip-desc">Luxurious manicures &amp; pedicures for a polished, refreshed look.</p>
+          </div>
+          <div class="chip">
+            <div class="chip-name">Nails</div>
+            <p class="chip-desc">Classic to bold — acrylic, gel, pink &amp; white, ombré.</p>
+          </div>
+          <div class="chip">
+            <div class="chip-name">Hair &amp; Lashes</div>
+            <p class="chip-desc">Cuts, color, updos &amp; lash extensions that wow.</p>
+          </div>
+          <div class="chip">
+            <div class="chip-name">Waxing</div>
+            <p class="chip-desc">Expert care, gentle results — brows to Brazilian.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ Compact price highlights -->
+    <section class="prices" id="prices" aria-label="Price highlights">
+      <div class="wrap">
+        <p class="section-label">From the menu</p>
+        <h2 class="section-title">Price highlights</h2>
+        <div class="price-grid">
+          <div class="price-card">
+            <div class="price-name">Blue Orchid Manicure</div>
+            <div class="price-val">$20 <span>· Gel $35</span></div>
+            <p class="price-note">Trim, cuticle, shape &amp; buff, light massage, polish</p>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Regular Pedicure</div>
+            <div class="price-val">$30 <span>· Combo $45</span></div>
+            <p class="price-note">Lime-orange soak, clip, cuticle, buff, hot towel, polish</p>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Blue Orchid Pedicure</div>
+            <div class="price-val">$55</div>
+            <p class="price-note">Signature: fruit soak, sea salt scrub, hot stone, paraffin</p>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Acrylic Full Set</div>
+            <div class="price-val">$40<span>+</span></div>
+            <p class="price-note">Fill $30+ · French $45+ · with Gel $45+</p>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Women’s Cut</div>
+            <div class="price-val">$45<span>+</span></div>
+            <p class="price-note">Men’s $25+ · Bang trim $15 · Updo $65+</p>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Lash Extensions</div>
+            <div class="price-val">$120<span>+</span></div>
+            <p class="price-note">Classic · Volume $100+ · Refill $60+ · first-time $30 off</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ Visit + Hours -->
+    <section class="visit" id="visit" aria-label="Visit us">
+      <div class="wrap">
+        <p class="section-label">Find us</p>
+        <h2 class="section-title">Visit Blue Orchid</h2>
+        <div class="visit-grid">
+          <div>
+            <h3>Location</h3>
+            <address>
+              1918 Harbor Blvd<br />
+              Costa Mesa, CA 92627
+            </address>
+            <p class="muted" style="margin-top:0.6rem">
+              Tel: <a href="tel:+19496905678">(949) 690-5678</a><br />
+              Email: <a href="mailto:blueorchidnailsspa@gmail.com">blueorchidnailsspa@gmail.com</a>
+            </p>
+            <div class="visit-actions">
+              <a
+                class="btn-peri"
+                href="https://calendly.com/chinhbuitt/blue-orchid-appointment"
+                target="_blank"
+                rel="noopener"
+              >BOOK NOW</a>
+              <a class="btn-ghost" href="tel:+19496905678">Call the spa</a>
+              <a class="btn-ghost" href="mailto:blueorchidnailsspa@gmail.com">Email</a>
+            </div>
+          </div>
+          <div>
+            <h3>Hours</h3>
+            <ul class="hours-list">
+              <li><span>Monday – Saturday</span><span>10:00 AM – 6:00 PM</span></li>
+              <li><span>Sunday</span><span>Appointment Only</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ BOOK again -->
+    <section class="final-cta" aria-label="Book again">
+      <p class="hook">YOU <span>DESERVE IT</span></p>
+      <p class="sub">Treat yourself to a day at Blue Orchid Nail Spa.</p>
+      <a
+        class="book-strip"
+        href="https://calendly.com/chinhbuitt/blue-orchid-appointment"
+        target="_blank"
+        rel="noopener"
+      >
+        BOOK NOW
+        <span class="book-strip-sub">Calendly · Costa Mesa</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <img
+      class="footer-logo"
+      src="assets/blue-orchid-nail-spa/logos/logo_primary.png"
+      alt="Blue Orchid Nail Spa"
+      width="500"
+      height="130"
+    />
+    <p>Blue Orchid Nail Spa · 1918 Harbor Blvd, Costa Mesa, CA 92627</p>
+    <p>
+      <a href="tel:+19496905678">(949) 690-5678</a>
+      ·
+      <a href="mailto:blueorchidnailsspa@gmail.com">blueorchidnailsspa@gmail.com</a>
+    </p>
+    <p class="trial-meta">v10.2-trial · Line-Art Orchid Billboard</p>
+  </footer>
+</body>
+</html>
