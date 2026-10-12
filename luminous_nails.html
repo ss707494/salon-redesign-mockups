@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luminous Nails &amp; Spa · Laguna Hills, CA</title>
+  <meta name="description" content="Luminous Nails &amp; Spa in Laguna Hills — where beauty shines bright. Walk-ins welcome. Book online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --black-soft: #121212;
+      --gold: #d0b060;
+      --gold-hot: #f0e090;
+      --gold-deep: #a88840;
+      --cream: #f4efe4;
+      --muted: #b0a890;
+      --teal-hint: rgba(40, 120, 110, 0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--cream);
+      background: var(--black);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(1080px, 92%); margin-inline: auto; }
+
+    /* —— Top nav —— */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.45rem 1.15rem;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(208, 176, 96, 0.28);
+    }
+    .topbar-logo {
+      height: 40px;
+      width: auto;
+    }
+    .topbar-phone {
+      font-weight: 500;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      border-bottom: 1px solid rgba(208, 176, 96, 0.4);
+      padding: 0.15rem 0;
+    }
+    .topbar-phone:hover { color: var(--gold-hot); border-bottom-color: var(--gold); }
+
+    /* —— Hero: Laguna Storefront Glow —— */
+    .hero {
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 52px);
+      min-height: calc(100dvh - 52px);
+    }
+    .hero-stage {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: min(1040px, 100%);
+      margin-inline: auto;
+      min-height: 0;
+      overflow: hidden;
+      /* Fill viewport so BOOK bar sits on first screen */
+      height: calc(100vh - 52px);
+      height: calc(100dvh - 52px);
+      max-height: calc(100vh - 52px);
+      max-height: calc(100dvh - 52px);
+    }
+    .storefront {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .storefront img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Crop to sign + door/window — mid-upper of vertical photo */
+      object-position: 50% 22%;
+      min-height: 280px;
+    }
+    .storefront::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      /* Light top so red/green sign + B3 stay readable; dark only at lower edge for mark */
+      background:
+        linear-gradient(180deg,
+          rgba(10,10,10,0.05) 0%,
+          rgba(10,10,10,0.0) 40%,
+          rgba(10,10,10,0.35) 72%,
+          rgba(10,10,10,0.78) 100%);
+      pointer-events: none;
+    }
+    /* Mark + hook sit lower-left — does NOT cover center storefront signage */
+    .hero-overlay {
+      position: absolute;
+      left: 0; right: auto; bottom: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding: 0.85rem 1rem 0.95rem 1.1rem;
+      gap: 0.35rem;
+      max-width: 42%;
+    }
+    .hero-mark {
+      /* Medium — not a giant centered wordmark */
+      width: min(22%, 108px);
+      max-width: 108px;
+      height: auto;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.55));
+    }
+    .hook {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+      color: var(--gold-hot);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+      max-width: 18rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    }
+    .hook-loc {
+      font-style: normal;
+      font-family: "DM Sans", sans-serif;
+      font-weight: 600;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.9;
+    }
+
+    /* Full-width BOOK bar */
+    .book-bar {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.85rem 1rem 0.95rem;
+      background: var(--gold);
+      color: var(--black);
+      text-align: center;
+      border-top: 1px solid var(--gold-deep);
+    }
+    .book-bar .book-cta {
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.55rem);
+      letter-spacing: 0.12em;
+      line-height: 1;
+      color: var(--black);
+      padding: 0.15rem 0.5rem;
+    }
+    .book-bar .book-cta:hover { color: #2a2010; }
+    .book-sub {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.35rem 1.1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(10,10,10,0.78);
+    }
+    .book-sub a {
+      border-bottom: 1px solid rgba(10,10,10,0.35);
+    }
+    .book-sub a:hover { border-bottom-color: var(--black); }
+
+    /* —— Sections —— */
+    section { padding: 2.6rem 0; }
+    .sec-label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.85rem;
+    }
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.65rem, 3.5vw, 2.2rem);
+      color: var(--cream);
+      margin-bottom: 1.15rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* Price chips */
+    .prices { background: var(--black-soft); border-block: 1px solid rgba(208,176,96,0.15); }
+    .chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      padding: 0.55rem 0.9rem;
+      background: var(--black);
+      border: 1px solid rgba(208, 176, 96, 0.35);
+      border-radius: 999px;
+      font-size: 0.88rem;
+    }
+    .chip strong { color: var(--gold-hot); font-weight: 700; font-variant-numeric: tabular-nums; }
+    .chip span { color: var(--cream); font-weight: 500; }
+
+    /* Gallery — watermark crop mid/lower */
+    .gallery { background: var(--black); }
+    .gal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+    }
+    .gal-cell {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 6px;
+      border: 1px solid rgba(208, 176, 96, 0.2);
+      background: #1a1a1a;
+    }
+    .gal-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Mid/lower crop hides top-right gold watermark */
+      object-position: 45% 72%;
+    }
+    .gal-cell:nth-child(2) img { object-position: 40% 68%; }
+    .gal-cell:nth-child(3) img { object-position: 50% 75%; }
+    .gal-cell:nth-child(4) img { object-position: 42% 70%; }
+    .gal-cell:nth-child(5) img { object-position: 48% 78%; }
+    .gal-cell:nth-child(6) img { object-position: 44% 66%; }
+
+    /* About */
+    .about { background: var(--black-soft); border-block: 1px solid rgba(208,176,96,0.12); }
+    .about p {
+      max-width: 38rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-bottom: 0.85rem;
+    }
+    .about p:last-of-type { margin-bottom: 0; }
+
+    /* Visit */
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+    .visit-card {
+      padding: 1.25rem 1.35rem;
+      background: var(--black-soft);
+      border: 1px solid rgba(208, 176, 96, 0.28);
+      border-radius: 10px;
+    }
+    .visit-card h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      color: var(--gold-hot);
+      margin-bottom: 0.65rem;
+    }
+    .visit-card p, .visit-card li {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .visit-card ul { list-style: none; }
+    .visit-card li { padding: 0.2rem 0; }
+    .visit-card a.maps {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(208,176,96,0.45);
+    }
+    .visit-card a.maps:hover { color: var(--gold-hot); }
+
+    /* Mid BOOK repeat */
+    .mid-book {
+      text-align: center;
+      padding: 2.2rem 1rem;
+      background:
+        radial-gradient(ellipse at 50% 0%, var(--teal-hint), transparent 55%),
+        var(--black);
+      border-block: 1px solid rgba(208,176,96,0.2);
+    }
+    .mid-book .book-cta {
+      display: inline-block;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      letter-spacing: 0.14em;
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.7rem 1.8rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.55rem;
+    }
+    .mid-book .book-cta:hover { background: var(--gold-hot); }
+    .mid-book .hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 2.4rem;
+      border-top: 1px solid rgba(208,176,96,0.2);
+      text-align: center;
+    }
+    .foot-logo {
+      height: 56px;
+      width: auto;
+      margin: 0 auto 0.85rem;
+    }
+    .foot-name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--gold-hot);
+      margin-bottom: 0.35rem;
+    }
+    .foot-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .foot-meta a { color: var(--gold); }
+    .foot-meta a:hover { color: var(--gold-hot); }
+
+    /* —— Mobile —— */
+    @media (max-width: 720px) {
+      .topbar { padding: 0.35rem 0.85rem; }
+      .topbar-logo { height: 34px; }
+      .topbar-phone { font-size: 0.8rem; }
+
+      .hero {
+        min-height: calc(100dvh - 46px);
+      }
+      .hero-stage {
+        width: 100%;
+        height: calc(100dvh - 46px);
+        max-height: calc(100dvh - 46px);
+      }
+      .storefront {
+        flex: 1 1 auto;
+        min-height: 0;
+      }
+      .storefront img {
+        min-height: 0;
+        height: 100%;
+        /* Mid-upper: door + window + sign readable */
+        object-position: 50% 20%;
+      }
+      .storefront::after {
+        background:
+          linear-gradient(180deg,
+            rgba(10,10,10,0.02) 0%,
+            rgba(10,10,10,0.0) 45%,
+            rgba(10,10,10,0.4) 78%,
+            rgba(10,10,10,0.72) 100%);
+      }
+      .hero-overlay {
+        left: 0; right: auto; bottom: 0;
+        align-items: flex-start;
+        text-align: left;
+        padding: 0.5rem 0.7rem 0.65rem 0.75rem;
+        gap: 0.2rem;
+        max-width: 38%;
+      }
+      .hero-mark {
+        width: 64px;
+        max-width: 64px;
+      }
+      /* Long hook sinks — first screen = storefront + small mark + BOOK */
+      .hook { display: none; }
+      .hook-loc { display: none; }
+
+      .book-bar {
+        padding: 1.25rem 0.85rem 1.35rem;
+      }
+      .book-bar .book-cta {
+        font-size: 2.35rem;
+        letter-spacing: 0.1em;
+        padding: 0.25rem 0.5rem;
+      }
+      .book-sub { font-size: 0.78rem; gap: 0.25rem 0.85rem; }
+
+      .gal-grid { grid-template-columns: repeat(2, 1fr); }
+      .visit-grid { grid-template-columns: 1fr; gap: 1rem; }
+      section { padding: 2rem 0; }
+    }
+
+    @media (min-width: 721px) {
+      .storefront img { min-height: 0; height: 100%; object-position: 50% 24%; }
+      .hero-mark { width: 96px; max-width: 96px; }
+      .hero-overlay { padding: 0.9rem 1.15rem 1rem 1.25rem; gap: 0.3rem; max-width: 36%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#top" aria-label="Luminous Nails &amp; Spa home">
+      <img class="topbar-logo" src="assets/luminous-nails/logos/logo_primary.png" alt="Luminous Nails &amp; Spa" width="125" height="121" />
+    </a>
+    <a class="topbar-phone" href="tel:+19498597361">(949) 859-7361</a>
+  </header>
+
+  <main id="top">
+    <!-- Hero: real Laguna Hills storefront + gold flower mark + BOOK -->
+    <section class="hero" aria-label="Welcome">
+      <div class="hero-stage">
+        <div class="storefront">
+          <img
+            src="assets/luminous-nails/images/about-02.jpg"
+            alt="Luminous Nails &amp; Spa storefront at suite B3, Laguna Hills"
+            width="800"
+            height="1067"
+          />
+          <div class="hero-overlay">
+            <img
+              class="hero-mark"
+              src="assets/luminous-nails/logos/logo_primary.png"
+              alt=""
+              width="125"
+              height="121"
+              aria-hidden="true"
+            />
+            <p class="hook-loc">Laguna Hills</p>
+            <p class="hook">Where Beauty Shines Bright!</p>
+          </div>
+        </div>
+        <div class="book-bar">
+          <a class="book-cta" href="https://tianasnailspa2536.simplepos.us" target="_blank" rel="noopener">BOOK NOW</a>
+          <div class="book-sub">
+            <a href="tel:+19498597361">(949) 859-7361</a>
+            <span aria-hidden="true">·</span>
+            <span>Walk-Ins Welcome</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Price chips -->
+    <section class="prices" id="services">
+      <div class="wrap">
+        <p class="sec-label">Popular services</p>
+        <h2>Shine starts here</h2>
+        <div class="chip-grid">
+          <div class="chip"><span>Classic Pedi</span> <strong>$35</strong></div>
+          <div class="chip"><span>Signature Pedi</span> <strong>$45</strong></div>
+          <div class="chip"><span>Volcano Pedi</span> <strong>$60</strong></div>
+          <div class="chip"><span>Classic Mani</span> <strong>$25</strong></div>
+          <div class="chip"><span>Gel Mani</span> <strong>$40</strong></div>
+          <div class="chip"><span>Signature Mani</span> <strong>$35</strong></div>
+          <div class="chip"><span>Acrylic Full Set</span> <strong>$45</strong></div>
+          <div class="chip"><span>Acrylic w/ Gel</span> <strong>$55</strong></div>
+          <div class="chip"><span>Color Dip</span> <strong>$45</strong></div>
+          <div class="chip"><span>Gel X</span> <strong>$60+</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery — real nail work, watermark cropped -->
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+        <p class="sec-label">Our work</p>
+        <h2>Recent sets</h2>
+        <div class="gal-grid">
+          <div class="gal-cell"><img src="assets/luminous-nails/images/gallery-05.jpg" alt="Nail art detail" width="600" height="800" loading="lazy" /></div>
+          <div class="gal-cell"><img src="assets/luminous-nails/images/gallery-12.jpg" alt="Nail art detail" width="600" height="800" loading="lazy" /></div>
+          <div class="gal-cell"><img src="assets/luminous-nails/images/gallery-01.jpg" alt="Nail art detail" width="600" height="800" loading="lazy" /></div>
+          <div class="gal-cell"><img src="assets/luminous-nails/images/gallery-03.jpg" alt="Nail art detail" width="600" height="800" loading="lazy" /></div>
+          <div class="gal-cell"><img src="assets/luminous-nails/images/gallery-08.jpg" alt="Nail art detail" width="600" height="800" loading="lazy" /></div>
+          <div class="gal-cell"><img src="assets/luminous-nails/images/gallery-10.jpg" alt="Nail art detail" width="600" height="800" loading="lazy" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About — no Lorem staff names -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <p class="sec-label">About</p>
+        <h2>Elegance at your fingertips</h2>
+        <p>Welcome to Luminous Nails &amp; Spa, where beauty meets relaxation. Our Laguna Hills salon is dedicated to exceptional nail care and spa services in a serene, luxurious setting — from meticulous manicures and pedicures to custom designs.</p>
+        <p>We use high-quality products and maintain the highest hygiene standards so every visit feels luminous. Walk-ins welcome.</p>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section id="visit">
+      <div class="wrap">
+        <p class="sec-label">Visit</p>
+        <h2>Find us in Laguna Hills</h2>
+        <div class="visit-grid">
+          <div class="visit-card">
+            <h3>Location</h3>
+            <p>24251 Avenida De La Carlota #B3<br />Laguna Hills, CA 92653</p>
+            <p style="margin-top:0.65rem"><a href="tel:+19498597361">(949) 859-7361</a><br />
+            <a href="mailto:nguyenleyna1974@gmail.com">nguyenleyna1974@gmail.com</a></p>
+            <a class="maps" href="https://maps.app.goo.gl/4QN2Su151228mg1AA" target="_blank" rel="noopener">Open in Google Maps →</a>
+          </div>
+          <div class="visit-card">
+            <h3>Hours</h3>
+            <ul>
+              <li>Mon–Fri · 9:30 AM – 6:30 PM</li>
+              <li>Saturday · 9:30 AM – 6:00 PM</li>
+              <li>Sunday · Closed</li>
+            </ul>
+            <p style="margin-top:0.85rem;color:var(--gold);font-weight:600">Walk-Ins Welcome</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mid-book">
+      <a class="book-cta" href="https://tianasnailspa2536.simplepos.us" target="_blank" rel="noopener">BOOK NOW</a>
+      <p class="hint">Or call <a href="tel:+19498597361">(949) 859-7361</a> · Walk-ins welcome</p>
+    </div>
+  </main>
+
+  <footer>
+    <img class="foot-logo" src="assets/luminous-nails/logos/logo_primary.png" alt="Luminous Nails &amp; Spa" width="125" height="121" />
+    <p class="foot-name">Luminous Nails &amp; Spa</p>
+    <p class="foot-meta">
+      24251 Avenida De La Carlota #B3, Laguna Hills, CA 92653<br />
+      <a href="tel:+19498597361">(949) 859-7361</a> ·
+      <a href="mailto:nguyenleyna1974@gmail.com">nguyenleyna1974@gmail.com</a><br />
+      <a href="https://tianasnailspa2536.simplepos.us" target="_blank" rel="noopener">Book online</a>
+    </p>
+  </footer>
+
+</body>
+</html>
